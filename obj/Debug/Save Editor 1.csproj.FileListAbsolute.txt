@@ -1,0 +1,10 @@
+C:\Users\Anouk\source\repos\Save Editor 1\Save Editor 1\bin\Debug\Save Editor 1.exe.config
+C:\Users\Anouk\source\repos\Save Editor 1\Save Editor 1\bin\Debug\Save Editor 1.exe
+C:\Users\Anouk\source\repos\Save Editor 1\Save Editor 1\bin\Debug\Save Editor 1.pdb
+C:\Users\Anouk\source\repos\Save Editor 1\Save Editor 1\obj\Debug\Save_Editor_1.Form1.resources
+C:\Users\Anouk\source\repos\Save Editor 1\Save Editor 1\obj\Debug\Save_Editor_1.Properties.Resources.resources
+C:\Users\Anouk\source\repos\Save Editor 1\Save Editor 1\obj\Debug\Save Editor 1.csproj.GenerateResource.cache
+C:\Users\Anouk\source\repos\Save Editor 1\Save Editor 1\obj\Debug\Save Editor 1.csproj.CoreCompileInputs.cache
+C:\Users\Anouk\source\repos\Save Editor 1\Save Editor 1\obj\Debug\Save Editor 1.exe
+C:\Users\Anouk\source\repos\Save Editor 1\Save Editor 1\obj\Debug\Save Editor 1.pdb
+C:\Users\Anouk\source\repos\Save Editor 1\Save Editor 1\obj\Debug\Save Editor 1.csprojAssemblyReference.cache
