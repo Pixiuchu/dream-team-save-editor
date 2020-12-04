@@ -8041,7 +8041,7 @@ namespace Save_Editor_1
             this.MinimumSize = new System.Drawing.Size(508, 487);
             this.Name = "MainMenu";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.Text = "Mario & Luigi: Dream Team - Save File Editor v0.1.1";
+            this.Text = "Mario & Luigi: Dream Team - Save File Editor v0.1.2";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);

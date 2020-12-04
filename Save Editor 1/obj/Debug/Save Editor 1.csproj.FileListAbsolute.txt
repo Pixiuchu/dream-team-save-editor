@@ -19,3 +19,4 @@ C:\Users\Anouk\source\repos\dream-team-save-editor\Save Editor 1\obj\Debug\Save 
 C:\Users\Anouk\source\repos\dream-team-save-editor\Save Editor 1\obj\Debug\Save Editor 1.csproj.CoreCompileInputs.cache
 C:\Users\Anouk\source\repos\dream-team-save-editor\Save Editor 1\obj\Debug\Save Editor 1.exe
 C:\Users\Anouk\source\repos\dream-team-save-editor\Save Editor 1\obj\Debug\Save Editor 1.pdb
+C:\Users\Anouk\source\repos\dream-team-save-editor\Save Editor 1\obj\Debug\Save Editor 1.csprojAssemblyReference.cache
