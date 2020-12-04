@@ -33,11 +33,12 @@ namespace Save_Editor_1
             this.buttonClose = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // buttonClose
             // 
-            this.buttonClose.Location = new System.Drawing.Point(15, 132);
+            this.buttonClose.Location = new System.Drawing.Point(15, 151);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(63, 26);
             this.buttonClose.TabIndex = 0;
@@ -65,16 +66,27 @@ namespace Save_Editor_1
             this.linkLabel1.Text = "Level Up Progression";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Location = new System.Drawing.Point(14, 129);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(120, 13);
+            this.linkLabel2.TabIndex = 3;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "List of Rankup Bonuses";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
+            // 
             // Stats_Information_Box
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(397, 166);
+            this.ClientSize = new System.Drawing.Size(397, 189);
+            this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonClose);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(413, 205);
             this.MinimumSize = new System.Drawing.Size(413, 205);
             this.Name = "Stats_Information_Box";
             this.ShowIcon = false;
@@ -91,5 +103,6 @@ namespace Save_Editor_1
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel linkLabel2;
     }
 }

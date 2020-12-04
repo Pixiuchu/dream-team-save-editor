@@ -31,5 +31,10 @@ namespace Save_Editor_1
         {
             this.Close();
         }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+        System.Diagnostics.Process.Start("https://www.mariowiki.com/Rank#Mario_.26_Luigi:_Dream_Team");
+        }
     }
 }
