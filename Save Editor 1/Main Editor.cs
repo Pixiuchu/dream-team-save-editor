@@ -4514,5 +4514,11 @@ namespace Save_Editor_1
             Stats_Information_Box f2 = new Stats_Information_Box();
             f2.ShowDialog(); // Shows Stats Infromation Box
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutForm f3 = new AboutForm();
+            f3.ShowDialog();
+        }
     }
 }

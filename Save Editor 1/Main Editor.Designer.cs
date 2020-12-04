@@ -625,6 +625,8 @@ namespace Save_Editor_1
             this.numericRORankupBonusCombo8 = new System.Windows.Forms.NumericUpDown();
             this.numericRORankupBonusCombo9 = new System.Windows.Forms.NumericUpDown();
             this.numericRORankupBonusCombo10 = new System.Windows.Forms.NumericUpDown();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabMario.SuspendLayout();
@@ -920,7 +922,8 @@ namespace Save_Editor_1
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(641, 24);
@@ -7997,6 +8000,21 @@ namespace Save_Editor_1
             this.numericRORankupBonusCombo10.TabIndex = 48;
             this.numericRORankupBonusCombo10.Visible = false;
             // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -8023,7 +8041,7 @@ namespace Save_Editor_1
             this.MinimumSize = new System.Drawing.Size(508, 487);
             this.Name = "MainMenu";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.Text = "Mario & Luigi: Dream Team - Save File Editor v0.1";
+            this.Text = "Mario & Luigi: Dream Team - Save File Editor v0.1.1";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
@@ -8935,6 +8953,8 @@ namespace Save_Editor_1
         private System.Windows.Forms.CheckBox checkBoxAllowPausing;
         private System.Windows.Forms.Button buttonMInformation;
         private System.Windows.Forms.Button buttonLInformation;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
     }
 }
 
