@@ -4360,8 +4360,8 @@ namespace Save_Editor_1
         {
             numericMCurHP.Value = 24;
             numericMCurBP.Value = 8;
-            numericLMaxHP.Value = 24;
-            numericLMaxBP.Value = 8;
+            numericMMaxHP.Value = 24;
+            numericMMaxBP.Value = 8;
             numericMPower.Value = 20;
             numericMDef.Value = 13;
             numericMSpeed.Value = 16;
