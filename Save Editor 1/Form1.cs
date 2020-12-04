@@ -206,6 +206,33 @@ namespace Save_Editor_1
                 if (dwlaw2 == 0)
                     checkBoxDWAntigrav.Checked = false;
 
+                // Allow Pausing Check
+                savegame_br.BaseStream.Position = 0x2;
+                byte allowpausing = (byte)savegame_fs.ReadByte();
+                int allowpausing2 = (byte)((allowpausing & 64) >> 6);
+                if (allowpausing2 == 1)
+                    checkBoxAllowPausing.Checked = true;
+                if (allowpausing2 == 0)
+                    checkBoxAllowPausing.Checked = false;
+
+                // Hard Mode Check
+                savegame_br.BaseStream.Position = 0x1;
+                byte hardmode = (byte)savegame_fs.ReadByte();
+                int hardmode2 = (byte)((hardmode & 2) >> 1);
+                if (hardmode2 == 1)
+                    checkBoxHardMode.Checked = true;
+                if (hardmode2 == 0)
+                    checkBoxHardMode.Checked = false;
+
+                // Have Badges Check
+                savegame_br.BaseStream.Position = 0x3;
+                byte havebadges = (byte)savegame_fs.ReadByte();
+                int havebadges2 = (byte)((havebadges & 32) >> 5);
+                if (havebadges2 == 1)
+                    checkBoxHaveBadges.Checked = true;
+                if (havebadges2 == 0)
+                    checkBoxHaveBadges.Checked = false;
+
                 // NBC Unlock Flag Check
                 savegame_br.BaseStream.Position = 0x307;
                 byte nbcunlockflag = (byte)savegame_fs.ReadByte();
@@ -2215,6 +2242,11 @@ namespace Save_Editor_1
             Array.Reverse(dwsd);
             update_save_open.Position = Convert.ToInt64("1", 8);
             update_save_write.Write(dwsd);
+
+            byte[] havebadges = ML4E_StringToByteArray(int.Parse(numericROHaveBadges.Text).ToString("X2"));
+            Array.Reverse(havebadges);
+            update_save_open.Position = Convert.ToInt64("1", 8);
+            update_save_write.Write(havebadges);
 
             byte[] money = ML4E_StringToByteArray(int.Parse(box_money.Text).ToString("X8"));
             Array.Reverse(money);
@@ -4428,6 +4460,39 @@ namespace Save_Editor_1
             numericLLevel.Value = 100;
             numericLExperience.Value = 3002500;
 
+        }
+
+        private void checkBoxAllowPausing_CheckedChanged(object sender, EventArgs e)
+        {
+            {
+                if (checkBoxAllowPausing.Checked == true)
+                    numericRODWAb.Value += 16384;
+
+                if (checkBoxAllowPausing.Checked == false)
+                    numericRODWAb.Value -= 16384;
+            }
+        }
+
+        private void checkBoxHardMode_CheckedChanged(object sender, EventArgs e)
+        {
+            {
+                if (checkBoxHardMode.Checked == true)
+                    numericRODWAb.Value += 2;
+
+                if (checkBoxHardMode.Checked == false)
+                    numericRODWAb.Value -= 2;
+            }
+        }
+
+        private void checkBoxHaveBadges_CheckedChanged(object sender, EventArgs e)
+        {
+            {
+                if (checkBoxHaveBadges.Checked == true)
+                    numericROHaveBadges.Value += 32;
+
+                if (checkBoxHaveBadges.Checked == false)
+                    numericROHaveBadges.Value -= 32;
+            }
         }
     }
 }
