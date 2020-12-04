@@ -37,6 +37,7 @@ namespace Save_Editor_1
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabMario = new System.Windows.Forms.TabPage();
+            this.buttonMInformation = new System.Windows.Forms.Button();
             this.buttonMSetLvl1 = new System.Windows.Forms.Button();
             this.buttonMSetLevel100 = new System.Windows.Forms.Button();
             this.numericROMGearSlot = new System.Windows.Forms.NumericUpDown();
@@ -104,6 +105,7 @@ namespace Save_Editor_1
             this.labelMPower = new System.Windows.Forms.Label();
             this.labelMCurHP = new System.Windows.Forms.Label();
             this.tabLuigi = new System.Windows.Forms.TabPage();
+            this.buttonLInformation = new System.Windows.Forms.Button();
             this.numericROLGearSlot = new System.Windows.Forms.NumericUpDown();
             this.numericLExperienceHidden2 = new System.Windows.Forms.NumericUpDown();
             this.buttonLSetLvl1 = new System.Windows.Forms.Button();
@@ -604,6 +606,10 @@ namespace Save_Editor_1
             this.checkBoxHammerMiniMario = new System.Windows.Forms.CheckBox();
             this.checkBoxHammerFront = new System.Windows.Forms.CheckBox();
             this.tabMisc = new System.Windows.Forms.TabPage();
+            this.numericROHaveBadges = new System.Windows.Forms.NumericUpDown();
+            this.checkBoxHardMode = new System.Windows.Forms.CheckBox();
+            this.checkBoxHaveBadges = new System.Windows.Forms.CheckBox();
+            this.checkBoxAllowPausing = new System.Windows.Forms.CheckBox();
             this.labelCoinCount = new System.Windows.Forms.Label();
             this.numericRONBCUnlock = new System.Windows.Forms.NumericUpDown();
             this.checkBoxNBCUnlockFlag = new System.Windows.Forms.CheckBox();
@@ -619,10 +625,6 @@ namespace Save_Editor_1
             this.numericRORankupBonusCombo8 = new System.Windows.Forms.NumericUpDown();
             this.numericRORankupBonusCombo9 = new System.Windows.Forms.NumericUpDown();
             this.numericRORankupBonusCombo10 = new System.Windows.Forms.NumericUpDown();
-            this.checkBoxAllowPausing = new System.Windows.Forms.CheckBox();
-            this.checkBoxHaveBadges = new System.Windows.Forms.CheckBox();
-            this.checkBoxHardMode = new System.Windows.Forms.CheckBox();
-            this.numericROHaveBadges = new System.Windows.Forms.NumericUpDown();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabMario.SuspendLayout();
@@ -899,6 +901,7 @@ namespace Save_Editor_1
             this.groupBoxDWAbilities.SuspendLayout();
             this.groupBoxRWAbilities.SuspendLayout();
             this.tabMisc.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericROHaveBadges)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericRONBCUnlock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.box_money)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericLExperienceHidden1)).BeginInit();
@@ -912,7 +915,6 @@ namespace Save_Editor_1
             ((System.ComponentModel.ISupportInitialize)(this.numericRORankupBonusCombo8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericRORankupBonusCombo9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericRORankupBonusCombo10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericROHaveBadges)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -938,7 +940,7 @@ namespace Save_Editor_1
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -946,14 +948,14 @@ namespace Save_Editor_1
             // 
             this.save.Enabled = false;
             this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(180, 22);
+            this.save.Size = new System.Drawing.Size(103, 22);
             this.save.Text = "Save";
             this.save.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.closeToolStripMenuItem.Text = "Close";
             // 
             // tabControl1
@@ -963,7 +965,6 @@ namespace Save_Editor_1
             this.tabControl1.Controls.Add(this.tabInventory);
             this.tabControl1.Controls.Add(this.tabAbilties);
             this.tabControl1.Controls.Add(this.tabMisc);
-            this.tabControl1.Enabled = false;
             this.tabControl1.Location = new System.Drawing.Point(0, 27);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -973,6 +974,7 @@ namespace Save_Editor_1
             // 
             // tabMario
             // 
+            this.tabMario.Controls.Add(this.buttonMInformation);
             this.tabMario.Controls.Add(this.buttonMSetLvl1);
             this.tabMario.Controls.Add(this.buttonMSetLevel100);
             this.tabMario.Controls.Add(this.numericROMGearSlot);
@@ -1008,6 +1010,17 @@ namespace Save_Editor_1
             this.tabMario.TabIndex = 0;
             this.tabMario.Text = "Mario";
             this.tabMario.UseVisualStyleBackColor = true;
+            // 
+            // buttonMInformation
+            // 
+            this.buttonMInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonMInformation.Location = new System.Drawing.Point(8, 356);
+            this.buttonMInformation.Name = "buttonMInformation";
+            this.buttonMInformation.Size = new System.Drawing.Size(267, 31);
+            this.buttonMInformation.TabIndex = 65;
+            this.buttonMInformation.Text = "Information";
+            this.buttonMInformation.UseVisualStyleBackColor = true;
+            this.buttonMInformation.Click += new System.EventHandler(this.button1_Click);
             // 
             // buttonMSetLvl1
             // 
@@ -1834,6 +1847,7 @@ namespace Save_Editor_1
             // 
             // tabLuigi
             // 
+            this.tabLuigi.Controls.Add(this.buttonLInformation);
             this.tabLuigi.Controls.Add(this.numericROLGearSlot);
             this.tabLuigi.Controls.Add(this.numericLExperienceHidden2);
             this.tabLuigi.Controls.Add(this.buttonLSetLvl1);
@@ -1868,6 +1882,17 @@ namespace Save_Editor_1
             this.tabLuigi.TabIndex = 1;
             this.tabLuigi.Text = "Luigi";
             this.tabLuigi.UseVisualStyleBackColor = true;
+            // 
+            // buttonLInformation
+            // 
+            this.buttonLInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLInformation.Location = new System.Drawing.Point(8, 356);
+            this.buttonLInformation.Name = "buttonLInformation";
+            this.buttonLInformation.Size = new System.Drawing.Size(267, 31);
+            this.buttonLInformation.TabIndex = 68;
+            this.buttonLInformation.Text = "Information";
+            this.buttonLInformation.UseVisualStyleBackColor = true;
+            this.buttonLInformation.Click += new System.EventHandler(this.buttonLInformation_Click);
             // 
             // numericROLGearSlot
             // 
@@ -7737,6 +7762,52 @@ namespace Save_Editor_1
             this.tabMisc.Text = "Miscellaneous";
             this.tabMisc.UseVisualStyleBackColor = true;
             // 
+            // numericROHaveBadges
+            // 
+            this.numericROHaveBadges.Location = new System.Drawing.Point(324, 341);
+            this.numericROHaveBadges.Maximum = new decimal(new int[] {
+            256,
+            0,
+            0,
+            0});
+            this.numericROHaveBadges.Name = "numericROHaveBadges";
+            this.numericROHaveBadges.Size = new System.Drawing.Size(120, 20);
+            this.numericROHaveBadges.TabIndex = 9;
+            this.numericROHaveBadges.Visible = false;
+            // 
+            // checkBoxHardMode
+            // 
+            this.checkBoxHardMode.AutoSize = true;
+            this.checkBoxHardMode.Location = new System.Drawing.Point(8, 6);
+            this.checkBoxHardMode.Name = "checkBoxHardMode";
+            this.checkBoxHardMode.Size = new System.Drawing.Size(79, 17);
+            this.checkBoxHardMode.TabIndex = 8;
+            this.checkBoxHardMode.Text = "Hard Mode";
+            this.checkBoxHardMode.UseVisualStyleBackColor = true;
+            this.checkBoxHardMode.CheckedChanged += new System.EventHandler(this.checkBoxHardMode_CheckedChanged);
+            // 
+            // checkBoxHaveBadges
+            // 
+            this.checkBoxHaveBadges.AutoSize = true;
+            this.checkBoxHaveBadges.Location = new System.Drawing.Point(8, 44);
+            this.checkBoxHaveBadges.Name = "checkBoxHaveBadges";
+            this.checkBoxHaveBadges.Size = new System.Drawing.Size(90, 17);
+            this.checkBoxHaveBadges.TabIndex = 7;
+            this.checkBoxHaveBadges.Text = "Have badges";
+            this.checkBoxHaveBadges.UseVisualStyleBackColor = true;
+            this.checkBoxHaveBadges.CheckedChanged += new System.EventHandler(this.checkBoxHaveBadges_CheckedChanged);
+            // 
+            // checkBoxAllowPausing
+            // 
+            this.checkBoxAllowPausing.AutoSize = true;
+            this.checkBoxAllowPausing.Location = new System.Drawing.Point(8, 25);
+            this.checkBoxAllowPausing.Name = "checkBoxAllowPausing";
+            this.checkBoxAllowPausing.Size = new System.Drawing.Size(92, 17);
+            this.checkBoxAllowPausing.TabIndex = 6;
+            this.checkBoxAllowPausing.Text = "Allow Pausing";
+            this.checkBoxAllowPausing.UseVisualStyleBackColor = true;
+            this.checkBoxAllowPausing.CheckedChanged += new System.EventHandler(this.checkBoxAllowPausing_CheckedChanged);
+            // 
             // labelCoinCount
             // 
             this.labelCoinCount.AutoSize = true;
@@ -7925,52 +7996,6 @@ namespace Save_Editor_1
             this.numericRORankupBonusCombo10.Size = new System.Drawing.Size(63, 20);
             this.numericRORankupBonusCombo10.TabIndex = 48;
             this.numericRORankupBonusCombo10.Visible = false;
-            // 
-            // checkBoxAllowPausing
-            // 
-            this.checkBoxAllowPausing.AutoSize = true;
-            this.checkBoxAllowPausing.Location = new System.Drawing.Point(8, 25);
-            this.checkBoxAllowPausing.Name = "checkBoxAllowPausing";
-            this.checkBoxAllowPausing.Size = new System.Drawing.Size(92, 17);
-            this.checkBoxAllowPausing.TabIndex = 6;
-            this.checkBoxAllowPausing.Text = "Allow Pausing";
-            this.checkBoxAllowPausing.UseVisualStyleBackColor = true;
-            this.checkBoxAllowPausing.CheckedChanged += new System.EventHandler(this.checkBoxAllowPausing_CheckedChanged);
-            // 
-            // checkBoxHaveBadges
-            // 
-            this.checkBoxHaveBadges.AutoSize = true;
-            this.checkBoxHaveBadges.Location = new System.Drawing.Point(8, 44);
-            this.checkBoxHaveBadges.Name = "checkBoxHaveBadges";
-            this.checkBoxHaveBadges.Size = new System.Drawing.Size(90, 17);
-            this.checkBoxHaveBadges.TabIndex = 7;
-            this.checkBoxHaveBadges.Text = "Have badges";
-            this.checkBoxHaveBadges.UseVisualStyleBackColor = true;
-            this.checkBoxHaveBadges.CheckedChanged += new System.EventHandler(this.checkBoxHaveBadges_CheckedChanged);
-            // 
-            // checkBoxHardMode
-            // 
-            this.checkBoxHardMode.AutoSize = true;
-            this.checkBoxHardMode.Location = new System.Drawing.Point(8, 6);
-            this.checkBoxHardMode.Name = "checkBoxHardMode";
-            this.checkBoxHardMode.Size = new System.Drawing.Size(79, 17);
-            this.checkBoxHardMode.TabIndex = 8;
-            this.checkBoxHardMode.Text = "Hard Mode";
-            this.checkBoxHardMode.UseVisualStyleBackColor = true;
-            this.checkBoxHardMode.CheckedChanged += new System.EventHandler(this.checkBoxHardMode_CheckedChanged);
-            // 
-            // numericROHaveBadges
-            // 
-            this.numericROHaveBadges.Location = new System.Drawing.Point(324, 341);
-            this.numericROHaveBadges.Maximum = new decimal(new int[] {
-            256,
-            0,
-            0,
-            0});
-            this.numericROHaveBadges.Name = "numericROHaveBadges";
-            this.numericROHaveBadges.Size = new System.Drawing.Size(120, 20);
-            this.numericROHaveBadges.TabIndex = 9;
-            this.numericROHaveBadges.Visible = false;
             // 
             // MainMenu
             // 
@@ -8294,6 +8319,7 @@ namespace Save_Editor_1
             this.groupBoxRWAbilities.PerformLayout();
             this.tabMisc.ResumeLayout(false);
             this.tabMisc.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericROHaveBadges)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericRONBCUnlock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.box_money)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericLExperienceHidden1)).EndInit();
@@ -8307,7 +8333,6 @@ namespace Save_Editor_1
             ((System.ComponentModel.ISupportInitialize)(this.numericRORankupBonusCombo8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericRORankupBonusCombo9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericRORankupBonusCombo10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericROHaveBadges)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -8908,6 +8933,8 @@ namespace Save_Editor_1
         private System.Windows.Forms.CheckBox checkBoxHardMode;
         private System.Windows.Forms.CheckBox checkBoxHaveBadges;
         private System.Windows.Forms.CheckBox checkBoxAllowPausing;
+        private System.Windows.Forms.Button buttonMInformation;
+        private System.Windows.Forms.Button buttonLInformation;
     }
 }
 

@@ -4360,6 +4360,8 @@ namespace Save_Editor_1
         {
             numericMCurHP.Value = 24;
             numericMCurBP.Value = 8;
+            numericLMaxHP.Value = 24;
+            numericLMaxBP.Value = 8;
             numericMPower.Value = 20;
             numericMDef.Value = 13;
             numericMSpeed.Value = 16;
@@ -4388,6 +4390,8 @@ namespace Save_Editor_1
         {
             numericMCurHP.Value = 999;
             numericMCurBP.Value = 999;
+            numericMMaxHP.Value = 999;
+            numericMMaxBP.Value = 999;
             numericMPower.Value = 999;
             numericMDef.Value = 999;
             numericMSpeed.Value = 999;
@@ -4412,6 +4416,8 @@ namespace Save_Editor_1
         {
             numericLCurHP.Value = 30;
             numericLCurBP.Value = 6;
+            numericLMaxHP.Value = 30;
+            numericLMaxBP.Value = 6;
             numericLPow.Value = 16;
             numericLDef.Value = 17;
             numericLSpeed.Value = 10;
@@ -4441,6 +4447,8 @@ namespace Save_Editor_1
         {
             numericLCurHP.Value = 999;
             numericLCurBP.Value = 999;
+            numericLMaxHP.Value = 999;
+            numericLMaxBP.Value = 999;
             numericLPow.Value = 999;
             numericLDef.Value = 999;
             numericLSpeed.Value = 999;
@@ -4493,6 +4501,18 @@ namespace Save_Editor_1
                 if (checkBoxHaveBadges.Checked == false)
                     numericROHaveBadges.Value -= 32;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Stats_Information_Box f2 = new Stats_Information_Box();
+            f2.ShowDialog(); // Shows Stats Infromation Box
+        }
+
+        private void buttonLInformation_Click(object sender, EventArgs e)
+        {
+            Stats_Information_Box f2 = new Stats_Information_Box();
+            f2.ShowDialog(); // Shows Stats Infromation Box
         }
     }
 }
