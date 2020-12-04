@@ -1,5 +1,5 @@
 # Mario & Luigi: Dream Team - SAVE EDITOR
-Work in progress save editor. Shoutouts to MacClelland for his save editor.
+Work in progress save editor. Shoutouts to MacClelland for his save editor. *Please report bugs when you encounter them!*
 
 ## Features
 * Mario
