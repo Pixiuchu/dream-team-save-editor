@@ -948,7 +948,926 @@ namespace Save_Editor_1
                     checkBoxLGearSlot1.Checked = true;
                 if (lgsp1c2 == 5)
                     checkBoxLGearSlot2.Checked = true;
-                
+
+                // Luigi Selected Badge
+                savegame_br.BaseStream.Position = 0x872;
+                byte Luigiselectedbage = (byte)savegame_fs.ReadByte();
+                if (Luigiselectedbage == 8)
+                    comboBoxLuigiSelectedBadge.SelectedIndex = 0;
+                if (Luigiselectedbage == 9)
+                    comboBoxLuigiSelectedBadge.SelectedIndex = 1;
+                if (Luigiselectedbage == 10)
+                    comboBoxLuigiSelectedBadge.SelectedIndex = 2;
+                if (Luigiselectedbage == 11)
+                    comboBoxLuigiSelectedBadge.SelectedIndex = 3;
+                if (Luigiselectedbage == 12)
+                    comboBoxLuigiSelectedBadge.SelectedIndex = 4;
+                if (Luigiselectedbage == 13)
+                    comboBoxLuigiSelectedBadge.SelectedIndex = 5;
+
+                    // Mario Selected Badge
+                    savegame_br.BaseStream.Position = 0x78A;
+                byte Marioselectedbage = (byte)savegame_fs.ReadByte();
+                if (Marioselectedbage == 0)
+                    comboBoxMarioSelectedBadge.SelectedIndex = 0;
+                if (Marioselectedbage == 1)
+                    comboBoxMarioSelectedBadge.SelectedIndex = 1;
+                if (Marioselectedbage == 2)
+                    comboBoxMarioSelectedBadge.SelectedIndex = 2;
+                if (Marioselectedbage == 3)
+                    comboBoxMarioSelectedBadge.SelectedIndex = 3;
+                if (Marioselectedbage == 4)
+                    comboBoxMarioSelectedBadge.SelectedIndex = 4;
+                if (Marioselectedbage == 5)
+                    comboBoxMarioSelectedBadge.SelectedIndex = 5;
+
+                // Luigi SP
+                savegame_br.BaseStream.Position = 0x85E;
+                byte[] LuigiSP = savegame_br.ReadBytes(2);
+                int LuigiSP2 = BitConverter.ToInt16(LuigiSP, 0);
+                numericUpDownLuigiCurrentSP.Text = (LuigiSP2.ToString());
+
+                // Badge Stock 1
+                savegame_br.BaseStream.Position = 0xA0A;
+                byte[] BadgeStock1 = savegame_br.ReadBytes(2);
+                int BadgeStock12 = BitConverter.ToUInt16(BadgeStock1, 0);
+                textBox1.Text = (BadgeStock12.ToString());
+                if (BadgeStock12 == 0)
+                {
+                    comboBoxBadgeStock1.SelectedIndex = 0;
+                    comboBoxBadgeStock2.SelectedIndex = 0;
+                }
+                if (BadgeStock12 == 40960)
+                {
+                    comboBoxBadgeStock1.SelectedIndex = 1;
+                    comboBoxBadgeStock2.SelectedIndex = 1;
+                }
+                if (BadgeStock12 == 40961)
+                {
+                    comboBoxBadgeStock1.SelectedIndex = 1;
+                    comboBoxBadgeStock2.SelectedIndex = 2;
+                }
+                if (BadgeStock12 == 40962)
+                {
+                    comboBoxBadgeStock1.SelectedIndex = 1;
+                    comboBoxBadgeStock2.SelectedIndex = 3;
+                }
+                if (BadgeStock12 == 40963)
+                {
+                    comboBoxBadgeStock1.SelectedIndex = 1;
+                    comboBoxBadgeStock2.SelectedIndex = 4;
+                }
+                if (BadgeStock12 == 40964)
+                {
+                    comboBoxBadgeStock1.SelectedIndex = 1;
+                    comboBoxBadgeStock2.SelectedIndex = 5;
+                }
+                if (BadgeStock12 == 40965)
+                {
+                    comboBoxBadgeStock1.SelectedIndex = 1;
+                    comboBoxBadgeStock2.SelectedIndex = 6;
+                }
+                if (BadgeStock12 == 40968)
+                {
+                    comboBoxBadgeStock1.SelectedIndex = 2;
+                    comboBoxBadgeStock2.SelectedIndex = 1;
+                }
+                if (BadgeStock12 == 40969)
+                {
+                    comboBoxBadgeStock1.SelectedIndex = 2;
+                    comboBoxBadgeStock2.SelectedIndex = 2;
+                }
+                if (BadgeStock12 == 40970)
+                {
+                    comboBoxBadgeStock1.SelectedIndex = 2;
+                    comboBoxBadgeStock2.SelectedIndex = 3;
+                }
+                if (BadgeStock12 == 40971)
+                {
+                    comboBoxBadgeStock1.SelectedIndex = 2;
+                    comboBoxBadgeStock2.SelectedIndex = 4;
+                }
+                if (BadgeStock12 == 40972)
+                {
+                    comboBoxBadgeStock1.SelectedIndex = 2;
+                    comboBoxBadgeStock2.SelectedIndex = 5;
+                }
+                if (BadgeStock12 == 40973)
+                {
+                    comboBoxBadgeStock1.SelectedIndex = 2;
+                    comboBoxBadgeStock2.SelectedIndex = 6;
+                }
+                if (BadgeStock12 == 40976)
+                {
+                    comboBoxBadgeStock1.SelectedIndex = 3;
+                    comboBoxBadgeStock2.SelectedIndex = 1;
+                }
+                if (BadgeStock12 == 40977)
+                {
+                    comboBoxBadgeStock1.SelectedIndex = 3;
+                    comboBoxBadgeStock2.SelectedIndex = 2;
+                }
+                if (BadgeStock12 == 40978)
+                {
+                    comboBoxBadgeStock1.SelectedIndex = 3;
+                    comboBoxBadgeStock2.SelectedIndex = 3;
+                }
+                if (BadgeStock12 == 40979)
+                {
+                    comboBoxBadgeStock1.SelectedIndex = 3;
+                    comboBoxBadgeStock2.SelectedIndex = 4;
+                }
+                if (BadgeStock12 == 40980)
+                {
+                    comboBoxBadgeStock1.SelectedIndex = 3;
+                    comboBoxBadgeStock2.SelectedIndex = 5;
+                }
+                if (BadgeStock12 == 40981)
+                {
+                    comboBoxBadgeStock1.SelectedIndex = 3;
+                    comboBoxBadgeStock2.SelectedIndex = 6;
+                }
+                if (BadgeStock12 == 40984)
+                {
+                    comboBoxBadgeStock1.SelectedIndex = 4;
+                    comboBoxBadgeStock2.SelectedIndex = 1;
+                }
+                if (BadgeStock12 == 40985)
+                {
+                    comboBoxBadgeStock1.SelectedIndex = 4;
+                    comboBoxBadgeStock2.SelectedIndex = 2;
+                }
+                if (BadgeStock12 == 40986)
+                {
+                    comboBoxBadgeStock1.SelectedIndex = 4;
+                    comboBoxBadgeStock2.SelectedIndex = 3;
+                }
+                if (BadgeStock12 == 40987)
+                {
+                    comboBoxBadgeStock1.SelectedIndex = 4;
+                    comboBoxBadgeStock2.SelectedIndex = 4;
+                }
+                if (BadgeStock12 == 40988)
+                {
+                    comboBoxBadgeStock1.SelectedIndex = 4;
+                    comboBoxBadgeStock2.SelectedIndex = 5;
+                }
+                if (BadgeStock12 == 40989)
+                {
+                    comboBoxBadgeStock1.SelectedIndex = 4;
+                    comboBoxBadgeStock2.SelectedIndex = 6;
+                }
+                if (BadgeStock12 == 40992)
+                {
+                    comboBoxBadgeStock1.SelectedIndex = 5;
+                    comboBoxBadgeStock2.SelectedIndex = 1;
+                }
+                if (BadgeStock12 == 40993)
+                {
+                    comboBoxBadgeStock1.SelectedIndex = 5;
+                    comboBoxBadgeStock2.SelectedIndex = 2;
+                }
+                if (BadgeStock12 == 40994)
+                {
+                    comboBoxBadgeStock1.SelectedIndex = 5;
+                    comboBoxBadgeStock2.SelectedIndex = 3;
+                }
+                if (BadgeStock12 == 40995)
+                {
+                    comboBoxBadgeStock1.SelectedIndex = 5;
+                    comboBoxBadgeStock2.SelectedIndex = 4;
+                }
+                if (BadgeStock12 == 40996)
+                {
+                    comboBoxBadgeStock1.SelectedIndex = 5;
+                    comboBoxBadgeStock2.SelectedIndex = 5;
+                }
+                if (BadgeStock12 == 40997)
+                {
+                    comboBoxBadgeStock1.SelectedIndex = 5;
+                    comboBoxBadgeStock2.SelectedIndex = 6;
+                }
+                if (BadgeStock12 == 41000)
+                {
+                    comboBoxBadgeStock1.SelectedIndex = 6;
+                    comboBoxBadgeStock2.SelectedIndex = 1;
+                }
+                if (BadgeStock12 == 41001)
+                {
+                    comboBoxBadgeStock1.SelectedIndex = 6;
+                    comboBoxBadgeStock2.SelectedIndex = 2;
+                }
+                if (BadgeStock12 == 41002)
+                {
+                    comboBoxBadgeStock1.SelectedIndex = 6;
+                    comboBoxBadgeStock2.SelectedIndex = 3;
+                }
+                if (BadgeStock12 == 41003)
+                {
+                    comboBoxBadgeStock1.SelectedIndex = 6;
+                    comboBoxBadgeStock2.SelectedIndex = 4;
+                }
+                if (BadgeStock12 == 41004)
+                {
+                    comboBoxBadgeStock1.SelectedIndex = 6;
+                    comboBoxBadgeStock2.SelectedIndex = 5;
+                }
+                if (BadgeStock12 == 41005)
+                {
+                    comboBoxBadgeStock1.SelectedIndex = 6;
+                    comboBoxBadgeStock2.SelectedIndex = 6;
+                }
+
+                // Badge Stock 1
+                savegame_br.BaseStream.Position = 0xA0C;
+                byte[] BadgeStock2 = savegame_br.ReadBytes(2);
+                int BadgeStock22 = BitConverter.ToUInt16(BadgeStock2, 0);
+                textBox1.Text = (BadgeStock22.ToString());
+                if (BadgeStock22 == 0)
+                {
+                    comboBoxBadgeStock3.SelectedIndex = 0;
+                    comboBoxBadgeStock4.SelectedIndex = 0;
+                }
+                if (BadgeStock22 == 40960)
+                {
+                    comboBoxBadgeStock3.SelectedIndex = 1;
+                    comboBoxBadgeStock4.SelectedIndex = 1;
+                }
+                if (BadgeStock22 == 40961)
+                {
+                    comboBoxBadgeStock3.SelectedIndex = 1;
+                    comboBoxBadgeStock4.SelectedIndex = 2;
+                }
+                if (BadgeStock22 == 40962)
+                {
+                    comboBoxBadgeStock3.SelectedIndex = 1;
+                    comboBoxBadgeStock4.SelectedIndex = 3;
+                }
+                if (BadgeStock22 == 40963)
+                {
+                    comboBoxBadgeStock3.SelectedIndex = 1;
+                    comboBoxBadgeStock4.SelectedIndex = 4;
+                }
+                if (BadgeStock22 == 40964)
+                {
+                    comboBoxBadgeStock3.SelectedIndex = 1;
+                    comboBoxBadgeStock4.SelectedIndex = 5;
+                }
+                if (BadgeStock22 == 40965)
+                {
+                    comboBoxBadgeStock3.SelectedIndex = 1;
+                    comboBoxBadgeStock4.SelectedIndex = 6;
+                }
+                if (BadgeStock22 == 40968)
+                {
+                    comboBoxBadgeStock3.SelectedIndex = 2;
+                    comboBoxBadgeStock4.SelectedIndex = 1;
+                }
+                if (BadgeStock22 == 40969)
+                {
+                    comboBoxBadgeStock3.SelectedIndex = 2;
+                    comboBoxBadgeStock4.SelectedIndex = 2;
+                }
+                if (BadgeStock22 == 40970)
+                {
+                    comboBoxBadgeStock3.SelectedIndex = 2;
+                    comboBoxBadgeStock4.SelectedIndex = 3;
+                }
+                if (BadgeStock22 == 40971)
+                {
+                    comboBoxBadgeStock3.SelectedIndex = 2;
+                    comboBoxBadgeStock4.SelectedIndex = 4;
+                }
+                if (BadgeStock22 == 40972)
+                {
+                    comboBoxBadgeStock3.SelectedIndex = 2;
+                    comboBoxBadgeStock4.SelectedIndex = 5;
+                }
+                if (BadgeStock22 == 40973)
+                {
+                    comboBoxBadgeStock3.SelectedIndex = 2;
+                    comboBoxBadgeStock4.SelectedIndex = 6;
+                }
+                if (BadgeStock22 == 40976)
+                {
+                    comboBoxBadgeStock3.SelectedIndex = 3;
+                    comboBoxBadgeStock4.SelectedIndex = 1;
+                }
+                if (BadgeStock22 == 40977)
+                {
+                    comboBoxBadgeStock3.SelectedIndex = 3;
+                    comboBoxBadgeStock4.SelectedIndex = 2;
+                }
+                if (BadgeStock22 == 40978)
+                {
+                    comboBoxBadgeStock3.SelectedIndex = 3;
+                    comboBoxBadgeStock4.SelectedIndex = 3;
+                }
+                if (BadgeStock22 == 40979)
+                {
+                    comboBoxBadgeStock3.SelectedIndex = 3;
+                    comboBoxBadgeStock4.SelectedIndex = 4;
+                }
+                if (BadgeStock22 == 40980)
+                {
+                    comboBoxBadgeStock3.SelectedIndex = 3;
+                    comboBoxBadgeStock4.SelectedIndex = 5;
+                }
+                if (BadgeStock22 == 40981)
+                {
+                    comboBoxBadgeStock3.SelectedIndex = 3;
+                    comboBoxBadgeStock4.SelectedIndex = 6;
+                }
+                if (BadgeStock22 == 40984)
+                {
+                    comboBoxBadgeStock3.SelectedIndex = 4;
+                    comboBoxBadgeStock4.SelectedIndex = 1;
+                }
+                if (BadgeStock22 == 40985)
+                {
+                    comboBoxBadgeStock3.SelectedIndex = 4;
+                    comboBoxBadgeStock4.SelectedIndex = 2;
+                }
+                if (BadgeStock22 == 40986)
+                {
+                    comboBoxBadgeStock3.SelectedIndex = 4;
+                    comboBoxBadgeStock4.SelectedIndex = 3;
+                }
+                if (BadgeStock22 == 40987)
+                {
+                    comboBoxBadgeStock3.SelectedIndex = 4;
+                    comboBoxBadgeStock4.SelectedIndex = 4;
+                }
+                if (BadgeStock22 == 40988)
+                {
+                    comboBoxBadgeStock3.SelectedIndex = 4;
+                    comboBoxBadgeStock4.SelectedIndex = 5;
+                }
+                if (BadgeStock22 == 40989)
+                {
+                    comboBoxBadgeStock3.SelectedIndex = 4;
+                    comboBoxBadgeStock4.SelectedIndex = 6;
+                }
+                if (BadgeStock22 == 40992)
+                {
+                    comboBoxBadgeStock3.SelectedIndex = 5;
+                    comboBoxBadgeStock4.SelectedIndex = 1;
+                }
+                if (BadgeStock22 == 40993)
+                {
+                    comboBoxBadgeStock3.SelectedIndex = 5;
+                    comboBoxBadgeStock4.SelectedIndex = 2;
+                }
+                if (BadgeStock22 == 40994)
+                {
+                    comboBoxBadgeStock3.SelectedIndex = 5;
+                    comboBoxBadgeStock4.SelectedIndex = 3;
+                }
+                if (BadgeStock22 == 40995)
+                {
+                    comboBoxBadgeStock3.SelectedIndex = 5;
+                    comboBoxBadgeStock4.SelectedIndex = 4;
+                }
+                if (BadgeStock22 == 40996)
+                {
+                    comboBoxBadgeStock3.SelectedIndex = 5;
+                    comboBoxBadgeStock4.SelectedIndex = 5;
+                }
+                if (BadgeStock22 == 40997)
+                {
+                    comboBoxBadgeStock3.SelectedIndex = 5;
+                    comboBoxBadgeStock4.SelectedIndex = 6;
+                }
+                if (BadgeStock22 == 41000)
+                {
+                    comboBoxBadgeStock3.SelectedIndex = 6;
+                    comboBoxBadgeStock4.SelectedIndex = 1;
+                }
+                if (BadgeStock22 == 41001)
+                {
+                    comboBoxBadgeStock3.SelectedIndex = 6;
+                    comboBoxBadgeStock4.SelectedIndex = 2;
+                }
+                if (BadgeStock22 == 41002)
+                {
+                    comboBoxBadgeStock3.SelectedIndex = 6;
+                    comboBoxBadgeStock4.SelectedIndex = 3;
+                }
+                if (BadgeStock22 == 41003)
+                {
+                    comboBoxBadgeStock3.SelectedIndex = 6;
+                    comboBoxBadgeStock4.SelectedIndex = 4;
+                }
+                if (BadgeStock22 == 41004)
+                {
+                    comboBoxBadgeStock3.SelectedIndex = 6;
+                    comboBoxBadgeStock4.SelectedIndex = 5;
+                }
+                if (BadgeStock22 == 41005)
+                {
+                    comboBoxBadgeStock3.SelectedIndex = 6;
+                    comboBoxBadgeStock4.SelectedIndex = 6;
+                }
+
+                // Badge Stock 1
+                savegame_br.BaseStream.Position = 0xA0E;
+                byte[] BadgeStock3 = savegame_br.ReadBytes(2);
+                int BadgeStock32 = BitConverter.ToUInt16(BadgeStock3, 0);
+                textBox1.Text = (BadgeStock32.ToString());
+                if (BadgeStock32 == 0)
+                {
+                    comboBoxBadgeStock5.SelectedIndex = 0;
+                    comboBoxBadgeStock6.SelectedIndex = 0;
+                }
+                if (BadgeStock32 == 40960)
+                {
+                    comboBoxBadgeStock5.SelectedIndex = 1;
+                    comboBoxBadgeStock6.SelectedIndex = 1;
+                }
+                if (BadgeStock32 == 40961)
+                {
+                    comboBoxBadgeStock5.SelectedIndex = 1;
+                    comboBoxBadgeStock6.SelectedIndex = 2;
+                }
+                if (BadgeStock32 == 40962)
+                {
+                    comboBoxBadgeStock5.SelectedIndex = 1;
+                    comboBoxBadgeStock6.SelectedIndex = 3;
+                }
+                if (BadgeStock32 == 40963)
+                {
+                    comboBoxBadgeStock5.SelectedIndex = 1;
+                    comboBoxBadgeStock6.SelectedIndex = 4;
+                }
+                if (BadgeStock32 == 40964)
+                {
+                    comboBoxBadgeStock5.SelectedIndex = 1;
+                    comboBoxBadgeStock6.SelectedIndex = 5;
+                }
+                if (BadgeStock32 == 40965)
+                {
+                    comboBoxBadgeStock5.SelectedIndex = 1;
+                    comboBoxBadgeStock6.SelectedIndex = 6;
+                }
+                if (BadgeStock32 == 40968)
+                {
+                    comboBoxBadgeStock5.SelectedIndex = 2;
+                    comboBoxBadgeStock6.SelectedIndex = 1;
+                }
+                if (BadgeStock32 == 40969)
+                {
+                    comboBoxBadgeStock5.SelectedIndex = 2;
+                    comboBoxBadgeStock6.SelectedIndex = 2;
+                }
+                if (BadgeStock32 == 40970)
+                {
+                    comboBoxBadgeStock5.SelectedIndex = 2;
+                    comboBoxBadgeStock6.SelectedIndex = 3;
+                }
+                if (BadgeStock32 == 40971)
+                {
+                    comboBoxBadgeStock5.SelectedIndex = 2;
+                    comboBoxBadgeStock6.SelectedIndex = 4;
+                }
+                if (BadgeStock32 == 40972)
+                {
+                    comboBoxBadgeStock5.SelectedIndex = 2;
+                    comboBoxBadgeStock6.SelectedIndex = 5;
+                }
+                if (BadgeStock32 == 40973)
+                {
+                    comboBoxBadgeStock5.SelectedIndex = 2;
+                    comboBoxBadgeStock6.SelectedIndex = 6;
+                }
+                if (BadgeStock32 == 40976)
+                {
+                    comboBoxBadgeStock5.SelectedIndex = 3;
+                    comboBoxBadgeStock6.SelectedIndex = 1;
+                }
+                if (BadgeStock32 == 40977)
+                {
+                    comboBoxBadgeStock5.SelectedIndex = 3;
+                    comboBoxBadgeStock6.SelectedIndex = 2;
+                }
+                if (BadgeStock32 == 40978)
+                {
+                    comboBoxBadgeStock5.SelectedIndex = 3;
+                    comboBoxBadgeStock6.SelectedIndex = 3;
+                }
+                if (BadgeStock32 == 40979)
+                {
+                    comboBoxBadgeStock5.SelectedIndex = 3;
+                    comboBoxBadgeStock6.SelectedIndex = 4;
+                }
+                if (BadgeStock32 == 40980)
+                {
+                    comboBoxBadgeStock5.SelectedIndex = 3;
+                    comboBoxBadgeStock6.SelectedIndex = 5;
+                }
+                if (BadgeStock32 == 40981)
+                {
+                    comboBoxBadgeStock5.SelectedIndex = 3;
+                    comboBoxBadgeStock6.SelectedIndex = 6;
+                }
+                if (BadgeStock32 == 40984)
+                {
+                    comboBoxBadgeStock5.SelectedIndex = 4;
+                    comboBoxBadgeStock6.SelectedIndex = 1;
+                }
+                if (BadgeStock32 == 40985)
+                {
+                    comboBoxBadgeStock5.SelectedIndex = 4;
+                    comboBoxBadgeStock6.SelectedIndex = 2;
+                }
+                if (BadgeStock32 == 40986)
+                {
+                    comboBoxBadgeStock5.SelectedIndex = 4;
+                    comboBoxBadgeStock6.SelectedIndex = 3;
+                }
+                if (BadgeStock32 == 40987)
+                {
+                    comboBoxBadgeStock5.SelectedIndex = 4;
+                    comboBoxBadgeStock6.SelectedIndex = 4;
+                }
+                if (BadgeStock32 == 40988)
+                {
+                    comboBoxBadgeStock5.SelectedIndex = 4;
+                    comboBoxBadgeStock6.SelectedIndex = 5;
+                }
+                if (BadgeStock32 == 40989)
+                {
+                    comboBoxBadgeStock5.SelectedIndex = 4;
+                    comboBoxBadgeStock6.SelectedIndex = 6;
+                }
+                if (BadgeStock32 == 40992)
+                {
+                    comboBoxBadgeStock5.SelectedIndex = 5;
+                    comboBoxBadgeStock6.SelectedIndex = 1;
+                }
+                if (BadgeStock32 == 40993)
+                {
+                    comboBoxBadgeStock5.SelectedIndex = 5;
+                    comboBoxBadgeStock6.SelectedIndex = 2;
+                }
+                if (BadgeStock32 == 40994)
+                {
+                    comboBoxBadgeStock5.SelectedIndex = 5;
+                    comboBoxBadgeStock6.SelectedIndex = 3;
+                }
+                if (BadgeStock32 == 40995)
+                {
+                    comboBoxBadgeStock5.SelectedIndex = 5;
+                    comboBoxBadgeStock6.SelectedIndex = 4;
+                }
+                if (BadgeStock32 == 40996)
+                {
+                    comboBoxBadgeStock5.SelectedIndex = 5;
+                    comboBoxBadgeStock6.SelectedIndex = 5;
+                }
+                if (BadgeStock32 == 40997)
+                {
+                    comboBoxBadgeStock5.SelectedIndex = 5;
+                    comboBoxBadgeStock6.SelectedIndex = 6;
+                }
+                if (BadgeStock32 == 41000)
+                {
+                    comboBoxBadgeStock5.SelectedIndex = 6;
+                    comboBoxBadgeStock6.SelectedIndex = 1;
+                }
+                if (BadgeStock32 == 41001)
+                {
+                    comboBoxBadgeStock5.SelectedIndex = 6;
+                    comboBoxBadgeStock6.SelectedIndex = 2;
+                }
+                if (BadgeStock32 == 41002)
+                {
+                    comboBoxBadgeStock5.SelectedIndex = 6;
+                    comboBoxBadgeStock6.SelectedIndex = 3;
+                }
+                if (BadgeStock32 == 41003)
+                {
+                    comboBoxBadgeStock5.SelectedIndex = 6;
+                    comboBoxBadgeStock6.SelectedIndex = 4;
+                }
+                if (BadgeStock32 == 41004)
+                {
+                    comboBoxBadgeStock5.SelectedIndex = 6;
+                    comboBoxBadgeStock6.SelectedIndex = 5;
+                }
+                if (BadgeStock32 == 41005)
+                {
+                    comboBoxBadgeStock5.SelectedIndex = 6;
+                    comboBoxBadgeStock6.SelectedIndex = 6;
+                }
+
+                // Badge Stock 1
+                savegame_br.BaseStream.Position = 0xA10;
+                byte[] BadgeStock4 = savegame_br.ReadBytes(2);
+                int BadgeStock42 = BitConverter.ToUInt16(BadgeStock4, 0);
+                textBox1.Text = (BadgeStock42.ToString());
+                if (BadgeStock42 == 0)
+                {
+                    comboBoxBadgeStock7.SelectedIndex = 0;
+                    comboBoxBadgeStock8.SelectedIndex = 0;
+                }
+                if (BadgeStock42 == 40960)
+                {
+                    comboBoxBadgeStock7.SelectedIndex = 1;
+                    comboBoxBadgeStock8.SelectedIndex = 1;
+                }
+                if (BadgeStock42 == 40961)
+                {
+                    comboBoxBadgeStock7.SelectedIndex = 1;
+                    comboBoxBadgeStock8.SelectedIndex = 2;
+                }
+                if (BadgeStock42 == 40962)
+                {
+                    comboBoxBadgeStock7.SelectedIndex = 1;
+                    comboBoxBadgeStock8.SelectedIndex = 3;
+                }
+                if (BadgeStock42 == 40963)
+                {
+                    comboBoxBadgeStock7.SelectedIndex = 1;
+                    comboBoxBadgeStock8.SelectedIndex = 4;
+                }
+                if (BadgeStock42 == 40964)
+                {
+                    comboBoxBadgeStock7.SelectedIndex = 1;
+                    comboBoxBadgeStock8.SelectedIndex = 5;
+                }
+                if (BadgeStock42 == 40965)
+                {
+                    comboBoxBadgeStock7.SelectedIndex = 1;
+                    comboBoxBadgeStock8.SelectedIndex = 6;
+                }
+                if (BadgeStock42 == 40968)
+                {
+                    comboBoxBadgeStock7.SelectedIndex = 2;
+                    comboBoxBadgeStock8.SelectedIndex = 1;
+                }
+                if (BadgeStock42 == 40969)
+                {
+                    comboBoxBadgeStock7.SelectedIndex = 2;
+                    comboBoxBadgeStock8.SelectedIndex = 2;
+                }
+                if (BadgeStock42 == 40970)
+                {
+                    comboBoxBadgeStock7.SelectedIndex = 2;
+                    comboBoxBadgeStock8.SelectedIndex = 3;
+                }
+                if (BadgeStock42 == 40971)
+                {
+                    comboBoxBadgeStock7.SelectedIndex = 2;
+                    comboBoxBadgeStock8.SelectedIndex = 4;
+                }
+                if (BadgeStock42 == 40972)
+                {
+                    comboBoxBadgeStock7.SelectedIndex = 2;
+                    comboBoxBadgeStock8.SelectedIndex = 5;
+                }
+                if (BadgeStock42 == 40973)
+                {
+                    comboBoxBadgeStock7.SelectedIndex = 2;
+                    comboBoxBadgeStock8.SelectedIndex = 6;
+                }
+                if (BadgeStock42 == 40976)
+                {
+                    comboBoxBadgeStock7.SelectedIndex = 3;
+                    comboBoxBadgeStock8.SelectedIndex = 1;
+                }
+                if (BadgeStock42 == 40977)
+                {
+                    comboBoxBadgeStock7.SelectedIndex = 3;
+                    comboBoxBadgeStock8.SelectedIndex = 2;
+                }
+                if (BadgeStock42 == 40978)
+                {
+                    comboBoxBadgeStock7.SelectedIndex = 3;
+                    comboBoxBadgeStock8.SelectedIndex = 3;
+                }
+                if (BadgeStock42 == 40979)
+                {
+                    comboBoxBadgeStock7.SelectedIndex = 3;
+                    comboBoxBadgeStock8.SelectedIndex = 4;
+                }
+                if (BadgeStock42 == 40980)
+                {
+                    comboBoxBadgeStock7.SelectedIndex = 3;
+                    comboBoxBadgeStock8.SelectedIndex = 5;
+                }
+                if (BadgeStock42 == 40981)
+                {
+                    comboBoxBadgeStock7.SelectedIndex = 3;
+                    comboBoxBadgeStock8.SelectedIndex = 6;
+                }
+                if (BadgeStock42 == 40984)
+                {
+                    comboBoxBadgeStock7.SelectedIndex = 4;
+                    comboBoxBadgeStock8.SelectedIndex = 1;
+                }
+                if (BadgeStock42 == 40985)
+                {
+                    comboBoxBadgeStock7.SelectedIndex = 4;
+                    comboBoxBadgeStock8.SelectedIndex = 2;
+                }
+                if (BadgeStock42 == 40986)
+                {
+                    comboBoxBadgeStock7.SelectedIndex = 4;
+                    comboBoxBadgeStock8.SelectedIndex = 3;
+                }
+                if (BadgeStock42 == 40987)
+                {
+                    comboBoxBadgeStock7.SelectedIndex = 4;
+                    comboBoxBadgeStock8.SelectedIndex = 4;
+                }
+                if (BadgeStock42 == 40988)
+                {
+                    comboBoxBadgeStock7.SelectedIndex = 4;
+                    comboBoxBadgeStock8.SelectedIndex = 5;
+                }
+                if (BadgeStock42 == 40989)
+                {
+                    comboBoxBadgeStock7.SelectedIndex = 4;
+                    comboBoxBadgeStock8.SelectedIndex = 6;
+                }
+                if (BadgeStock42 == 40992)
+                {
+                    comboBoxBadgeStock7.SelectedIndex = 5;
+                    comboBoxBadgeStock8.SelectedIndex = 1;
+                }
+                if (BadgeStock42 == 40993)
+                {
+                    comboBoxBadgeStock7.SelectedIndex = 5;
+                    comboBoxBadgeStock8.SelectedIndex = 2;
+                }
+                if (BadgeStock42 == 40994)
+                {
+                    comboBoxBadgeStock7.SelectedIndex = 5;
+                    comboBoxBadgeStock8.SelectedIndex = 3;
+                }
+                if (BadgeStock42 == 40995)
+                {
+                    comboBoxBadgeStock7.SelectedIndex = 5;
+                    comboBoxBadgeStock8.SelectedIndex = 4;
+                }
+                if (BadgeStock42 == 40996)
+                {
+                    comboBoxBadgeStock7.SelectedIndex = 5;
+                    comboBoxBadgeStock8.SelectedIndex = 5;
+                }
+                if (BadgeStock42 == 40997)
+                {
+                    comboBoxBadgeStock7.SelectedIndex = 5;
+                    comboBoxBadgeStock8.SelectedIndex = 6;
+                }
+                if (BadgeStock42 == 41000)
+                {
+                    comboBoxBadgeStock7.SelectedIndex = 6;
+                    comboBoxBadgeStock8.SelectedIndex = 1;
+                }
+                if (BadgeStock42 == 41001)
+                {
+                    comboBoxBadgeStock7.SelectedIndex = 6;
+                    comboBoxBadgeStock8.SelectedIndex = 2;
+                }
+                if (BadgeStock42 == 41002)
+                {
+                    comboBoxBadgeStock7.SelectedIndex = 6;
+                    comboBoxBadgeStock8.SelectedIndex = 3;
+                }
+                if (BadgeStock42 == 41003)
+                {
+                    comboBoxBadgeStock7.SelectedIndex = 6;
+                    comboBoxBadgeStock8.SelectedIndex = 4;
+                }
+                if (BadgeStock42 == 41004)
+                {
+                    comboBoxBadgeStock7.SelectedIndex = 6;
+                    comboBoxBadgeStock8.SelectedIndex = 5;
+                }
+                if (BadgeStock42 == 41005)
+                {
+                    comboBoxBadgeStock7.SelectedIndex = 6;
+                    comboBoxBadgeStock8.SelectedIndex = 6;
+                }
+
+                // Mario SP
+                savegame_br.BaseStream.Position = 0x776;
+                byte[] MarioSP = savegame_br.ReadBytes(2);
+                int MarioSP2 = BitConverter.ToInt16(MarioSP, 0);
+                numericUpDownMarioCurrentSP.Text = (MarioSP2.ToString());
+
+                // Starter Badge Check
+                savegame_br.BaseStream.Position = 0xA06;
+                byte starterbadgecheck = (byte)savegame_fs.ReadByte();
+                int starterbadgecheck2 = (byte)(starterbadgecheck & 1);
+                if (starterbadgecheck2 == 1)
+                    checkBoxBadge7.Checked = true;
+                if (starterbadgecheck2 == 0)
+                    checkBoxBadge7.Checked = false;
+
+                // Master Badge Check
+                savegame_br.BaseStream.Position = 0xA06;
+                byte masterbadgecheck = (byte)savegame_fs.ReadByte();
+                int masterbadgecheck2 = (byte)((masterbadgecheck & 2) >> 1);
+                if (masterbadgecheck2 == 1)
+                    checkBoxBadge8.Checked = true;
+                if (masterbadgecheck2 == 0)
+                    checkBoxBadge8.Checked = false;
+
+                // Expert Badge Check
+                savegame_br.BaseStream.Position = 0xA06;
+                byte expertbadgecheck = (byte)savegame_fs.ReadByte();
+                int expertbadgecheck2 = (byte)((expertbadgecheck & 4) >> 2);
+                if (expertbadgecheck2 == 1)
+                    checkBoxBadge9.Checked = true;
+                if (expertbadgecheck2 == 0)
+                    checkBoxBadge9.Checked = false;
+
+                // Bronze Badge Check
+                savegame_br.BaseStream.Position = 0xA06;
+                byte bronzebadgecheck = (byte)savegame_fs.ReadByte();
+                int bronzebadgecheck2 = (byte)((bronzebadgecheck & 8) >> 3);
+                if (bronzebadgecheck2 == 1)
+                    checkBoxBadge10.Checked = true;
+                if (bronzebadgecheck2 == 0)
+                    checkBoxBadge10.Checked = false;
+
+                // Silver Badge Check
+                savegame_br.BaseStream.Position = 0xA06;
+                byte silverbadgecheck = (byte)savegame_fs.ReadByte();
+                int silverbadgecheck2 = (byte)((silverbadgecheck & 16) >> 4);
+                if (silverbadgecheck2 == 1)
+                    checkBoxBadge11.Checked = true;
+                if (silverbadgecheck2 == 0)
+                    checkBoxBadge11.Checked = false;
+
+                // Gold Badge Check
+                savegame_br.BaseStream.Position = 0xA06;
+                byte goldbadgecheck = (byte)savegame_fs.ReadByte();
+                int goldbadgecheck2 = (byte)((goldbadgecheck & 32) >> 5);
+                if (goldbadgecheck2 == 1)
+                    checkBoxBadge12.Checked = true;
+                if (goldbadgecheck2 == 0)
+                    checkBoxBadge12.Checked = false;
+
+                // Mush Badge Check
+                savegame_br.BaseStream.Position = 0xA07;
+                byte mushbadgecheck = (byte)savegame_fs.ReadByte();
+                int mushbadgecheck2 = (byte)(mushbadgecheck & 1);
+                if (mushbadgecheck2 == 1)
+                    checkBoxBadge1.Checked = true;
+                if (mushbadgecheck2 == 0)
+                    checkBoxBadge1.Checked = false;
+
+                // Strike Badge Check
+                savegame_br.BaseStream.Position = 0xA07;
+                byte strikebadgecheck = (byte)savegame_fs.ReadByte();
+                int strikebadgecheck2 = (byte)((strikebadgecheck & 2) >> 1);
+                if (strikebadgecheck2 == 1)
+                    checkBoxBadge2.Checked = true;
+                if (strikebadgecheck2 == 0)
+                    checkBoxBadge2.Checked = false;
+
+                // Guard Badge Check
+                savegame_br.BaseStream.Position = 0xA07;
+                byte guardbadgecheck = (byte)savegame_fs.ReadByte();
+                int guardbadgecheck2 = (byte)((guardbadgecheck & 4) >> 2);
+                if (guardbadgecheck2 == 1)
+                    checkBoxBadge3.Checked = true;
+                if (guardbadgecheck2 == 0)
+                    checkBoxBadge3.Checked = false;
+
+                // Virus Badge Check
+                savegame_br.BaseStream.Position = 0xA07;
+                byte virusbadgecheck = (byte)savegame_fs.ReadByte();
+                int virusbadgecheck2 = (byte)((virusbadgecheck & 8) >> 3);
+                if (virusbadgecheck2 == 1)
+                    checkBoxBadge4.Checked = true;
+                if (virusbadgecheck2 == 0)
+                    checkBoxBadge4.Checked = false;
+
+                // Risk Badge Check
+                savegame_br.BaseStream.Position = 0xA07;
+                byte riskbadgecheck = (byte)savegame_fs.ReadByte();
+                int riskbadgecheck2 = (byte)((riskbadgecheck & 16) >> 4);
+                if (riskbadgecheck2 == 1)
+                    checkBoxBadge5.Checked = true;
+                if (riskbadgecheck2 == 0)
+                    checkBoxBadge5.Checked = false;
+
+                // Miracle Badge Check
+                savegame_br.BaseStream.Position = 0xA07;
+                byte miraclebadgecheck = (byte)savegame_fs.ReadByte();
+                int miraclebadgecheck2 = (byte)((miraclebadgecheck & 32) >> 5);
+                if (miraclebadgecheck2 == 1)
+                    checkBoxBadge6.Checked = true;
+                if (miraclebadgecheck2 == 0)
+                    checkBoxBadge6.Checked = false;
+
+
+
+
                 // Money
                 savegame_br.BaseStream.Position = 0x91C;
                 byte[] money = savegame_br.ReadBytes(4);
@@ -4519,6 +5438,173 @@ namespace Save_Editor_1
         {
             AboutForm f3 = new AboutForm();
             f3.ShowDialog();
+        }
+
+        private void comboBox6_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelMarioSPAmount_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelLuigiSPAmount_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabBadges_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxBadgeStock4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxBadgeStock3.SelectedIndex != 0 & comboBoxBadgeStock4.SelectedIndex != 0)
+            {
+                comboBoxBadgeStock5.Enabled = true;
+                comboBoxBadgeStock6.Enabled = true;
+            }
+            if (comboBoxBadgeStock4.SelectedIndex == 0)
+            {
+                comboBoxBadgeStock5.Enabled = false;
+                comboBoxBadgeStock6.Enabled = false;
+            }
+        }
+
+        private void comboBoxBadgeStock6_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxBadgeStock5.SelectedIndex != 0 & comboBoxBadgeStock6.SelectedIndex != 0)
+            {
+                comboBoxBadgeStock7.Enabled = true;
+                comboBoxBadgeStock8.Enabled = true;
+            }
+            if (comboBoxBadgeStock6.SelectedIndex == 0)
+            {
+                comboBoxBadgeStock7.Enabled = false;
+                comboBoxBadgeStock8.Enabled = false;
+            }
+        }
+
+        private void comboBoxBadgeStock7_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxBadgeStock5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxBadgeStock5.SelectedIndex != 0 & comboBoxBadgeStock6.SelectedIndex != 0)
+            {
+                comboBoxBadgeStock7.Enabled = true;
+                comboBoxBadgeStock8.Enabled = true;
+            }
+            if (comboBoxBadgeStock5.SelectedIndex == 0)
+            {
+                comboBoxBadgeStock7.Enabled = false;
+                comboBoxBadgeStock8.Enabled = false;
+            }
+        }
+
+        private void comboBoxBadgeStock3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxBadgeStock3.SelectedIndex != 0 & comboBoxBadgeStock4.SelectedIndex != 0)
+            {
+                comboBoxBadgeStock5.Enabled = true;
+                comboBoxBadgeStock6.Enabled = true;
+            }
+            if (comboBoxBadgeStock3.SelectedIndex == 0)
+            {
+                comboBoxBadgeStock5.Enabled = false;
+                comboBoxBadgeStock6.Enabled = false;
+            }
+        }
+
+        private void comboBoxBadgeStock8_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxBadgeStock1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxBadgeStock1.SelectedIndex != 0 & comboBoxBadgeStock2.SelectedIndex != 0)
+            {
+                comboBoxBadgeStock3.Enabled = true;
+                comboBoxBadgeStock4.Enabled = true;
+            }
+            if (comboBoxBadgeStock1.SelectedIndex == 0)
+            {
+                comboBoxBadgeStock3.Enabled = false;
+                comboBoxBadgeStock4.Enabled = false;
+            }
+        }
+
+        private void comboBoxBadgeStock2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxBadgeStock1.SelectedIndex != 0 & comboBoxBadgeStock2.SelectedIndex != 0)
+            {
+                comboBoxBadgeStock3.Enabled = true;
+                comboBoxBadgeStock4.Enabled = true;
+            }
+            if (comboBoxBadgeStock2.SelectedIndex == 0)
+            {
+                comboBoxBadgeStock3.Enabled = false;
+                comboBoxBadgeStock4.Enabled = false;
+            }
+        }
+
+        private void numericROBadgesInStock_ValueChanged(object sender, EventArgs e)
+        {
+            if (comboBoxBadgeStock1.SelectedIndex != 0 & comboBoxBadgeStock2.SelectedIndex != 0)
+                numericROBadgesInStock.Value += 1;
+            else if (comboBoxBadgeStock1.SelectedIndex == 0 & comboBoxBadgeStock2.SelectedIndex == 0)
+                numericROBadgesInStock.Value -= 1;
+
+            if (comboBoxBadgeStock3.SelectedIndex != 0 & comboBoxBadgeStock4.SelectedIndex != 0)
+                numericROBadgesInStock.Value += 1;
+            else if (comboBoxBadgeStock3.SelectedIndex == 0 & comboBoxBadgeStock4.SelectedIndex == 0)
+                numericROBadgesInStock.Value -= 1;
+
+            if (comboBoxBadgeStock5.SelectedIndex != 0 & comboBoxBadgeStock6.SelectedIndex != 0)
+                numericROBadgesInStock.Value += 1;
+            else if (comboBoxBadgeStock5.SelectedIndex == 0 & comboBoxBadgeStock6.SelectedIndex == 0)
+                numericROBadgesInStock.Value -= 1;
+
+            if (comboBoxBadgeStock7.SelectedIndex != 0 & comboBoxBadgeStock8.SelectedIndex != 0)
+                numericROBadgesInStock.Value += 1;
+            else if (comboBoxBadgeStock7.SelectedIndex == 0 & comboBoxBadgeStock8.SelectedIndex == 0)
+                numericROBadgesInStock.Value -= 1;
         }
     }
 }

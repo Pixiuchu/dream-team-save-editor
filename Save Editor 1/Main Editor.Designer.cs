@@ -35,6 +35,8 @@ namespace Save_Editor_1
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.save = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabMario = new System.Windows.Forms.TabPage();
             this.buttonMInformation = new System.Windows.Forms.Button();
@@ -76,9 +78,9 @@ namespace Save_Editor_1
             this.labelMRainbowBonus = new System.Windows.Forms.Label();
             this.comboBoxMExtraBonus = new System.Windows.Forms.ComboBox();
             this.labelMFlowerBonus = new System.Windows.Forms.Label();
-            this.labelNumberBadges = new System.Windows.Forms.Label();
             this.labelMShellBonus = new System.Windows.Forms.Label();
             this.checkBoxMGearSlot2 = new System.Windows.Forms.CheckBox();
+            this.labelNumberBadges = new System.Windows.Forms.Label();
             this.comboBoxMRainbowBonus = new System.Windows.Forms.ComboBox();
             this.checkBoxMGearSlot1 = new System.Windows.Forms.CheckBox();
             this.comboBoxMStarBonus = new System.Windows.Forms.ComboBox();
@@ -581,6 +583,49 @@ namespace Save_Editor_1
             this.labelAccessories29 = new System.Windows.Forms.Label();
             this.labelAccessories30 = new System.Windows.Forms.Label();
             this.labelAccessories12 = new System.Windows.Forms.Label();
+            this.tabBadges = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.numericROBadgesInStock = new System.Windows.Forms.NumericUpDown();
+            this.groupBoxBadgeCutscenes = new System.Windows.Forms.GroupBox();
+            this.checkBoxWakeportBadgeCampaign = new System.Windows.Forms.CheckBox();
+            this.checkBoxPiilloCastleBadgeShopOnOff = new System.Windows.Forms.CheckBox();
+            this.checkBoxDozingSandsCutsceneBadge = new System.Windows.Forms.CheckBox();
+            this.groupBoxBadgeStock = new System.Windows.Forms.GroupBox();
+            this.comboBoxBadgeStock8 = new System.Windows.Forms.ComboBox();
+            this.comboBoxBadgeStock6 = new System.Windows.Forms.ComboBox();
+            this.comboBoxBadgeStock4 = new System.Windows.Forms.ComboBox();
+            this.comboBoxBadgeStock2 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.comboBoxBadgeStock7 = new System.Windows.Forms.ComboBox();
+            this.comboBoxBadgeStock5 = new System.Windows.Forms.ComboBox();
+            this.comboBoxBadgeStock3 = new System.Windows.Forms.ComboBox();
+            this.comboBoxBadgeStock1 = new System.Windows.Forms.ComboBox();
+            this.groupBoxSelectedBadges = new System.Windows.Forms.GroupBox();
+            this.labelMarioBadge = new System.Windows.Forms.Label();
+            this.labelLuigiBadge = new System.Windows.Forms.Label();
+            this.labelMarioSPAmount = new System.Windows.Forms.Label();
+            this.comboBoxLuigiSelectedBadge = new System.Windows.Forms.ComboBox();
+            this.labelLuigiSPAmount = new System.Windows.Forms.Label();
+            this.comboBoxMarioSelectedBadge = new System.Windows.Forms.ComboBox();
+            this.numericUpDownMarioCurrentSP = new System.Windows.Forms.NumericUpDown();
+            this.labelSPRequiredText = new System.Windows.Forms.Label();
+            this.numericUpDownLuigiCurrentSP = new System.Windows.Forms.NumericUpDown();
+            this.labelSPRequiredNumber = new System.Windows.Forms.Label();
+            this.groupBoxAvailableBadges = new System.Windows.Forms.GroupBox();
+            this.checkBoxToggleAllOnOff = new System.Windows.Forms.CheckBox();
+            this.checkBoxBadge12 = new System.Windows.Forms.CheckBox();
+            this.checkBoxBadge9 = new System.Windows.Forms.CheckBox();
+            this.checkBoxBadge11 = new System.Windows.Forms.CheckBox();
+            this.checkBoxBadge2 = new System.Windows.Forms.CheckBox();
+            this.checkBoxBadge10 = new System.Windows.Forms.CheckBox();
+            this.checkBoxBadge8 = new System.Windows.Forms.CheckBox();
+            this.checkBoxBadge1 = new System.Windows.Forms.CheckBox();
+            this.checkBoxBadge7 = new System.Windows.Forms.CheckBox();
+            this.checkBoxBadge3 = new System.Windows.Forms.CheckBox();
+            this.checkBoxBadge6 = new System.Windows.Forms.CheckBox();
+            this.checkBoxBadge4 = new System.Windows.Forms.CheckBox();
+            this.checkBoxBadge5 = new System.Windows.Forms.CheckBox();
             this.tabAbilties = new System.Windows.Forms.TabPage();
             this.checkBoxAbiltiesOnOff = new System.Windows.Forms.CheckBox();
             this.numericRODWAb = new System.Windows.Forms.NumericUpDown();
@@ -625,8 +670,6 @@ namespace Save_Editor_1
             this.numericRORankupBonusCombo8 = new System.Windows.Forms.NumericUpDown();
             this.numericRORankupBonusCombo9 = new System.Windows.Forms.NumericUpDown();
             this.numericRORankupBonusCombo10 = new System.Windows.Forms.NumericUpDown();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabMario.SuspendLayout();
@@ -897,6 +940,15 @@ namespace Save_Editor_1
             ((System.ComponentModel.ISupportInitialize)(this.numericAccessories30)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericAccessories20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericAccessories27)).BeginInit();
+            this.tabBadges.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericROBadgesInStock)).BeginInit();
+            this.groupBoxBadgeCutscenes.SuspendLayout();
+            this.groupBoxBadgeStock.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            this.groupBoxSelectedBadges.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMarioCurrentSP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLuigiCurrentSP)).BeginInit();
+            this.groupBoxAvailableBadges.SuspendLayout();
             this.tabAbilties.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericRODWAb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericRORWAb)).BeginInit();
@@ -961,11 +1013,27 @@ namespace Save_Editor_1
             this.closeToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.closeToolStripMenuItem.Text = "Close";
             // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabMario);
             this.tabControl1.Controls.Add(this.tabLuigi);
             this.tabControl1.Controls.Add(this.tabInventory);
+            this.tabControl1.Controls.Add(this.tabBadges);
             this.tabControl1.Controls.Add(this.tabAbilties);
             this.tabControl1.Controls.Add(this.tabMisc);
             this.tabControl1.Location = new System.Drawing.Point(0, 27);
@@ -973,7 +1041,6 @@ namespace Save_Editor_1
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(495, 422);
             this.tabControl1.TabIndex = 3;
-            this.tabControl1.Visible = false;
             // 
             // tabMario
             // 
@@ -1386,9 +1453,9 @@ namespace Save_Editor_1
             this.groupBoxMRankUpBonuses.Controls.Add(this.labelMRainbowBonus);
             this.groupBoxMRankUpBonuses.Controls.Add(this.comboBoxMExtraBonus);
             this.groupBoxMRankUpBonuses.Controls.Add(this.labelMFlowerBonus);
-            this.groupBoxMRankUpBonuses.Controls.Add(this.labelNumberBadges);
             this.groupBoxMRankUpBonuses.Controls.Add(this.labelMShellBonus);
             this.groupBoxMRankUpBonuses.Controls.Add(this.checkBoxMGearSlot2);
+            this.groupBoxMRankUpBonuses.Controls.Add(this.labelNumberBadges);
             this.groupBoxMRankUpBonuses.Controls.Add(this.comboBoxMRainbowBonus);
             this.groupBoxMRankUpBonuses.Controls.Add(this.checkBoxMGearSlot1);
             this.groupBoxMRankUpBonuses.Controls.Add(this.comboBoxMStarBonus);
@@ -1477,16 +1544,6 @@ namespace Save_Editor_1
             this.labelMFlowerBonus.TabIndex = 34;
             this.labelMFlowerBonus.Text = "Flower Rank...";
             // 
-            // labelNumberBadges
-            // 
-            this.labelNumberBadges.AutoSize = true;
-            this.labelNumberBadges.Location = new System.Drawing.Point(22, 43);
-            this.labelNumberBadges.Name = "labelNumberBadges";
-            this.labelNumberBadges.Size = new System.Drawing.Size(116, 26);
-            this.labelNumberBadges.TabIndex = 24;
-            this.labelNumberBadges.Text = "Number of Badge Slots\r\n(Universal)";
-            this.labelNumberBadges.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // labelMShellBonus
             // 
             this.labelMShellBonus.AutoSize = true;
@@ -1507,6 +1564,16 @@ namespace Save_Editor_1
             this.checkBoxMGearSlot2.Text = "Gear Slot +1";
             this.checkBoxMGearSlot2.UseVisualStyleBackColor = true;
             this.checkBoxMGearSlot2.CheckedChanged += new System.EventHandler(this.checkBoxMGearSlot2_CheckedChanged);
+            // 
+            // labelNumberBadges
+            // 
+            this.labelNumberBadges.AutoSize = true;
+            this.labelNumberBadges.Location = new System.Drawing.Point(22, 43);
+            this.labelNumberBadges.Name = "labelNumberBadges";
+            this.labelNumberBadges.Size = new System.Drawing.Size(116, 26);
+            this.labelNumberBadges.TabIndex = 24;
+            this.labelNumberBadges.Text = "Number of Badge Slots\r\n(Universal)";
+            this.labelNumberBadges.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // comboBoxMRainbowBonus
             // 
@@ -7460,6 +7527,569 @@ namespace Save_Editor_1
             this.labelAccessories12.TabIndex = 25;
             this.labelAccessories12.Text = "BP Bangle";
             // 
+            // tabBadges
+            // 
+            this.tabBadges.Controls.Add(this.textBox1);
+            this.tabBadges.Controls.Add(this.numericROBadgesInStock);
+            this.tabBadges.Controls.Add(this.groupBoxBadgeCutscenes);
+            this.tabBadges.Controls.Add(this.groupBoxBadgeStock);
+            this.tabBadges.Controls.Add(this.groupBoxSelectedBadges);
+            this.tabBadges.Controls.Add(this.groupBoxAvailableBadges);
+            this.tabBadges.Location = new System.Drawing.Point(4, 22);
+            this.tabBadges.Name = "tabBadges";
+            this.tabBadges.Padding = new System.Windows.Forms.Padding(3);
+            this.tabBadges.Size = new System.Drawing.Size(487, 396);
+            this.tabBadges.TabIndex = 5;
+            this.tabBadges.Text = "Badges";
+            this.tabBadges.UseVisualStyleBackColor = true;
+            this.tabBadges.Click += new System.EventHandler(this.tabBadges_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(213, 361);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 20;
+            // 
+            // numericROBadgesInStock
+            // 
+            this.numericROBadgesInStock.Location = new System.Drawing.Point(420, 347);
+            this.numericROBadgesInStock.Maximum = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
+            this.numericROBadgesInStock.Name = "numericROBadgesInStock";
+            this.numericROBadgesInStock.Size = new System.Drawing.Size(37, 20);
+            this.numericROBadgesInStock.TabIndex = 14;
+            this.numericROBadgesInStock.ValueChanged += new System.EventHandler(this.numericROBadgesInStock_ValueChanged);
+            // 
+            // groupBoxBadgeCutscenes
+            // 
+            this.groupBoxBadgeCutscenes.Controls.Add(this.checkBoxWakeportBadgeCampaign);
+            this.groupBoxBadgeCutscenes.Controls.Add(this.checkBoxPiilloCastleBadgeShopOnOff);
+            this.groupBoxBadgeCutscenes.Controls.Add(this.checkBoxDozingSandsCutsceneBadge);
+            this.groupBoxBadgeCutscenes.Location = new System.Drawing.Point(8, 155);
+            this.groupBoxBadgeCutscenes.Name = "groupBoxBadgeCutscenes";
+            this.groupBoxBadgeCutscenes.Size = new System.Drawing.Size(241, 72);
+            this.groupBoxBadgeCutscenes.TabIndex = 19;
+            this.groupBoxBadgeCutscenes.TabStop = false;
+            this.groupBoxBadgeCutscenes.Text = "Shops";
+            // 
+            // checkBoxWakeportBadgeCampaign
+            // 
+            this.checkBoxWakeportBadgeCampaign.AutoSize = true;
+            this.checkBoxWakeportBadgeCampaign.Location = new System.Drawing.Point(6, 51);
+            this.checkBoxWakeportBadgeCampaign.Name = "checkBoxWakeportBadgeCampaign";
+            this.checkBoxWakeportBadgeCampaign.Size = new System.Drawing.Size(200, 17);
+            this.checkBoxWakeportBadgeCampaign.TabIndex = 1;
+            this.checkBoxWakeportBadgeCampaign.Text = "Wakeport Badge Campaign: Visited?";
+            this.checkBoxWakeportBadgeCampaign.UseVisualStyleBackColor = true;
+            this.checkBoxWakeportBadgeCampaign.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            // 
+            // checkBoxPiilloCastleBadgeShopOnOff
+            // 
+            this.checkBoxPiilloCastleBadgeShopOnOff.AutoSize = true;
+            this.checkBoxPiilloCastleBadgeShopOnOff.Location = new System.Drawing.Point(6, 19);
+            this.checkBoxPiilloCastleBadgeShopOnOff.Name = "checkBoxPiilloCastleBadgeShopOnOff";
+            this.checkBoxPiilloCastleBadgeShopOnOff.Size = new System.Drawing.Size(155, 17);
+            this.checkBoxPiilloCastleBadgeShopOnOff.TabIndex = 2;
+            this.checkBoxPiilloCastleBadgeShopOnOff.Text = "Castle Badge Shop: Open?";
+            this.checkBoxPiilloCastleBadgeShopOnOff.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxDozingSandsCutsceneBadge
+            // 
+            this.checkBoxDozingSandsCutsceneBadge.AutoSize = true;
+            this.checkBoxDozingSandsCutsceneBadge.Location = new System.Drawing.Point(6, 35);
+            this.checkBoxDozingSandsCutsceneBadge.Name = "checkBoxDozingSandsCutsceneBadge";
+            this.checkBoxDozingSandsCutsceneBadge.Size = new System.Drawing.Size(196, 17);
+            this.checkBoxDozingSandsCutsceneBadge.TabIndex = 0;
+            this.checkBoxDozingSandsCutsceneBadge.Text = "Dozing Sands Cutscene: Watched?";
+            this.checkBoxDozingSandsCutsceneBadge.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxBadgeStock
+            // 
+            this.groupBoxBadgeStock.Controls.Add(this.comboBoxBadgeStock8);
+            this.groupBoxBadgeStock.Controls.Add(this.comboBoxBadgeStock6);
+            this.groupBoxBadgeStock.Controls.Add(this.comboBoxBadgeStock4);
+            this.groupBoxBadgeStock.Controls.Add(this.comboBoxBadgeStock2);
+            this.groupBoxBadgeStock.Controls.Add(this.label1);
+            this.groupBoxBadgeStock.Controls.Add(this.numericUpDown3);
+            this.groupBoxBadgeStock.Controls.Add(this.comboBoxBadgeStock7);
+            this.groupBoxBadgeStock.Controls.Add(this.comboBoxBadgeStock5);
+            this.groupBoxBadgeStock.Controls.Add(this.comboBoxBadgeStock3);
+            this.groupBoxBadgeStock.Controls.Add(this.comboBoxBadgeStock1);
+            this.groupBoxBadgeStock.Location = new System.Drawing.Point(255, 155);
+            this.groupBoxBadgeStock.Name = "groupBoxBadgeStock";
+            this.groupBoxBadgeStock.Size = new System.Drawing.Size(226, 154);
+            this.groupBoxBadgeStock.TabIndex = 18;
+            this.groupBoxBadgeStock.TabStop = false;
+            this.groupBoxBadgeStock.Text = "Badges in stock";
+            // 
+            // comboBoxBadgeStock8
+            // 
+            this.comboBoxBadgeStock8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxBadgeStock8.Enabled = false;
+            this.comboBoxBadgeStock8.FormattingEnabled = true;
+            this.comboBoxBadgeStock8.Items.AddRange(new object[] {
+            "!!! Empty !!!",
+            "Starter",
+            "Master",
+            "Expert",
+            "Bronze",
+            "Silver",
+            "Gold"});
+            this.comboBoxBadgeStock8.Location = new System.Drawing.Point(117, 127);
+            this.comboBoxBadgeStock8.Name = "comboBoxBadgeStock8";
+            this.comboBoxBadgeStock8.Size = new System.Drawing.Size(105, 21);
+            this.comboBoxBadgeStock8.TabIndex = 13;
+            this.comboBoxBadgeStock8.SelectedIndexChanged += new System.EventHandler(this.comboBoxBadgeStock8_SelectedIndexChanged);
+            // 
+            // comboBoxBadgeStock6
+            // 
+            this.comboBoxBadgeStock6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxBadgeStock6.Enabled = false;
+            this.comboBoxBadgeStock6.FormattingEnabled = true;
+            this.comboBoxBadgeStock6.Items.AddRange(new object[] {
+            "!!! Empty !!!",
+            "Starter",
+            "Master",
+            "Expert",
+            "Bronze",
+            "Silver",
+            "Gold"});
+            this.comboBoxBadgeStock6.Location = new System.Drawing.Point(117, 100);
+            this.comboBoxBadgeStock6.Name = "comboBoxBadgeStock6";
+            this.comboBoxBadgeStock6.Size = new System.Drawing.Size(105, 21);
+            this.comboBoxBadgeStock6.TabIndex = 12;
+            this.comboBoxBadgeStock6.SelectedIndexChanged += new System.EventHandler(this.comboBoxBadgeStock6_SelectedIndexChanged);
+            // 
+            // comboBoxBadgeStock4
+            // 
+            this.comboBoxBadgeStock4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxBadgeStock4.Enabled = false;
+            this.comboBoxBadgeStock4.FormattingEnabled = true;
+            this.comboBoxBadgeStock4.Items.AddRange(new object[] {
+            "!!! Empty !!!",
+            "Starter",
+            "Master",
+            "Expert",
+            "Bronze",
+            "Silver",
+            "Gold"});
+            this.comboBoxBadgeStock4.Location = new System.Drawing.Point(117, 73);
+            this.comboBoxBadgeStock4.Name = "comboBoxBadgeStock4";
+            this.comboBoxBadgeStock4.Size = new System.Drawing.Size(105, 21);
+            this.comboBoxBadgeStock4.TabIndex = 11;
+            this.comboBoxBadgeStock4.SelectedIndexChanged += new System.EventHandler(this.comboBoxBadgeStock4_SelectedIndexChanged);
+            // 
+            // comboBoxBadgeStock2
+            // 
+            this.comboBoxBadgeStock2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxBadgeStock2.FormattingEnabled = true;
+            this.comboBoxBadgeStock2.Items.AddRange(new object[] {
+            "!!! Empty !!!",
+            "Starter",
+            "Master",
+            "Expert",
+            "Bronze",
+            "Silver",
+            "Gold"});
+            this.comboBoxBadgeStock2.Location = new System.Drawing.Point(117, 46);
+            this.comboBoxBadgeStock2.Name = "comboBoxBadgeStock2";
+            this.comboBoxBadgeStock2.Size = new System.Drawing.Size(105, 21);
+            this.comboBoxBadgeStock2.TabIndex = 10;
+            this.comboBoxBadgeStock2.SelectedIndexChanged += new System.EventHandler(this.comboBoxBadgeStock2_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(99, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(77, 13);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "No. of badges:";
+            // 
+            // numericUpDown3
+            // 
+            this.numericUpDown3.Location = new System.Drawing.Point(182, 18);
+            this.numericUpDown3.Maximum = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
+            this.numericUpDown3.Name = "numericUpDown3";
+            this.numericUpDown3.Size = new System.Drawing.Size(37, 20);
+            this.numericUpDown3.TabIndex = 8;
+            // 
+            // comboBoxBadgeStock7
+            // 
+            this.comboBoxBadgeStock7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxBadgeStock7.Enabled = false;
+            this.comboBoxBadgeStock7.FormattingEnabled = true;
+            this.comboBoxBadgeStock7.Items.AddRange(new object[] {
+            "!!! Empty !!!",
+            "Mush",
+            "Strike",
+            "Guard",
+            "Virus",
+            "Risk",
+            "Miracle"});
+            this.comboBoxBadgeStock7.Location = new System.Drawing.Point(4, 127);
+            this.comboBoxBadgeStock7.Name = "comboBoxBadgeStock7";
+            this.comboBoxBadgeStock7.Size = new System.Drawing.Size(105, 21);
+            this.comboBoxBadgeStock7.TabIndex = 7;
+            this.comboBoxBadgeStock7.SelectedIndexChanged += new System.EventHandler(this.comboBoxBadgeStock7_SelectedIndexChanged);
+            // 
+            // comboBoxBadgeStock5
+            // 
+            this.comboBoxBadgeStock5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxBadgeStock5.Enabled = false;
+            this.comboBoxBadgeStock5.FormattingEnabled = true;
+            this.comboBoxBadgeStock5.Items.AddRange(new object[] {
+            "!!! Empty !!!",
+            "Mush",
+            "Strike",
+            "Guard",
+            "Virus",
+            "Risk",
+            "Miracle"});
+            this.comboBoxBadgeStock5.Location = new System.Drawing.Point(4, 100);
+            this.comboBoxBadgeStock5.Name = "comboBoxBadgeStock5";
+            this.comboBoxBadgeStock5.Size = new System.Drawing.Size(105, 21);
+            this.comboBoxBadgeStock5.TabIndex = 6;
+            this.comboBoxBadgeStock5.SelectedIndexChanged += new System.EventHandler(this.comboBoxBadgeStock5_SelectedIndexChanged);
+            // 
+            // comboBoxBadgeStock3
+            // 
+            this.comboBoxBadgeStock3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxBadgeStock3.Enabled = false;
+            this.comboBoxBadgeStock3.FormattingEnabled = true;
+            this.comboBoxBadgeStock3.Items.AddRange(new object[] {
+            "!!! Empty !!!",
+            "Mush",
+            "Strike",
+            "Guard",
+            "Virus",
+            "Risk",
+            "Miracle"});
+            this.comboBoxBadgeStock3.Location = new System.Drawing.Point(4, 73);
+            this.comboBoxBadgeStock3.Name = "comboBoxBadgeStock3";
+            this.comboBoxBadgeStock3.Size = new System.Drawing.Size(105, 21);
+            this.comboBoxBadgeStock3.TabIndex = 5;
+            this.comboBoxBadgeStock3.SelectedIndexChanged += new System.EventHandler(this.comboBoxBadgeStock3_SelectedIndexChanged);
+            // 
+            // comboBoxBadgeStock1
+            // 
+            this.comboBoxBadgeStock1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxBadgeStock1.FormattingEnabled = true;
+            this.comboBoxBadgeStock1.Items.AddRange(new object[] {
+            "!!! Empty !!!",
+            "Mush",
+            "Strike",
+            "Guard",
+            "Virus",
+            "Risk",
+            "Miracle"});
+            this.comboBoxBadgeStock1.Location = new System.Drawing.Point(4, 46);
+            this.comboBoxBadgeStock1.Name = "comboBoxBadgeStock1";
+            this.comboBoxBadgeStock1.Size = new System.Drawing.Size(105, 21);
+            this.comboBoxBadgeStock1.TabIndex = 4;
+            this.comboBoxBadgeStock1.SelectedIndexChanged += new System.EventHandler(this.comboBoxBadgeStock1_SelectedIndexChanged);
+            // 
+            // groupBoxSelectedBadges
+            // 
+            this.groupBoxSelectedBadges.Controls.Add(this.labelMarioBadge);
+            this.groupBoxSelectedBadges.Controls.Add(this.labelLuigiBadge);
+            this.groupBoxSelectedBadges.Controls.Add(this.labelMarioSPAmount);
+            this.groupBoxSelectedBadges.Controls.Add(this.comboBoxLuigiSelectedBadge);
+            this.groupBoxSelectedBadges.Controls.Add(this.labelLuigiSPAmount);
+            this.groupBoxSelectedBadges.Controls.Add(this.comboBoxMarioSelectedBadge);
+            this.groupBoxSelectedBadges.Controls.Add(this.numericUpDownMarioCurrentSP);
+            this.groupBoxSelectedBadges.Controls.Add(this.labelSPRequiredText);
+            this.groupBoxSelectedBadges.Controls.Add(this.numericUpDownLuigiCurrentSP);
+            this.groupBoxSelectedBadges.Controls.Add(this.labelSPRequiredNumber);
+            this.groupBoxSelectedBadges.Location = new System.Drawing.Point(255, 7);
+            this.groupBoxSelectedBadges.Name = "groupBoxSelectedBadges";
+            this.groupBoxSelectedBadges.Size = new System.Drawing.Size(226, 142);
+            this.groupBoxSelectedBadges.TabIndex = 13;
+            this.groupBoxSelectedBadges.TabStop = false;
+            this.groupBoxSelectedBadges.Text = "Selected Badges";
+            // 
+            // labelMarioBadge
+            // 
+            this.labelMarioBadge.AutoSize = true;
+            this.labelMarioBadge.Location = new System.Drawing.Point(142, 15);
+            this.labelMarioBadge.Name = "labelMarioBadge";
+            this.labelMarioBadge.Size = new System.Drawing.Size(74, 13);
+            this.labelMarioBadge.TabIndex = 3;
+            this.labelMarioBadge.Text = "Mario\'s Badge";
+            // 
+            // labelLuigiBadge
+            // 
+            this.labelLuigiBadge.AutoSize = true;
+            this.labelLuigiBadge.Location = new System.Drawing.Point(3, 16);
+            this.labelLuigiBadge.Name = "labelLuigiBadge";
+            this.labelLuigiBadge.Size = new System.Drawing.Size(70, 13);
+            this.labelLuigiBadge.TabIndex = 2;
+            this.labelLuigiBadge.Text = "Luigi\'s Badge";
+            // 
+            // labelMarioSPAmount
+            // 
+            this.labelMarioSPAmount.AutoSize = true;
+            this.labelMarioSPAmount.Location = new System.Drawing.Point(119, 112);
+            this.labelMarioSPAmount.Name = "labelMarioSPAmount";
+            this.labelMarioSPAmount.Size = new System.Drawing.Size(57, 13);
+            this.labelMarioSPAmount.TabIndex = 17;
+            this.labelMarioSPAmount.Text = "Mario\'s SP";
+            // 
+            // comboBoxLuigiSelectedBadge
+            // 
+            this.comboBoxLuigiSelectedBadge.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxLuigiSelectedBadge.FormattingEnabled = true;
+            this.comboBoxLuigiSelectedBadge.Items.AddRange(new object[] {
+            "Mush Badge",
+            "Strike Badge",
+            "Guard Badge",
+            "Virus Badge",
+            "Risk Badge",
+            "Miracle Badge"});
+            this.comboBoxLuigiSelectedBadge.Location = new System.Drawing.Point(4, 32);
+            this.comboBoxLuigiSelectedBadge.Name = "comboBoxLuigiSelectedBadge";
+            this.comboBoxLuigiSelectedBadge.Size = new System.Drawing.Size(105, 21);
+            this.comboBoxLuigiSelectedBadge.TabIndex = 0;
+            // 
+            // labelLuigiSPAmount
+            // 
+            this.labelLuigiSPAmount.AutoSize = true;
+            this.labelLuigiSPAmount.Location = new System.Drawing.Point(123, 87);
+            this.labelLuigiSPAmount.Name = "labelLuigiSPAmount";
+            this.labelLuigiSPAmount.Size = new System.Drawing.Size(53, 13);
+            this.labelLuigiSPAmount.TabIndex = 16;
+            this.labelLuigiSPAmount.Text = "Luigi\'s SP";
+            // 
+            // comboBoxMarioSelectedBadge
+            // 
+            this.comboBoxMarioSelectedBadge.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxMarioSelectedBadge.FormattingEnabled = true;
+            this.comboBoxMarioSelectedBadge.Items.AddRange(new object[] {
+            "Starter Badge",
+            "Master Badge",
+            "Expert Badge",
+            "Bronze Badge",
+            "Silver Badge",
+            "Gold Badge"});
+            this.comboBoxMarioSelectedBadge.Location = new System.Drawing.Point(117, 32);
+            this.comboBoxMarioSelectedBadge.Name = "comboBoxMarioSelectedBadge";
+            this.comboBoxMarioSelectedBadge.Size = new System.Drawing.Size(105, 21);
+            this.comboBoxMarioSelectedBadge.TabIndex = 1;
+            // 
+            // numericUpDownMarioCurrentSP
+            // 
+            this.numericUpDownMarioCurrentSP.Location = new System.Drawing.Point(176, 109);
+            this.numericUpDownMarioCurrentSP.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.numericUpDownMarioCurrentSP.Name = "numericUpDownMarioCurrentSP";
+            this.numericUpDownMarioCurrentSP.Size = new System.Drawing.Size(43, 20);
+            this.numericUpDownMarioCurrentSP.TabIndex = 15;
+            this.numericUpDownMarioCurrentSP.Value = new decimal(new int[] {
+            900,
+            0,
+            0,
+            0});
+            // 
+            // labelSPRequiredText
+            // 
+            this.labelSPRequiredText.AutoSize = true;
+            this.labelSPRequiredText.Location = new System.Drawing.Point(26, 66);
+            this.labelSPRequiredText.Name = "labelSPRequiredText";
+            this.labelSPRequiredText.Size = new System.Drawing.Size(176, 13);
+            this.labelSPRequiredText.TabIndex = 10;
+            this.labelSPRequiredText.Text = "SP required for current combination:";
+            // 
+            // numericUpDownLuigiCurrentSP
+            // 
+            this.numericUpDownLuigiCurrentSP.Location = new System.Drawing.Point(176, 83);
+            this.numericUpDownLuigiCurrentSP.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.numericUpDownLuigiCurrentSP.Name = "numericUpDownLuigiCurrentSP";
+            this.numericUpDownLuigiCurrentSP.Size = new System.Drawing.Size(43, 20);
+            this.numericUpDownLuigiCurrentSP.TabIndex = 14;
+            this.numericUpDownLuigiCurrentSP.Value = new decimal(new int[] {
+            900,
+            0,
+            0,
+            0});
+            // 
+            // labelSPRequiredNumber
+            // 
+            this.labelSPRequiredNumber.AutoSize = true;
+            this.labelSPRequiredNumber.Location = new System.Drawing.Point(197, 67);
+            this.labelSPRequiredNumber.MinimumSize = new System.Drawing.Size(25, 13);
+            this.labelSPRequiredNumber.Name = "labelSPRequiredNumber";
+            this.labelSPRequiredNumber.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.labelSPRequiredNumber.Size = new System.Drawing.Size(25, 13);
+            this.labelSPRequiredNumber.TabIndex = 11;
+            this.labelSPRequiredNumber.Text = "0";
+            // 
+            // groupBoxAvailableBadges
+            // 
+            this.groupBoxAvailableBadges.Controls.Add(this.checkBoxToggleAllOnOff);
+            this.groupBoxAvailableBadges.Controls.Add(this.checkBoxBadge12);
+            this.groupBoxAvailableBadges.Controls.Add(this.checkBoxBadge9);
+            this.groupBoxAvailableBadges.Controls.Add(this.checkBoxBadge11);
+            this.groupBoxAvailableBadges.Controls.Add(this.checkBoxBadge2);
+            this.groupBoxAvailableBadges.Controls.Add(this.checkBoxBadge10);
+            this.groupBoxAvailableBadges.Controls.Add(this.checkBoxBadge8);
+            this.groupBoxAvailableBadges.Controls.Add(this.checkBoxBadge1);
+            this.groupBoxAvailableBadges.Controls.Add(this.checkBoxBadge7);
+            this.groupBoxAvailableBadges.Controls.Add(this.checkBoxBadge3);
+            this.groupBoxAvailableBadges.Controls.Add(this.checkBoxBadge6);
+            this.groupBoxAvailableBadges.Controls.Add(this.checkBoxBadge4);
+            this.groupBoxAvailableBadges.Controls.Add(this.checkBoxBadge5);
+            this.groupBoxAvailableBadges.Location = new System.Drawing.Point(8, 6);
+            this.groupBoxAvailableBadges.Name = "groupBoxAvailableBadges";
+            this.groupBoxAvailableBadges.Size = new System.Drawing.Size(241, 143);
+            this.groupBoxAvailableBadges.TabIndex = 12;
+            this.groupBoxAvailableBadges.TabStop = false;
+            this.groupBoxAvailableBadges.Text = "Available Badges";
+            // 
+            // checkBoxToggleAllOnOff
+            // 
+            this.checkBoxToggleAllOnOff.AutoSize = true;
+            this.checkBoxToggleAllOnOff.Location = new System.Drawing.Point(63, 122);
+            this.checkBoxToggleAllOnOff.Name = "checkBoxToggleAllOnOff";
+            this.checkBoxToggleAllOnOff.Size = new System.Drawing.Size(116, 17);
+            this.checkBoxToggleAllOnOff.TabIndex = 4;
+            this.checkBoxToggleAllOnOff.Text = "Toggle all ON/OFF";
+            this.checkBoxToggleAllOnOff.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxBadge12
+            // 
+            this.checkBoxBadge12.AutoSize = true;
+            this.checkBoxBadge12.Location = new System.Drawing.Point(144, 104);
+            this.checkBoxBadge12.Name = "checkBoxBadge12";
+            this.checkBoxBadge12.Size = new System.Drawing.Size(82, 17);
+            this.checkBoxBadge12.TabIndex = 7;
+            this.checkBoxBadge12.Text = "Gold Badge";
+            this.checkBoxBadge12.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxBadge9
+            // 
+            this.checkBoxBadge9.AutoSize = true;
+            this.checkBoxBadge9.Location = new System.Drawing.Point(144, 56);
+            this.checkBoxBadge9.Name = "checkBoxBadge9";
+            this.checkBoxBadge9.Size = new System.Drawing.Size(90, 17);
+            this.checkBoxBadge9.TabIndex = 12;
+            this.checkBoxBadge9.Text = "Expert Badge";
+            this.checkBoxBadge9.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxBadge11
+            // 
+            this.checkBoxBadge11.AutoSize = true;
+            this.checkBoxBadge11.Location = new System.Drawing.Point(144, 88);
+            this.checkBoxBadge11.Name = "checkBoxBadge11";
+            this.checkBoxBadge11.Size = new System.Drawing.Size(86, 17);
+            this.checkBoxBadge11.TabIndex = 6;
+            this.checkBoxBadge11.Text = "Silver Badge";
+            this.checkBoxBadge11.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxBadge2
+            // 
+            this.checkBoxBadge2.AutoSize = true;
+            this.checkBoxBadge2.Location = new System.Drawing.Point(9, 40);
+            this.checkBoxBadge2.Name = "checkBoxBadge2";
+            this.checkBoxBadge2.Size = new System.Drawing.Size(87, 17);
+            this.checkBoxBadge2.TabIndex = 1;
+            this.checkBoxBadge2.Text = "Strike Badge";
+            this.checkBoxBadge2.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxBadge10
+            // 
+            this.checkBoxBadge10.AutoSize = true;
+            this.checkBoxBadge10.Location = new System.Drawing.Point(144, 72);
+            this.checkBoxBadge10.Name = "checkBoxBadge10";
+            this.checkBoxBadge10.Size = new System.Drawing.Size(93, 17);
+            this.checkBoxBadge10.TabIndex = 5;
+            this.checkBoxBadge10.Text = "Bronze Badge";
+            this.checkBoxBadge10.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxBadge8
+            // 
+            this.checkBoxBadge8.AutoSize = true;
+            this.checkBoxBadge8.Location = new System.Drawing.Point(144, 40);
+            this.checkBoxBadge8.Name = "checkBoxBadge8";
+            this.checkBoxBadge8.Size = new System.Drawing.Size(92, 17);
+            this.checkBoxBadge8.TabIndex = 11;
+            this.checkBoxBadge8.Text = "Master Badge";
+            this.checkBoxBadge8.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxBadge1
+            // 
+            this.checkBoxBadge1.AutoSize = true;
+            this.checkBoxBadge1.Location = new System.Drawing.Point(9, 24);
+            this.checkBoxBadge1.Name = "checkBoxBadge1";
+            this.checkBoxBadge1.Size = new System.Drawing.Size(86, 17);
+            this.checkBoxBadge1.TabIndex = 0;
+            this.checkBoxBadge1.Text = "Mush Badge";
+            this.checkBoxBadge1.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxBadge7
+            // 
+            this.checkBoxBadge7.AutoSize = true;
+            this.checkBoxBadge7.Location = new System.Drawing.Point(144, 24);
+            this.checkBoxBadge7.Name = "checkBoxBadge7";
+            this.checkBoxBadge7.Size = new System.Drawing.Size(91, 17);
+            this.checkBoxBadge7.TabIndex = 10;
+            this.checkBoxBadge7.Text = "Starter Badge";
+            this.checkBoxBadge7.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxBadge3
+            // 
+            this.checkBoxBadge3.AutoSize = true;
+            this.checkBoxBadge3.Location = new System.Drawing.Point(9, 56);
+            this.checkBoxBadge3.Name = "checkBoxBadge3";
+            this.checkBoxBadge3.Size = new System.Drawing.Size(89, 17);
+            this.checkBoxBadge3.TabIndex = 3;
+            this.checkBoxBadge3.Text = "Guard Badge";
+            this.checkBoxBadge3.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxBadge6
+            // 
+            this.checkBoxBadge6.AutoSize = true;
+            this.checkBoxBadge6.Location = new System.Drawing.Point(9, 104);
+            this.checkBoxBadge6.Name = "checkBoxBadge6";
+            this.checkBoxBadge6.Size = new System.Drawing.Size(94, 17);
+            this.checkBoxBadge6.TabIndex = 9;
+            this.checkBoxBadge6.Text = "Miracle Badge";
+            this.checkBoxBadge6.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxBadge4
+            // 
+            this.checkBoxBadge4.AutoSize = true;
+            this.checkBoxBadge4.Location = new System.Drawing.Point(9, 72);
+            this.checkBoxBadge4.Name = "checkBoxBadge4";
+            this.checkBoxBadge4.Size = new System.Drawing.Size(83, 17);
+            this.checkBoxBadge4.TabIndex = 8;
+            this.checkBoxBadge4.Text = "Virus Badge";
+            this.checkBoxBadge4.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxBadge5
+            // 
+            this.checkBoxBadge5.AutoSize = true;
+            this.checkBoxBadge5.Location = new System.Drawing.Point(9, 88);
+            this.checkBoxBadge5.Name = "checkBoxBadge5";
+            this.checkBoxBadge5.Size = new System.Drawing.Size(81, 17);
+            this.checkBoxBadge5.TabIndex = 4;
+            this.checkBoxBadge5.Text = "Risk Badge";
+            this.checkBoxBadge5.UseVisualStyleBackColor = true;
+            // 
             // tabAbilties
             // 
             this.tabAbilties.Controls.Add(this.checkBoxAbiltiesOnOff);
@@ -8000,21 +8630,6 @@ namespace Save_Editor_1
             this.numericRORankupBonusCombo10.TabIndex = 48;
             this.numericRORankupBonusCombo10.Visible = false;
             // 
-            // helpToolStripMenuItem
-            // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
-            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -8327,6 +8942,20 @@ namespace Save_Editor_1
             ((System.ComponentModel.ISupportInitialize)(this.numericAccessories30)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericAccessories20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericAccessories27)).EndInit();
+            this.tabBadges.ResumeLayout(false);
+            this.tabBadges.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericROBadgesInStock)).EndInit();
+            this.groupBoxBadgeCutscenes.ResumeLayout(false);
+            this.groupBoxBadgeCutscenes.PerformLayout();
+            this.groupBoxBadgeStock.ResumeLayout(false);
+            this.groupBoxBadgeStock.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            this.groupBoxSelectedBadges.ResumeLayout(false);
+            this.groupBoxSelectedBadges.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMarioCurrentSP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLuigiCurrentSP)).EndInit();
+            this.groupBoxAvailableBadges.ResumeLayout(false);
+            this.groupBoxAvailableBadges.PerformLayout();
             this.tabAbilties.ResumeLayout(false);
             this.tabAbilties.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericRODWAb)).EndInit();
@@ -8955,6 +9584,49 @@ namespace Save_Editor_1
         private System.Windows.Forms.Button buttonLInformation;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.TabPage tabBadges;
+        private System.Windows.Forms.GroupBox groupBoxBadgeCutscenes;
+        private System.Windows.Forms.CheckBox checkBoxWakeportBadgeCampaign;
+        private System.Windows.Forms.CheckBox checkBoxPiilloCastleBadgeShopOnOff;
+        private System.Windows.Forms.CheckBox checkBoxDozingSandsCutsceneBadge;
+        private System.Windows.Forms.GroupBox groupBoxBadgeStock;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.ComboBox comboBoxBadgeStock7;
+        private System.Windows.Forms.ComboBox comboBoxBadgeStock5;
+        private System.Windows.Forms.ComboBox comboBoxBadgeStock3;
+        private System.Windows.Forms.ComboBox comboBoxBadgeStock1;
+        private System.Windows.Forms.Label labelMarioSPAmount;
+        private System.Windows.Forms.Label labelLuigiSPAmount;
+        private System.Windows.Forms.NumericUpDown numericUpDownMarioCurrentSP;
+        private System.Windows.Forms.NumericUpDown numericUpDownLuigiCurrentSP;
+        private System.Windows.Forms.GroupBox groupBoxSelectedBadges;
+        private System.Windows.Forms.Label labelMarioBadge;
+        private System.Windows.Forms.Label labelLuigiBadge;
+        private System.Windows.Forms.ComboBox comboBoxLuigiSelectedBadge;
+        private System.Windows.Forms.ComboBox comboBoxMarioSelectedBadge;
+        private System.Windows.Forms.GroupBox groupBoxAvailableBadges;
+        private System.Windows.Forms.CheckBox checkBoxToggleAllOnOff;
+        private System.Windows.Forms.CheckBox checkBoxBadge12;
+        private System.Windows.Forms.CheckBox checkBoxBadge9;
+        private System.Windows.Forms.CheckBox checkBoxBadge11;
+        private System.Windows.Forms.CheckBox checkBoxBadge2;
+        private System.Windows.Forms.CheckBox checkBoxBadge10;
+        private System.Windows.Forms.CheckBox checkBoxBadge8;
+        private System.Windows.Forms.CheckBox checkBoxBadge1;
+        private System.Windows.Forms.CheckBox checkBoxBadge7;
+        private System.Windows.Forms.CheckBox checkBoxBadge3;
+        private System.Windows.Forms.CheckBox checkBoxBadge6;
+        private System.Windows.Forms.CheckBox checkBoxBadge4;
+        private System.Windows.Forms.CheckBox checkBoxBadge5;
+        private System.Windows.Forms.Label labelSPRequiredNumber;
+        private System.Windows.Forms.Label labelSPRequiredText;
+        private System.Windows.Forms.ComboBox comboBoxBadgeStock8;
+        private System.Windows.Forms.ComboBox comboBoxBadgeStock6;
+        private System.Windows.Forms.ComboBox comboBoxBadgeStock4;
+        private System.Windows.Forms.ComboBox comboBoxBadgeStock2;
+        private System.Windows.Forms.NumericUpDown numericROBadgesInStock;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

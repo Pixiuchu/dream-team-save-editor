@@ -19,7 +19,7 @@ namespace Save_Editor_1
 
         private void linkLabel5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            
+            System.Diagnostics.Process.Start("https://gbatemp.net/threads/mario-luigi-dream-team-save-editor-v0-1-1.578291/");
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
