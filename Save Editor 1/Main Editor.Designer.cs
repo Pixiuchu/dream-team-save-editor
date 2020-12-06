@@ -596,7 +596,7 @@ namespace Save_Editor_1
             this.comboBoxBadgeStock4 = new System.Windows.Forms.ComboBox();
             this.comboBoxBadgeStock2 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.numericUniversalBadgeCount3 = new System.Windows.Forms.NumericUpDown();
             this.comboBoxBadgeStock7 = new System.Windows.Forms.ComboBox();
             this.comboBoxBadgeStock5 = new System.Windows.Forms.ComboBox();
             this.comboBoxBadgeStock3 = new System.Windows.Forms.ComboBox();
@@ -944,7 +944,7 @@ namespace Save_Editor_1
             ((System.ComponentModel.ISupportInitialize)(this.numericROBadgesInStock)).BeginInit();
             this.groupBoxBadgeCutscenes.SuspendLayout();
             this.groupBoxBadgeStock.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUniversalBadgeCount3)).BeginInit();
             this.groupBoxSelectedBadges.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMarioCurrentSP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLuigiCurrentSP)).BeginInit();
@@ -7614,7 +7614,7 @@ namespace Save_Editor_1
             this.groupBoxBadgeStock.Controls.Add(this.comboBoxBadgeStock4);
             this.groupBoxBadgeStock.Controls.Add(this.comboBoxBadgeStock2);
             this.groupBoxBadgeStock.Controls.Add(this.label1);
-            this.groupBoxBadgeStock.Controls.Add(this.numericUpDown3);
+            this.groupBoxBadgeStock.Controls.Add(this.numericUniversalBadgeCount3);
             this.groupBoxBadgeStock.Controls.Add(this.comboBoxBadgeStock7);
             this.groupBoxBadgeStock.Controls.Add(this.comboBoxBadgeStock5);
             this.groupBoxBadgeStock.Controls.Add(this.comboBoxBadgeStock3);
@@ -7710,17 +7710,18 @@ namespace Save_Editor_1
             this.label1.TabIndex = 9;
             this.label1.Text = "No. of badges:";
             // 
-            // numericUpDown3
+            // numericUniversalBadgeCount3
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(182, 18);
-            this.numericUpDown3.Maximum = new decimal(new int[] {
+            this.numericUniversalBadgeCount3.Location = new System.Drawing.Point(182, 18);
+            this.numericUniversalBadgeCount3.Maximum = new decimal(new int[] {
             4,
             0,
             0,
             0});
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(37, 20);
-            this.numericUpDown3.TabIndex = 8;
+            this.numericUniversalBadgeCount3.Name = "numericUniversalBadgeCount3";
+            this.numericUniversalBadgeCount3.Size = new System.Drawing.Size(37, 20);
+            this.numericUniversalBadgeCount3.TabIndex = 8;
+            this.numericUniversalBadgeCount3.ValueChanged += new System.EventHandler(this.numericUpDown3_ValueChanged);
             // 
             // comboBoxBadgeStock7
             // 
@@ -8949,7 +8950,7 @@ namespace Save_Editor_1
             this.groupBoxBadgeCutscenes.PerformLayout();
             this.groupBoxBadgeStock.ResumeLayout(false);
             this.groupBoxBadgeStock.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUniversalBadgeCount3)).EndInit();
             this.groupBoxSelectedBadges.ResumeLayout(false);
             this.groupBoxSelectedBadges.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMarioCurrentSP)).EndInit();
@@ -9591,7 +9592,7 @@ namespace Save_Editor_1
         private System.Windows.Forms.CheckBox checkBoxDozingSandsCutsceneBadge;
         private System.Windows.Forms.GroupBox groupBoxBadgeStock;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.NumericUpDown numericUniversalBadgeCount3;
         private System.Windows.Forms.ComboBox comboBoxBadgeStock7;
         private System.Windows.Forms.ComboBox comboBoxBadgeStock5;
         private System.Windows.Forms.ComboBox comboBoxBadgeStock3;
