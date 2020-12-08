@@ -584,6 +584,7 @@ namespace Save_Editor_1
             this.labelAccessories30 = new System.Windows.Forms.Label();
             this.labelAccessories12 = new System.Windows.Forms.Label();
             this.tabBadges = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.numericROBadgesInStock = new System.Windows.Forms.NumericUpDown();
             this.groupBoxBadgeCutscenes = new System.Windows.Forms.GroupBox();
@@ -628,7 +629,6 @@ namespace Save_Editor_1
             this.checkBoxBadge5 = new System.Windows.Forms.CheckBox();
             this.tabAbilties = new System.Windows.Forms.TabPage();
             this.checkBoxAbiltiesOnOff = new System.Windows.Forms.CheckBox();
-            this.numericRODWAb = new System.Windows.Forms.NumericUpDown();
             this.numericRORWAb = new System.Windows.Forms.NumericUpDown();
             this.groupBoxDWAbilities = new System.Windows.Forms.GroupBox();
             this.checkBoxDWAntigrav = new System.Windows.Forms.CheckBox();
@@ -659,6 +659,7 @@ namespace Save_Editor_1
             this.numericRONBCUnlock = new System.Windows.Forms.NumericUpDown();
             this.checkBoxNBCUnlockFlag = new System.Windows.Forms.CheckBox();
             this.box_money = new System.Windows.Forms.NumericUpDown();
+            this.numericRODWAb = new System.Windows.Forms.NumericUpDown();
             this.numericLExperienceHidden1 = new System.Windows.Forms.NumericUpDown();
             this.numericRORankupBonusCombo1 = new System.Windows.Forms.NumericUpDown();
             this.numericRORankupBonusCombo5 = new System.Windows.Forms.NumericUpDown();
@@ -670,6 +671,13 @@ namespace Save_Editor_1
             this.numericRORankupBonusCombo8 = new System.Windows.Forms.NumericUpDown();
             this.numericRORankupBonusCombo9 = new System.Windows.Forms.NumericUpDown();
             this.numericRORankupBonusCombo10 = new System.Windows.Forms.NumericUpDown();
+            this.tabHidden = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.labelHidden1 = new System.Windows.Forms.Label();
+            this.numericRO0x03 = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
+            this.labelNotFunctional = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabMario.SuspendLayout();
@@ -950,7 +958,6 @@ namespace Save_Editor_1
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownLuigiCurrentSP)).BeginInit();
             this.groupBoxAvailableBadges.SuspendLayout();
             this.tabAbilties.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericRODWAb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericRORWAb)).BeginInit();
             this.groupBoxDWAbilities.SuspendLayout();
             this.groupBoxRWAbilities.SuspendLayout();
@@ -958,6 +965,7 @@ namespace Save_Editor_1
             ((System.ComponentModel.ISupportInitialize)(this.numericROHaveBadges)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericRONBCUnlock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.box_money)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericRODWAb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericLExperienceHidden1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericRORankupBonusCombo1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericRORankupBonusCombo5)).BeginInit();
@@ -969,6 +977,9 @@ namespace Save_Editor_1
             ((System.ComponentModel.ISupportInitialize)(this.numericRORankupBonusCombo8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericRORankupBonusCombo9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericRORankupBonusCombo10)).BeginInit();
+            this.tabHidden.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericRO0x03)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -978,7 +989,7 @@ namespace Save_Editor_1
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(641, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1112, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -1041,6 +1052,7 @@ namespace Save_Editor_1
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(495, 422);
             this.tabControl1.TabIndex = 3;
+            this.tabControl1.Visible = false;
             // 
             // tabMario
             // 
@@ -1952,6 +1964,7 @@ namespace Save_Editor_1
             this.tabLuigi.TabIndex = 1;
             this.tabLuigi.Text = "Luigi";
             this.tabLuigi.UseVisualStyleBackColor = true;
+            this.tabLuigi.Click += new System.EventHandler(this.tabLuigi_Click);
             // 
             // buttonLInformation
             // 
@@ -1966,7 +1979,7 @@ namespace Save_Editor_1
             // 
             // numericROLGearSlot
             // 
-            this.numericROLGearSlot.Location = new System.Drawing.Point(306, 129);
+            this.numericROLGearSlot.Location = new System.Drawing.Point(304, 129);
             this.numericROLGearSlot.Maximum = new decimal(new int[] {
             256,
             0,
@@ -1975,7 +1988,6 @@ namespace Save_Editor_1
             this.numericROLGearSlot.Name = "numericROLGearSlot";
             this.numericROLGearSlot.Size = new System.Drawing.Size(63, 20);
             this.numericROLGearSlot.TabIndex = 67;
-            this.numericROLGearSlot.Visible = false;
             // 
             // numericLExperienceHidden2
             // 
@@ -7529,6 +7541,8 @@ namespace Save_Editor_1
             // 
             // tabBadges
             // 
+            this.tabBadges.Controls.Add(this.labelNotFunctional);
+            this.tabBadges.Controls.Add(this.label2);
             this.tabBadges.Controls.Add(this.textBox1);
             this.tabBadges.Controls.Add(this.numericROBadgesInStock);
             this.tabBadges.Controls.Add(this.groupBoxBadgeCutscenes);
@@ -7540,9 +7554,20 @@ namespace Save_Editor_1
             this.tabBadges.Padding = new System.Windows.Forms.Padding(3);
             this.tabBadges.Size = new System.Drawing.Size(487, 396);
             this.tabBadges.TabIndex = 5;
-            this.tabBadges.Text = "Badges";
+            this.tabBadges.Text = "Badges (NON-FUNCTIONAL)";
             this.tabBadges.UseVisualStyleBackColor = true;
             this.tabBadges.Click += new System.EventHandler(this.tabBadges_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(256, 312);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(177, 39);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "Number of badges in stock must not\r\nexceed number of slots you have!\r\nNote to sel" +
+    "f: fix this! (Help me!)";
+            this.label2.Visible = false;
             // 
             // textBox1
             // 
@@ -7550,10 +7575,11 @@ namespace Save_Editor_1
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 20;
+            this.textBox1.Visible = false;
             // 
             // numericROBadgesInStock
             // 
-            this.numericROBadgesInStock.Location = new System.Drawing.Point(420, 347);
+            this.numericROBadgesInStock.Location = new System.Drawing.Point(434, 361);
             this.numericROBadgesInStock.Maximum = new decimal(new int[] {
             4,
             0,
@@ -7562,6 +7588,7 @@ namespace Save_Editor_1
             this.numericROBadgesInStock.Name = "numericROBadgesInStock";
             this.numericROBadgesInStock.Size = new System.Drawing.Size(37, 20);
             this.numericROBadgesInStock.TabIndex = 14;
+            this.numericROBadgesInStock.Visible = false;
             this.numericROBadgesInStock.ValueChanged += new System.EventHandler(this.numericROBadgesInStock_ValueChanged);
             // 
             // groupBoxBadgeCutscenes
@@ -7575,6 +7602,7 @@ namespace Save_Editor_1
             this.groupBoxBadgeCutscenes.TabIndex = 19;
             this.groupBoxBadgeCutscenes.TabStop = false;
             this.groupBoxBadgeCutscenes.Text = "Shops";
+            this.groupBoxBadgeCutscenes.Visible = false;
             // 
             // checkBoxWakeportBadgeCampaign
             // 
@@ -7625,6 +7653,7 @@ namespace Save_Editor_1
             this.groupBoxBadgeStock.TabIndex = 18;
             this.groupBoxBadgeStock.TabStop = false;
             this.groupBoxBadgeStock.Text = "Badges in stock";
+            this.groupBoxBadgeStock.Visible = false;
             // 
             // comboBoxBadgeStock8
             // 
@@ -7816,6 +7845,7 @@ namespace Save_Editor_1
             this.groupBoxSelectedBadges.TabIndex = 13;
             this.groupBoxSelectedBadges.TabStop = false;
             this.groupBoxSelectedBadges.Text = "Selected Badges";
+            this.groupBoxSelectedBadges.Visible = false;
             // 
             // labelMarioBadge
             // 
@@ -7859,6 +7889,7 @@ namespace Save_Editor_1
             this.comboBoxLuigiSelectedBadge.Name = "comboBoxLuigiSelectedBadge";
             this.comboBoxLuigiSelectedBadge.Size = new System.Drawing.Size(105, 21);
             this.comboBoxLuigiSelectedBadge.TabIndex = 0;
+            this.comboBoxLuigiSelectedBadge.SelectedIndexChanged += new System.EventHandler(this.comboBoxLuigiSelectedBadge_SelectedIndexChanged);
             // 
             // labelLuigiSPAmount
             // 
@@ -7884,6 +7915,7 @@ namespace Save_Editor_1
             this.comboBoxMarioSelectedBadge.Name = "comboBoxMarioSelectedBadge";
             this.comboBoxMarioSelectedBadge.Size = new System.Drawing.Size(105, 21);
             this.comboBoxMarioSelectedBadge.TabIndex = 1;
+            this.comboBoxMarioSelectedBadge.SelectedIndexChanged += new System.EventHandler(this.comboBoxMarioSelectedBadge_SelectedIndexChanged);
             // 
             // numericUpDownMarioCurrentSP
             // 
@@ -7901,6 +7933,7 @@ namespace Save_Editor_1
             0,
             0,
             0});
+            this.numericUpDownMarioCurrentSP.ValueChanged += new System.EventHandler(this.numericUpDownMarioCurrentSP_ValueChanged);
             // 
             // labelSPRequiredText
             // 
@@ -7927,6 +7960,7 @@ namespace Save_Editor_1
             0,
             0,
             0});
+            this.numericUpDownLuigiCurrentSP.ValueChanged += new System.EventHandler(this.numericUpDownLuigiCurrentSP_ValueChanged);
             // 
             // labelSPRequiredNumber
             // 
@@ -7937,7 +7971,7 @@ namespace Save_Editor_1
             this.labelSPRequiredNumber.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.labelSPRequiredNumber.Size = new System.Drawing.Size(25, 13);
             this.labelSPRequiredNumber.TabIndex = 11;
-            this.labelSPRequiredNumber.Text = "0";
+            this.labelSPRequiredNumber.Click += new System.EventHandler(this.labelSPRequiredNumber_Click);
             // 
             // groupBoxAvailableBadges
             // 
@@ -7960,6 +7994,7 @@ namespace Save_Editor_1
             this.groupBoxAvailableBadges.TabIndex = 12;
             this.groupBoxAvailableBadges.TabStop = false;
             this.groupBoxAvailableBadges.Text = "Available Badges";
+            this.groupBoxAvailableBadges.Visible = false;
             // 
             // checkBoxToggleAllOnOff
             // 
@@ -8094,7 +8129,6 @@ namespace Save_Editor_1
             // tabAbilties
             // 
             this.tabAbilties.Controls.Add(this.checkBoxAbiltiesOnOff);
-            this.tabAbilties.Controls.Add(this.numericRODWAb);
             this.tabAbilties.Controls.Add(this.numericRORWAb);
             this.tabAbilties.Controls.Add(this.groupBoxDWAbilities);
             this.tabAbilties.Controls.Add(this.groupBoxRWAbilities);
@@ -8118,19 +8152,6 @@ namespace Save_Editor_1
             this.checkBoxAbiltiesOnOff.UseVisualStyleBackColor = true;
             this.checkBoxAbiltiesOnOff.CheckedChanged += new System.EventHandler(this.checkBoxAbiltiesOnOff_CheckedChanged);
             // 
-            // numericRODWAb
-            // 
-            this.numericRODWAb.Location = new System.Drawing.Point(74, 376);
-            this.numericRODWAb.Maximum = new decimal(new int[] {
-            65536,
-            0,
-            0,
-            0});
-            this.numericRODWAb.Name = "numericRODWAb";
-            this.numericRODWAb.Size = new System.Drawing.Size(62, 20);
-            this.numericRODWAb.TabIndex = 6;
-            this.numericRODWAb.Visible = false;
-            // 
             // numericRORWAb
             // 
             this.numericRORWAb.Location = new System.Drawing.Point(8, 373);
@@ -8142,7 +8163,6 @@ namespace Save_Editor_1
             this.numericRORWAb.Name = "numericRORWAb";
             this.numericRORWAb.Size = new System.Drawing.Size(61, 20);
             this.numericRORWAb.TabIndex = 5;
-            this.numericRORWAb.Visible = false;
             // 
             // groupBoxDWAbilities
             // 
@@ -8488,6 +8508,18 @@ namespace Save_Editor_1
             this.box_money.Size = new System.Drawing.Size(67, 20);
             this.box_money.TabIndex = 2;
             // 
+            // numericRODWAb
+            // 
+            this.numericRODWAb.Location = new System.Drawing.Point(6, 13);
+            this.numericRODWAb.Maximum = new decimal(new int[] {
+            1410065408,
+            2,
+            0,
+            0});
+            this.numericRODWAb.Name = "numericRODWAb";
+            this.numericRODWAb.Size = new System.Drawing.Size(62, 20);
+            this.numericRODWAb.TabIndex = 6;
+            // 
             // numericLExperienceHidden1
             // 
             this.numericLExperienceHidden1.Location = new System.Drawing.Point(513, 354);
@@ -8631,13 +8663,90 @@ namespace Save_Editor_1
             this.numericRORankupBonusCombo10.TabIndex = 48;
             this.numericRORankupBonusCombo10.Visible = false;
             // 
+            // tabHidden
+            // 
+            this.tabHidden.Controls.Add(this.tabPage1);
+            this.tabHidden.Controls.Add(this.tabPage2);
+            this.tabHidden.Location = new System.Drawing.Point(604, 40);
+            this.tabHidden.Name = "tabHidden";
+            this.tabHidden.SelectedIndex = 0;
+            this.tabHidden.Size = new System.Drawing.Size(487, 401);
+            this.tabHidden.TabIndex = 66;
+            this.tabHidden.Visible = false;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.label3);
+            this.tabPage1.Controls.Add(this.numericRO0x03);
+            this.tabPage1.Controls.Add(this.labelHidden1);
+            this.tabPage1.Controls.Add(this.numericRODWAb);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(479, 375);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(479, 375);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // labelHidden1
+            // 
+            this.labelHidden1.AutoSize = true;
+            this.labelHidden1.Location = new System.Drawing.Point(65, 15);
+            this.labelHidden1.Name = "labelHidden1";
+            this.labelHidden1.Size = new System.Drawing.Size(58, 13);
+            this.labelHidden1.TabIndex = 7;
+            this.labelHidden1.Text = "dw abilities";
+            // 
+            // numericRO0x03
+            // 
+            this.numericRO0x03.Location = new System.Drawing.Point(6, 39);
+            this.numericRO0x03.Maximum = new decimal(new int[] {
+            1410065408,
+            2,
+            0,
+            0});
+            this.numericRO0x03.Name = "numericRO0x03";
+            this.numericRO0x03.Size = new System.Drawing.Size(62, 20);
+            this.numericRO0x03.TabIndex = 8;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(65, 41);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(36, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "0x003";
+            // 
+            // labelNotFunctional
+            // 
+            this.labelNotFunctional.AutoSize = true;
+            this.labelNotFunctional.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNotFunctional.Location = new System.Drawing.Point(5, 8);
+            this.labelNotFunctional.Name = "labelNotFunctional";
+            this.labelNotFunctional.Size = new System.Drawing.Size(349, 26);
+            this.labelNotFunctional.TabIndex = 22;
+            this.labelNotFunctional.Text = "This page is still a work-in-progress. It should be done soon!\r\nSorry for the dis" +
+    "appointment with this empty page.";
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(641, 504);
+            this.ClientSize = new System.Drawing.Size(1112, 504);
+            this.Controls.Add(this.tabHidden);
             this.Controls.Add(this.numericRORankupBonusCombo9);
             this.Controls.Add(this.numericRORankupBonusCombo10);
             this.Controls.Add(this.numericLExperienceHidden1);
@@ -8657,7 +8766,7 @@ namespace Save_Editor_1
             this.MinimumSize = new System.Drawing.Size(508, 487);
             this.Name = "MainMenu";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.Text = "Mario & Luigi: Dream Team - Save File Editor v0.1.2";
+            this.Text = "Mario & Luigi: Dream Team - Save File Editor v0.1.3";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
@@ -8959,7 +9068,6 @@ namespace Save_Editor_1
             this.groupBoxAvailableBadges.PerformLayout();
             this.tabAbilties.ResumeLayout(false);
             this.tabAbilties.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericRODWAb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericRORWAb)).EndInit();
             this.groupBoxDWAbilities.ResumeLayout(false);
             this.groupBoxDWAbilities.PerformLayout();
@@ -8970,6 +9078,7 @@ namespace Save_Editor_1
             ((System.ComponentModel.ISupportInitialize)(this.numericROHaveBadges)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericRONBCUnlock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.box_money)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericRODWAb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericLExperienceHidden1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericRORankupBonusCombo1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericRORankupBonusCombo5)).EndInit();
@@ -8981,6 +9090,10 @@ namespace Save_Editor_1
             ((System.ComponentModel.ISupportInitialize)(this.numericRORankupBonusCombo8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericRORankupBonusCombo9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericRORankupBonusCombo10)).EndInit();
+            this.tabHidden.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericRO0x03)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -9628,6 +9741,14 @@ namespace Save_Editor_1
         private System.Windows.Forms.ComboBox comboBoxBadgeStock2;
         private System.Windows.Forms.NumericUpDown numericROBadgesInStock;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TabControl tabHidden;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown numericRO0x03;
+        private System.Windows.Forms.Label labelHidden1;
+        private System.Windows.Forms.Label labelNotFunctional;
     }
 }
 

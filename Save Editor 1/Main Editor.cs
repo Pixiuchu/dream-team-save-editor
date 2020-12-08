@@ -44,215 +44,230 @@ namespace Save_Editor_1
                 BinaryReader savegame_br = new BinaryReader(savegame_fs);
                 long length = savegame_fs.Length;
 
-                // Front Hammer Check
-                savegame_br.BaseStream.Position = 0x0;
-                byte rwfh = (byte)savegame_fs.ReadByte();
-                int rwfh2 = (byte)((rwfh & 1));
-                if (rwfh2 == 1)
-                    checkBoxHammerFront.Checked = true;
-                if (rwfh2 == 0)
-                    checkBoxHammerFront.Checked = false;
+                /* Real World Abilities */ {
 
-                // Back Hammer Mini Mario Check
-                savegame_br.BaseStream.Position = 0x0;
-                byte rwbhmim = (byte)savegame_fs.ReadByte();
-                int rwbhmim2 = (byte)((rwbhmim & 2) >> 1);
-                if (rwbhmim2 == 1)
-                    checkBoxHammerMiniMario.Checked = true;
-                if (rwbhmim2 == 0)
-                    checkBoxHammerMiniMario.Checked = false;
+                    /* Front Hammer Check */
+                    {
+                        savegame_br.BaseStream.Position = 0x0;
+                        byte rwfh = (byte)savegame_fs.ReadByte();
+                        int rwfh2 = (byte)((rwfh & 1));
+                        if (rwfh2 == 1)
+                            checkBoxHammerFront.Checked = true;
+                        if (rwfh2 == 0)
+                            checkBoxHammerFront.Checked = false;
+                    }
 
-                // Back Hammer Mole Mario Check
-                savegame_br.BaseStream.Position = 0x0;
-                byte rwbhmom = (byte)savegame_fs.ReadByte();
-                int rwbhmom2 = (byte)((rwbhmom & 4) >> 2);
-                if (rwbhmom2 == 1)
-                    checkBoxHammerMoleMario.Checked = true;
-                if (rwbhmom2 == 0)
-                    checkBoxHammerMoleMario.Checked = false;
+                    /* Back Hammer Mini Mario Check */
+                    {
+                        savegame_br.BaseStream.Position = 0x0;
+                        byte rwbhmim = (byte)savegame_fs.ReadByte();
+                        int rwbhmim2 = (byte)((rwbhmim & 2) >> 1);
+                        if (rwbhmim2 == 1)
+                            checkBoxHammerMiniMario.Checked = true;
+                        if (rwbhmim2 == 0)
+                            checkBoxHammerMiniMario.Checked = false;
+                    }
 
-                // Spin Jump Check
-                savegame_br.BaseStream.Position = 0x0;
-                byte rwsj = (byte)savegame_fs.ReadByte();
-                int rwsj2 = (byte)((rwsj & 8) >> 3);
-                if (rwsj2 == 1)
-                    checkBoxSpinJump.Checked = true;
-                if (rwbhmim2 == 0)
-                    checkBoxSpinJump.Checked = false;
+                    /* Back Hammer Mole Mario Check */
+                    {
+                        savegame_br.BaseStream.Position = 0x0;
+                        byte rwbhmom = (byte)savegame_fs.ReadByte();
+                        int rwbhmom2 = (byte)((rwbhmom & 4) >> 2);
+                        if (rwbhmom2 == 1)
+                            checkBoxHammerMoleMario.Checked = true;
+                        if (rwbhmom2 == 0)
+                            checkBoxHammerMoleMario.Checked = false;
+                    }
+                    /* Spin Jump Check */
+                    {
+                        savegame_br.BaseStream.Position = 0x0;
+                        byte rwsj = (byte)savegame_fs.ReadByte();
+                        int rwsj2 = (byte)((rwsj & 8) >> 3);
+                        if (rwsj2 == 1)
+                            checkBoxSpinJump.Checked = true;
+                        if (rwsj2 == 0)
+                            checkBoxSpinJump.Checked = false;
+                    }
+                    /* Side Drill Check */
+                    {
+                        savegame_br.BaseStream.Position = 0x0;
+                        byte rwsd = (byte)savegame_fs.ReadByte();
+                        int rwsd2 = (byte)((rwsd & 16) >> 4);
+                        if (rwsd2 == 1)
+                            checkBoxSideDrill.Checked = true;
+                        if (rwsd2 == 0)
+                            checkBoxSideDrill.Checked = false;
+                    }
+                    // Ball Hop Check
+                    savegame_br.BaseStream.Position = 0x0;
+                    byte rwbh = (byte)savegame_fs.ReadByte();
+                    int rwbh2 = (byte)((rwbh & 32) >> 5);
+                    if (rwbh2 == 1)
+                        checkBoxBallHop.Checked = true;
+                    if (rwbh2 == 0)
+                        checkBoxBallHop.Checked = false;
 
-                // Side Drill Check
-                savegame_br.BaseStream.Position = 0x0;
-                byte rwsd = (byte)savegame_fs.ReadByte();
-                int rwsd2 = (byte)((rwsd & 16) >> 4);
-                if (rwsd2 == 1)
-                    checkBoxSideDrill.Checked = true;
-                if (rwsd2 == 0)
-                    checkBoxSideDrill.Checked = false;
+                    // Real World Abilities HIDDEN TEXT BOX text
+                    savegame_br.BaseStream.Position = 0x0;
+                    byte rwabhtb = (byte)savegame_fs.ReadByte();
+                    int rwabhtb2 = (byte)(rwabhtb);
+                    numericRORWAb.Text = (rwabhtb2.ToString());
+                }
 
-                // Ball Hop Check
-                savegame_br.BaseStream.Position = 0x0;
-                byte rwbh = (byte)savegame_fs.ReadByte();
-                int rwbh2 = (byte)((rwbh & 32) >> 5);
-                if (rwbh2 == 1)
-                    checkBoxBallHop.Checked = true;
-                if (rwbh2 == 0)
-                    checkBoxBallHop.Checked = false;
+                /* Dream World Abilities*/ {// DW B Button Check
+                    savegame_br.BaseStream.Position = 0x1;
+                    byte dwbb = (byte)savegame_fs.ReadByte();
+                    int dwbb2 = (byte)((dwbb & 4) >> 2);
+                    if (dwbb2 == 1)
+                        checkBoxDWBButton.Checked = true;
+                    if (dwbb2 == 0)
+                        checkBoxDWBButton.Checked = false;
 
-                // DW B Button Check
-                savegame_br.BaseStream.Position = 0x1;
-                byte dwbb = (byte)savegame_fs.ReadByte();
-                int dwbb2 = (byte)((dwbb & 4) >> 2);
-                if (dwbb2 == 1)
-                    checkBoxDWBButton.Checked = true;
-                if (dwbb2 == 0)
-                    checkBoxDWBButton.Checked = false;
+                    // Luiginary Stack Check
+                    savegame_br.BaseStream.Position = 0x1;
+                    byte dwls = (byte)savegame_fs.ReadByte();
+                    int dwls2 = (byte)((dwls & 8) >> 3);
+                    if (dwls2 == 1)
+                        checkBoxDWStack.Checked = true;
+                    if (dwls2 == 0)
+                        checkBoxDWStack.Checked = false;
 
-                // Luiginary Stack Check
-                savegame_br.BaseStream.Position = 0x1;
-                byte dwls = (byte)savegame_fs.ReadByte();
-                int dwls2 = (byte)((dwls & 8) >> 3);
-                if (dwls2 == 1)
-                    checkBoxDWStack.Checked = true;
-                if (dwls2 == 0)
-                    checkBoxDWStack.Checked = false;
+                    // Luiginary Stack: Ground Pound Check
+                    savegame_br.BaseStream.Position = 0x1;
+                    byte dwlsgp = (byte)savegame_fs.ReadByte();
+                    int dwlsgp2 = (byte)((dwlsgp & 64) >> 6);
+                    if (dwlsgp2 == 1)
+                        checkBoxDWStackGP.Checked = true;
+                    if (dwlsgp2 == 0)
+                        checkBoxDWStackGP.Checked = false;
 
-                // Luiginary Stack: Ground Pound Check
-                savegame_br.BaseStream.Position = 0x1;
-                byte dwlsgp = (byte)savegame_fs.ReadByte();
-                int dwlsgp2 = (byte)((dwlsgp & 64) >> 6);
-                if (dwlsgp2 == 1)
-                    checkBoxDWStackGP.Checked = true;
-                if (dwlsgp2 == 0)
-                    checkBoxDWStackGP.Checked = false;
+                    // Luiginary Stack: Spring Jump Check
+                    savegame_br.BaseStream.Position = 0x1;
+                    byte dwlssj = (byte)savegame_fs.ReadByte();
+                    int dwlssj2 = (byte)((dwlssj & 128) >> 7);
+                    if (dwlssj2 == 1)
+                        checkBoxDWStackSJ.Checked = true;
+                    if (dwlssj2 == 0)
+                        checkBoxDWStackSJ.Checked = false;
 
-                // Luiginary Stack: Spring Jump Check
-                savegame_br.BaseStream.Position = 0x1;
-                byte dwlssj = (byte)savegame_fs.ReadByte();
-                int dwlssj2 = (byte)((dwlssj & 128) >> 7);
-                if (dwlssj2 == 1)
-                    checkBoxDWStackSJ.Checked = true;
-                if (dwlssj2 == 0)
-                    checkBoxDWStackSJ.Checked = false;
+                    // Luiginary Cone Check
+                    savegame_br.BaseStream.Position = 0x1;
+                    byte dwlc = (byte)savegame_fs.ReadByte();
+                    int dwlc2 = (byte)((dwlc & 16) >> 4);
+                    if (dwlc2 == 1)
+                        checkBoxDWCone.Checked = true;
+                    if (dwlc2 == 0)
+                        checkBoxDWCone.Checked = false;
 
-                // Luiginary Cone Check
-                savegame_br.BaseStream.Position = 0x1;
-                byte dwlc = (byte)savegame_fs.ReadByte();
-                int dwlc2 = (byte)((dwlc & 16) >> 4);
-                if (dwlc2 == 1)
-                    checkBoxDWCone.Checked = true;
-                if (dwlc2 == 0)
-                    checkBoxDWCone.Checked = false;
+                    // Luiginary Cone: Jump Check
+                    savegame_br.BaseStream.Position = 0x2;
+                    byte dwlcj = (byte)savegame_fs.ReadByte();
+                    int dwlcj2 = (byte)((dwlcj & 1));
+                    if (dwlcj2 == 1)
+                        checkBoxDWConeJ.Checked = true;
+                    if (dwlcj2 == 0)
+                        checkBoxDWConeJ.Checked = false;
 
-                // Luiginary Cone: Jump Check
-                savegame_br.BaseStream.Position = 0x2;
-                byte dwlcj = (byte)savegame_fs.ReadByte();
-                int dwlcj2 = (byte)((dwlcj & 1));
-                if (dwlcj2 == 1)
-                    checkBoxDWConeJ.Checked = true;
-                if (dwlcj2 == 0)
-                    checkBoxDWConeJ.Checked = false;
+                    // Luiginary Cone: Tornado Check
+                    savegame_br.BaseStream.Position = 0x2;
+                    byte dwlct = (byte)savegame_fs.ReadByte();
+                    int dwlct2 = (byte)((dwlct & 2) >> 1);
+                    if (dwlct2 == 1)
+                        checkBoxDWConeT.Checked = true;
+                    if (dwlct2 == 0)
+                        checkBoxDWConeT.Checked = false;
 
-                // Luiginary Cone: Tornado Check
-                savegame_br.BaseStream.Position = 0x2;
-                byte dwlct = (byte)savegame_fs.ReadByte();
-                int dwlct2 = (byte)((dwlct & 2) >> 1);
-                if (dwlct2 == 1)
-                    checkBoxDWConeT.Checked = true;
-                if (dwlct2 == 0)
-                    checkBoxDWConeT.Checked = false;
+                    // Luiginary Ball Check
+                    savegame_br.BaseStream.Position = 0x1;
+                    byte dwlb = (byte)savegame_fs.ReadByte();
+                    int dwlb2 = (byte)((dwlb & 32) >> 5);
+                    if (dwlb2 == 1)
+                        checkBoxDWBall.Checked = true;
+                    if (dwlb2 == 0)
+                        checkBoxDWBall.Checked = false;
 
-                // Luiginary Ball Check
-                savegame_br.BaseStream.Position = 0x1;
-                byte dwlb = (byte)savegame_fs.ReadByte();
-                int dwlb2 = (byte)((dwlb & 32) >> 5);
-                if (dwlb2 == 1)
-                    checkBoxDWBall.Checked = true;
-                if (dwlb2 == 0)
-                    checkBoxDWBall.Checked = false;
+                    // Luiginary Ball: Slingshot Check
+                    savegame_br.BaseStream.Position = 0x2;
+                    byte dwlbs = (byte)savegame_fs.ReadByte();
+                    int dwlbs2 = (byte)((dwlbs & 4) >> 2);
+                    if (dwlbs2 == 1)
+                        checkBoxDWBallS.Checked = true;
+                    if (dwlbs2 == 0)
+                        checkBoxDWBallS.Checked = false;
 
-                // Luiginary Ball: Slingshot Check
-                savegame_br.BaseStream.Position = 0x2;
-                byte dwlbs = (byte)savegame_fs.ReadByte();
-                int dwlbs2 = (byte)((dwlbs & 4) >> 2);
-                if (dwlbs2 == 1)
-                    checkBoxDWBallS.Checked = true;
-                if (dwlbs2 == 0)
-                    checkBoxDWBallS.Checked = false;
+                    // Luiginary Ball: Hammer Check
+                    savegame_br.BaseStream.Position = 0x2;
+                    byte dwlbh = (byte)savegame_fs.ReadByte();
+                    int dwlbh2 = (byte)((dwlbh & 8) >> 3);
+                    if (dwlbh2 == 1)
+                        checkBoxDWBallH.Checked = true;
+                    if (dwlbh2 == 0)
+                        checkBoxDWBallH.Checked = false;
 
-                // Luiginary Ball: Hammer Check
-                savegame_br.BaseStream.Position = 0x2;
-                byte dwlbh = (byte)savegame_fs.ReadByte();
-                int dwlbh2 = (byte)((dwlbh & 8) >> 3);
-                if (dwlbh2 == 1)
-                    checkBoxDWBallH.Checked = true;
-                if (dwlbh2 == 0)
-                    checkBoxDWBallH.Checked = false;
+                    // Luiginay Dropping Check
+                    savegame_br.BaseStream.Position = 0x2;
+                    byte dwld = (byte)savegame_fs.ReadByte();
+                    int dwld2 = (byte)((dwld & 16) >> 4);
+                    if (dwld2 == 1)
+                        checkBoxDWDrop.Checked = true;
+                    if (dwld2 == 0)
+                        checkBoxDWDrop.Checked = false;
 
-                // Luiginay Dropping Check
-                savegame_br.BaseStream.Position = 0x2;
-                byte dwld = (byte)savegame_fs.ReadByte();
-                int dwld2 = (byte)((dwld & 16) >> 4);
-                if (dwld2 == 1)
-                    checkBoxDWDrop.Checked = true;
-                if (dwld2 == 0)
-                    checkBoxDWDrop.Checked = false;
+                    // Luiginary Antigravity Wallkick Check
+                    savegame_br.BaseStream.Position = 0x2;
+                    byte dwlaw = (byte)savegame_fs.ReadByte();
+                    int dwlaw2 = (byte)((dwlaw & 32) >> 5);
+                    if (dwlaw2 == 1)
+                        checkBoxDWAntigrav.Checked = true;
+                    if (dwlaw2 == 0)
+                        checkBoxDWAntigrav.Checked = false;
+                }
 
-                // Luiginary Antigravity Wallkick Check
-                savegame_br.BaseStream.Position = 0x2;
-                byte dwlaw = (byte)savegame_fs.ReadByte();
-                int dwlaw2 = (byte)((dwlaw & 32) >> 5);
-                if (dwlaw2 == 1)
-                    checkBoxDWAntigrav.Checked = true;
-                if (dwlaw2 == 0)
-                    checkBoxDWAntigrav.Checked = false;
+                /* Misc stuff */ {// Allow Pausing Check
+                    savegame_br.BaseStream.Position = 0x2;
+                    byte allowpausing = (byte)savegame_fs.ReadByte();
+                    int allowpausing2 = (byte)((allowpausing & 64) >> 6);
+                    if (allowpausing2 == 1)
+                        checkBoxAllowPausing.Checked = true;
+                    if (allowpausing2 == 0)
+                        checkBoxAllowPausing.Checked = false;
 
-                // Allow Pausing Check
-                savegame_br.BaseStream.Position = 0x2;
-                byte allowpausing = (byte)savegame_fs.ReadByte();
-                int allowpausing2 = (byte)((allowpausing & 64) >> 6);
-                if (allowpausing2 == 1)
-                    checkBoxAllowPausing.Checked = true;
-                if (allowpausing2 == 0)
-                    checkBoxAllowPausing.Checked = false;
+                    // Hard Mode Check
+                    savegame_br.BaseStream.Position = 0x1;
+                    byte hardmode = (byte)savegame_fs.ReadByte();
+                    int hardmode2 = (byte)((hardmode & 2) >> 1);
+                    if (hardmode2 == 1)
+                        checkBoxHardMode.Checked = true;
+                    if (hardmode2 == 0)
+                        checkBoxHardMode.Checked = false;
 
-                // Hard Mode Check
-                savegame_br.BaseStream.Position = 0x1;
-                byte hardmode = (byte)savegame_fs.ReadByte();
-                int hardmode2 = (byte)((hardmode & 2) >> 1);
-                if (hardmode2 == 1)
-                    checkBoxHardMode.Checked = true;
-                if (hardmode2 == 0)
-                    checkBoxHardMode.Checked = false;
+                    // Have Badges Check
+                    savegame_br.BaseStream.Position = 0x3;
+                    byte havebadges = (byte)savegame_fs.ReadByte();
+                    int havebadges2 = (byte)((havebadges & 32) >> 5);
+                    if (havebadges2 == 1)
+                        checkBoxHaveBadges.Checked = true;
+                    if (havebadges2 == 0)
+                        checkBoxHaveBadges.Checked = false;
+                    numericRO0x03.Value = havebadges;   
 
-                // Have Badges Check
-                savegame_br.BaseStream.Position = 0x3;
-                byte havebadges = (byte)savegame_fs.ReadByte();
-                int havebadges2 = (byte)((havebadges & 32) >> 5);
-                if (havebadges2 == 1)
-                    checkBoxHaveBadges.Checked = true;
-                if (havebadges2 == 0)
-                    checkBoxHaveBadges.Checked = false;
+                    // NBC Unlock Flag Check
+                    savegame_br.BaseStream.Position = 0x307;
+                    byte nbcunlockflag = (byte)savegame_fs.ReadByte();
+                    int nbcunlockflag2 = (byte)((nbcunlockflag & 64) >> 6);
+                    if (nbcunlockflag2 == 1)
+                        checkBoxNBCUnlockFlag.Checked = true;
+                    if (nbcunlockflag2 == 0)
+                        checkBoxNBCUnlockFlag.Checked = false;
 
-                // NBC Unlock Flag Check
-                savegame_br.BaseStream.Position = 0x307;
-                byte nbcunlockflag = (byte)savegame_fs.ReadByte();
-                int nbcunlockflag2 = (byte)((nbcunlockflag & 64) >> 6);
-                if (nbcunlockflag2 == 1)
-                    checkBoxNBCUnlockFlag.Checked = true;
-                if (nbcunlockflag2 == 0)
-                    checkBoxNBCUnlockFlag.Checked = false;
+                    // NBC Unlock Flag HIDDEN TEXT BOX text
+                    savegame_br.BaseStream.Position = 0x307;
+                    byte nbcunlockflaghtb = (byte)savegame_fs.ReadByte();
+                    int nbcunlockflaghtb2 = (byte)(nbcunlockflaghtb);
+                    numericRONBCUnlock.Text = (nbcunlockflaghtb2.ToString());
+                }
 
-                // NBC Unlock Flag HIDDEN TEXT BOX text
-                savegame_br.BaseStream.Position = 0x307;
-                byte nbcunlockflaghtb = (byte)savegame_fs.ReadByte();
-                int nbcunlockflaghtb2 = (byte)(nbcunlockflaghtb);
-                numericRONBCUnlock.Text = (nbcunlockflaghtb2.ToString());
 
-                // Real World Abilities HIDDEN TEXT BOX text
-                savegame_br.BaseStream.Position = 0x0;
-                byte rwabhtb = (byte)savegame_fs.ReadByte();
-                int rwabhtb2 = (byte)(rwabhtb);
-                numericRORWAb.Text = (rwabhtb2.ToString());
 
                 // Dream World Abilities HIDDEN TEXT BOX text
                 savegame_br.BaseStream.Position = 0x1;
@@ -260,710 +275,725 @@ namespace Save_Editor_1
                 int dwabhtb2 = BitConverter.ToInt16(dwabhtb, 0);
                 numericRODWAb.Text = (dwabhtb2.ToString());
 
-                // Mario Current HP
-                savegame_br.BaseStream.Position = 0x74E;
-                byte[] mariocurrenthp = savegame_br.ReadBytes(2);
-                int mariocurrenthp2 = BitConverter.ToInt16(mariocurrenthp, 0);
-                numericMCurHP.Text = (mariocurrenthp2.ToString());
+                /* Mario Stats */ {// Mario Current HP
+                    savegame_br.BaseStream.Position = 0x74E;
+                    byte[] mariocurrenthp = savegame_br.ReadBytes(2);
+                    int mariocurrenthp2 = BitConverter.ToInt16(mariocurrenthp, 0);
+                    numericMCurHP.Text = (mariocurrenthp2.ToString());
 
-                // Mario Current BP
-                savegame_br.BaseStream.Position = 0x750;
-                byte[] mariocurrentbp = savegame_br.ReadBytes(2);
-                int mariocurrentbp2 = BitConverter.ToInt16(mariocurrentbp, 0);
-                numericMCurBP.Text = (mariocurrentbp2.ToString());
+                    // Mario Current BP
+                    savegame_br.BaseStream.Position = 0x750;
+                    byte[] mariocurrentbp = savegame_br.ReadBytes(2);
+                    int mariocurrentbp2 = BitConverter.ToInt16(mariocurrentbp, 0);
+                    numericMCurBP.Text = (mariocurrentbp2.ToString());
 
-                // Mario Max HP
-                savegame_br.BaseStream.Position = 0x752;
-                byte[] mariomaxhp = savegame_br.ReadBytes(2);
-                int mariomaxhp2 = BitConverter.ToInt16(mariomaxhp, 0);
-                numericMMaxHP.Text = (mariomaxhp2.ToString());
+                    // Mario Max HP
+                    savegame_br.BaseStream.Position = 0x752;
+                    byte[] mariomaxhp = savegame_br.ReadBytes(2);
+                    int mariomaxhp2 = BitConverter.ToInt16(mariomaxhp, 0);
+                    numericMMaxHP.Text = (mariomaxhp2.ToString());
 
-                // Mario Max BP
-                savegame_br.BaseStream.Position = 0x754;
-                byte[] mariomaxbp = savegame_br.ReadBytes(2);
-                int mariomaxbp2 = BitConverter.ToInt16(mariomaxbp, 0);
-                numericMMaxBP.Text = (mariomaxbp2.ToString());
+                    // Mario Max BP
+                    savegame_br.BaseStream.Position = 0x754;
+                    byte[] mariomaxbp = savegame_br.ReadBytes(2);
+                    int mariomaxbp2 = BitConverter.ToInt16(mariomaxbp, 0);
+                    numericMMaxBP.Text = (mariomaxbp2.ToString());
 
-                // Mario Power
-                savegame_br.BaseStream.Position = 0x756;
-                byte[] mariopow = savegame_br.ReadBytes(2);
-                int mariopow2 = BitConverter.ToInt16(mariopow, 0);
-                numericMPower.Text = (mariopow2.ToString());
+                    // Mario Power
+                    savegame_br.BaseStream.Position = 0x756;
+                    byte[] mariopow = savegame_br.ReadBytes(2);
+                    int mariopow2 = BitConverter.ToInt16(mariopow, 0);
+                    numericMPower.Text = (mariopow2.ToString());
 
-                // Mario Defense
-                savegame_br.BaseStream.Position = 0x758;
-                byte[] mariodef = savegame_br.ReadBytes(2);
-                int mariodef2 = BitConverter.ToInt16(mariodef, 0);
-                numericMDef.Text = (mariodef2.ToString());
+                    // Mario Defense
+                    savegame_br.BaseStream.Position = 0x758;
+                    byte[] mariodef = savegame_br.ReadBytes(2);
+                    int mariodef2 = BitConverter.ToInt16(mariodef, 0);
+                    numericMDef.Text = (mariodef2.ToString());
 
-                // Mario Speed
-                savegame_br.BaseStream.Position = 0x75A;
-                byte[] mariospeed = savegame_br.ReadBytes(2);
-                int mariospeed2 = BitConverter.ToInt16(mariospeed, 0);
-                numericMSpeed.Text = (mariospeed2.ToString());
+                    // Mario Speed
+                    savegame_br.BaseStream.Position = 0x75A;
+                    byte[] mariospeed = savegame_br.ReadBytes(2);
+                    int mariospeed2 = BitConverter.ToInt16(mariospeed, 0);
+                    numericMSpeed.Text = (mariospeed2.ToString());
 
-                // Mario Stache
-                savegame_br.BaseStream.Position = 0x75C;
-                byte[] mariostache = savegame_br.ReadBytes(2);
-                int mariostache2 = BitConverter.ToInt16(mariostache, 0);
-                numericMStache.Text = (mariostache2.ToString());
+                    // Mario Stache
+                    savegame_br.BaseStream.Position = 0x75C;
+                    byte[] mariostache = savegame_br.ReadBytes(2);
+                    int mariostache2 = BitConverter.ToInt16(mariostache, 0);
+                    numericMStache.Text = (mariostache2.ToString());
 
-                // Mario Max HP Bean
-                savegame_br.BaseStream.Position = 0x75E;
-                byte[] mariomaxhpbean = savegame_br.ReadBytes(2);
-                int mariomaxhpbean2 = BitConverter.ToInt16(mariomaxhpbean, 0);
-                numericMBeanHP.Text = (mariomaxhpbean2.ToString());
+                    // Mario Max HP Bean
+                    savegame_br.BaseStream.Position = 0x75E;
+                    byte[] mariomaxhpbean = savegame_br.ReadBytes(2);
+                    int mariomaxhpbean2 = BitConverter.ToInt16(mariomaxhpbean, 0);
+                    numericMBeanHP.Text = (mariomaxhpbean2.ToString());
 
-                // Mario Max HP Level-up Roulette
-                savegame_br.BaseStream.Position = 0x760;
-                byte[] mariomaxhplvlup = savegame_br.ReadBytes(2);
-                int mariomaxhplvlup2 = BitConverter.ToInt16(mariomaxhplvlup, 0);
-                numericMLvlUpHP.Text = (mariomaxhplvlup2.ToString());
+                    // Mario Max HP Level-up Roulette
+                    savegame_br.BaseStream.Position = 0x760;
+                    byte[] mariomaxhplvlup = savegame_br.ReadBytes(2);
+                    int mariomaxhplvlup2 = BitConverter.ToInt16(mariomaxhplvlup, 0);
+                    numericMLvlUpHP.Text = (mariomaxhplvlup2.ToString());
 
-                // Mario Max BP Bean
-                savegame_br.BaseStream.Position = 0x762;
-                byte[] mariomaxbpbean = savegame_br.ReadBytes(2);
-                int mariomaxbpbean2 = BitConverter.ToInt16(mariomaxbpbean, 0);
-                numericMBeanBP.Text = (mariomaxbpbean2.ToString());
+                    // Mario Max BP Bean
+                    savegame_br.BaseStream.Position = 0x762;
+                    byte[] mariomaxbpbean = savegame_br.ReadBytes(2);
+                    int mariomaxbpbean2 = BitConverter.ToInt16(mariomaxbpbean, 0);
+                    numericMBeanBP.Text = (mariomaxbpbean2.ToString());
 
-                // Mario Max BP Level-up Roulette
-                savegame_br.BaseStream.Position = 0x764;
-                byte[] mariomaxbplvlup = savegame_br.ReadBytes(2);
-                int mariomaxbplvlup2 = BitConverter.ToInt16(mariomaxbplvlup, 0);
-                numericMLvlUpBP.Text = (mariomaxbplvlup2.ToString());
+                    // Mario Max BP Level-up Roulette
+                    savegame_br.BaseStream.Position = 0x764;
+                    byte[] mariomaxbplvlup = savegame_br.ReadBytes(2);
+                    int mariomaxbplvlup2 = BitConverter.ToInt16(mariomaxbplvlup, 0);
+                    numericMLvlUpBP.Text = (mariomaxbplvlup2.ToString());
 
-                // Mario Power Bean
-                savegame_br.BaseStream.Position = 0x766;
-                byte[] mariopowbean = savegame_br.ReadBytes(2);
-                int mariopowbean2 = BitConverter.ToInt16(mariopowbean, 0);
-                numericMBeanPow.Text = (mariopowbean2.ToString());
+                    // Mario Power Bean
+                    savegame_br.BaseStream.Position = 0x766;
+                    byte[] mariopowbean = savegame_br.ReadBytes(2);
+                    int mariopowbean2 = BitConverter.ToInt16(mariopowbean, 0);
+                    numericMBeanPow.Text = (mariopowbean2.ToString());
 
-                // Mario Power Level-up Roulette
-                savegame_br.BaseStream.Position = 0x768;
-                byte[] mariopowlvlup = savegame_br.ReadBytes(2);
-                int mariopowlvlup2 = BitConverter.ToInt16(mariopowlvlup, 0);
-                numericMLvlUpPow.Text = (mariopowlvlup2.ToString());
+                    // Mario Power Level-up Roulette
+                    savegame_br.BaseStream.Position = 0x768;
+                    byte[] mariopowlvlup = savegame_br.ReadBytes(2);
+                    int mariopowlvlup2 = BitConverter.ToInt16(mariopowlvlup, 0);
+                    numericMLvlUpPow.Text = (mariopowlvlup2.ToString());
 
-                // Mario Defense Bean
-                savegame_br.BaseStream.Position = 0x76A;
-                byte[] mariodefbean = savegame_br.ReadBytes(2);
-                int mariodefbean2 = BitConverter.ToInt16(mariodefbean, 0);
-                numericMBeanDef.Text = (mariodefbean2.ToString());
+                    // Mario Defense Bean
+                    savegame_br.BaseStream.Position = 0x76A;
+                    byte[] mariodefbean = savegame_br.ReadBytes(2);
+                    int mariodefbean2 = BitConverter.ToInt16(mariodefbean, 0);
+                    numericMBeanDef.Text = (mariodefbean2.ToString());
 
-                // Mario Defense Level-up Roulette
-                savegame_br.BaseStream.Position = 0x76C;
-                byte[] mariodeflvlup = savegame_br.ReadBytes(2);
-                int mariodeflvlup2 = BitConverter.ToInt16(mariodeflvlup, 0);
-                numericMLvlUpDef.Text = (mariodeflvlup2.ToString());
+                    // Mario Defense Level-up Roulette
+                    savegame_br.BaseStream.Position = 0x76C;
+                    byte[] mariodeflvlup = savegame_br.ReadBytes(2);
+                    int mariodeflvlup2 = BitConverter.ToInt16(mariodeflvlup, 0);
+                    numericMLvlUpDef.Text = (mariodeflvlup2.ToString());
 
-                // Mario Speed Bean
-                savegame_br.BaseStream.Position = 0x76E;
-                byte[] mariospeedbean = savegame_br.ReadBytes(2);
-                int mariospeedbean2 = BitConverter.ToInt16(mariospeedbean, 0);
-                numericMBeanSpeed.Text = (mariospeedbean2.ToString());
+                    // Mario Speed Bean
+                    savegame_br.BaseStream.Position = 0x76E;
+                    byte[] mariospeedbean = savegame_br.ReadBytes(2);
+                    int mariospeedbean2 = BitConverter.ToInt16(mariospeedbean, 0);
+                    numericMBeanSpeed.Text = (mariospeedbean2.ToString());
 
-                // Mario Speed Level-up Roulette
-                savegame_br.BaseStream.Position = 0x770;
-                byte[] mariospeedlvlup = savegame_br.ReadBytes(2);
-                int mariospeedlvlup2 = BitConverter.ToInt16(mariospeedlvlup, 0);
-                numericMLvlUpSpeed.Text = (mariospeedlvlup2.ToString());
+                    // Mario Speed Level-up Roulette
+                    savegame_br.BaseStream.Position = 0x770;
+                    byte[] mariospeedlvlup = savegame_br.ReadBytes(2);
+                    int mariospeedlvlup2 = BitConverter.ToInt16(mariospeedlvlup, 0);
+                    numericMLvlUpSpeed.Text = (mariospeedlvlup2.ToString());
 
-                // Mario Stache Bean
-                savegame_br.BaseStream.Position = 0x772;
-                byte[] mariostachebean = savegame_br.ReadBytes(2);
-                int mariostachebean2 = BitConverter.ToInt16(mariostachebean, 0);
-                numericMBeanStache.Text = (mariostachebean2.ToString());
+                    // Mario Stache Bean
+                    savegame_br.BaseStream.Position = 0x772;
+                    byte[] mariostachebean = savegame_br.ReadBytes(2);
+                    int mariostachebean2 = BitConverter.ToInt16(mariostachebean, 0);
+                    numericMBeanStache.Text = (mariostachebean2.ToString());
 
-                // Mario Stache Level-up Roulette
-                savegame_br.BaseStream.Position = 0x774;
-                byte[] mariostachelvlup = savegame_br.ReadBytes(2);
-                int mariostachelvlup2 = BitConverter.ToInt16(mariostachelvlup, 0);
-                numericMLvlUpStache.Text = (mariostachelvlup2.ToString());
+                    // Mario Stache Level-up Roulette
+                    savegame_br.BaseStream.Position = 0x774;
+                    byte[] mariostachelvlup = savegame_br.ReadBytes(2);
+                    int mariostachelvlup2 = BitConverter.ToInt16(mariostachelvlup, 0);
+                    numericMLvlUpStache.Text = (mariostachelvlup2.ToString());
 
-                // Mario Level
-                savegame_br.BaseStream.Position = 0x77B;
-                byte mariolevel = (byte)savegame_fs.ReadByte();
-                numericMLevel.Text = (mariolevel.ToString());
+                    // Mario Level
+                    savegame_br.BaseStream.Position = 0x77B;
+                    byte mariolevel = (byte)savegame_fs.ReadByte();
+                    numericMLevel.Text = (mariolevel.ToString());
 
-                // Mario Experience 1
-                savegame_br.BaseStream.Position = 0x778;
-                byte[] marioexperience1 = savegame_br.ReadBytes(2);
-                int marioexperience12 = BitConverter.ToInt16(marioexperience1, 0);
-                numericMExperienceHidden1.Text = (marioexperience12.ToString());
+                    // Mario Experience 1
+                    savegame_br.BaseStream.Position = 0x778;
+                    byte[] marioexperience1 = savegame_br.ReadBytes(2);
+                    int marioexperience12 = BitConverter.ToInt16(marioexperience1, 0);
+                    numericMExperienceHidden1.Text = (marioexperience12.ToString());
 
-                // Mario Experience 2
-                savegame_br.BaseStream.Position = 0x77A;
-                byte marioexperience2 = (byte)savegame_fs.ReadByte();
-                numericMExperienceHidden2.Text = (marioexperience2.ToString());
+                    // Mario Experience 2
+                    savegame_br.BaseStream.Position = 0x77A;
+                    byte marioexperience2 = (byte)savegame_fs.ReadByte();
+                    numericMExperienceHidden2.Text = (marioexperience2.ToString());
 
-                // Mario Shell Bonus Selection
-                savegame_br.BaseStream.Position = 0x78C;
-                byte mariobonus1 = (byte)savegame_fs.ReadByte();
-                savegame_br.BaseStream.Position = 0x78D;
-                byte mariobonus1check = (byte)savegame_fs.ReadByte();
-                if (mariobonus1check == 0)
-                    comboBoxMShellBonus.SelectedIndex = 0;
-                else if (mariobonus1 == 0)
-                    comboBoxMShellBonus.SelectedIndex = 1;
-                if (mariobonus1 == 1)
-                    comboBoxMShellBonus.SelectedIndex = 2;
-                if (mariobonus1 == 2)
-                    comboBoxMShellBonus.SelectedIndex = 3;
-                if (mariobonus1 == 3)
-                    comboBoxMShellBonus.SelectedIndex = 4;
-                if (mariobonus1 == 4)
-                    comboBoxMShellBonus.SelectedIndex = 5;
-                if (mariobonus1 == 5)
-                    comboBoxMShellBonus.SelectedIndex = 6;
-                if (mariobonus1 == 6)
-                    comboBoxMShellBonus.SelectedIndex = 7;
-                if (mariobonus1 == 7)
-                    comboBoxMShellBonus.SelectedIndex = 8;
-                if (mariobonus1 == 8)
-                    comboBoxMShellBonus.SelectedIndex = 9;
-                if (mariobonus1 == 9)
-                    comboBoxMShellBonus.SelectedIndex = 10;
-                if (mariobonus1 == 10)
-                    comboBoxMShellBonus.SelectedIndex = 11;
-                if (mariobonus1 == 11)
-                    comboBoxMShellBonus.SelectedIndex = 12;
-                if (mariobonus1 == 12)
-                    comboBoxMShellBonus.SelectedIndex = 13;
-                if (mariobonus1 == 13)
-                    comboBoxMShellBonus.SelectedIndex = 14;
-                if (mariobonus1 == 14)
-                    comboBoxMShellBonus.SelectedIndex = 15;
+                    // Mario Shell Bonus Selection
+                    savegame_br.BaseStream.Position = 0x78C;
+                    byte mariobonus1 = (byte)savegame_fs.ReadByte();
+                    savegame_br.BaseStream.Position = 0x78D;
+                    byte mariobonus1check = (byte)savegame_fs.ReadByte();
+                    if (mariobonus1check == 0)
+                        comboBoxMShellBonus.SelectedIndex = 0;
+                    else if (mariobonus1 == 0)
+                        comboBoxMShellBonus.SelectedIndex = 1;
+                    if (mariobonus1 == 1)
+                        comboBoxMShellBonus.SelectedIndex = 2;
+                    if (mariobonus1 == 2)
+                        comboBoxMShellBonus.SelectedIndex = 3;
+                    if (mariobonus1 == 3)
+                        comboBoxMShellBonus.SelectedIndex = 4;
+                    if (mariobonus1 == 4)
+                        comboBoxMShellBonus.SelectedIndex = 5;
+                    if (mariobonus1 == 5)
+                        comboBoxMShellBonus.SelectedIndex = 6;
+                    if (mariobonus1 == 6)
+                        comboBoxMShellBonus.SelectedIndex = 7;
+                    if (mariobonus1 == 7)
+                        comboBoxMShellBonus.SelectedIndex = 8;
+                    if (mariobonus1 == 8)
+                        comboBoxMShellBonus.SelectedIndex = 9;
+                    if (mariobonus1 == 9)
+                        comboBoxMShellBonus.SelectedIndex = 10;
+                    if (mariobonus1 == 10)
+                        comboBoxMShellBonus.SelectedIndex = 11;
+                    if (mariobonus1 == 11)
+                        comboBoxMShellBonus.SelectedIndex = 12;
+                    if (mariobonus1 == 12)
+                        comboBoxMShellBonus.SelectedIndex = 13;
+                    if (mariobonus1 == 13)
+                        comboBoxMShellBonus.SelectedIndex = 14;
+                    if (mariobonus1 == 14)
+                        comboBoxMShellBonus.SelectedIndex = 15;
 
-                // Mario Flower Bonus Selection
-                savegame_br.BaseStream.Position = 0x78E;
-                byte mariobonus2 = (byte)savegame_fs.ReadByte();
-                savegame_br.BaseStream.Position = 0x78F;
-                byte mariobonus2check = (byte)savegame_fs.ReadByte();
-                if (mariobonus2check == 0)
-                    comboBoxMFlowerBonus.SelectedIndex = 0;
-                else if (mariobonus2 == 0)
-                    comboBoxMFlowerBonus.SelectedIndex = 1;
-                if (mariobonus2 == 1)
-                    comboBoxMFlowerBonus.SelectedIndex = 2;
-                if (mariobonus2 == 2)
-                    comboBoxMFlowerBonus.SelectedIndex = 3;
-                if (mariobonus2 == 3)
-                    comboBoxMFlowerBonus.SelectedIndex = 4;
-                if (mariobonus2 == 4)
-                    comboBoxMFlowerBonus.SelectedIndex = 5;
-                if (mariobonus2 == 5)
-                    comboBoxMFlowerBonus.SelectedIndex = 6;
-                if (mariobonus2 == 6)
-                    comboBoxMFlowerBonus.SelectedIndex = 7;
-                if (mariobonus2 == 7)
-                    comboBoxMFlowerBonus.SelectedIndex = 8;
-                if (mariobonus2 == 8)
-                    comboBoxMFlowerBonus.SelectedIndex = 9;
-                if (mariobonus2 == 9)
-                    comboBoxMFlowerBonus.SelectedIndex = 10;
-                if (mariobonus2 == 10)
-                    comboBoxMFlowerBonus.SelectedIndex = 11;
-                if (mariobonus2 == 11)
-                    comboBoxMFlowerBonus.SelectedIndex = 12;
-                if (mariobonus2 == 12)
-                    comboBoxMFlowerBonus.SelectedIndex = 13;
-                if (mariobonus2 == 13)
-                    comboBoxMFlowerBonus.SelectedIndex = 14;
-                if (mariobonus2 == 14)
-                    comboBoxMFlowerBonus.SelectedIndex = 15;
+                    // Mario Flower Bonus Selection
+                    savegame_br.BaseStream.Position = 0x78E;
+                    byte mariobonus2 = (byte)savegame_fs.ReadByte();
+                    savegame_br.BaseStream.Position = 0x78F;
+                    byte mariobonus2check = (byte)savegame_fs.ReadByte();
+                    if (mariobonus2check == 0)
+                        comboBoxMFlowerBonus.SelectedIndex = 0;
+                    else if (mariobonus2 == 0)
+                        comboBoxMFlowerBonus.SelectedIndex = 1;
+                    if (mariobonus2 == 1)
+                        comboBoxMFlowerBonus.SelectedIndex = 2;
+                    if (mariobonus2 == 2)
+                        comboBoxMFlowerBonus.SelectedIndex = 3;
+                    if (mariobonus2 == 3)
+                        comboBoxMFlowerBonus.SelectedIndex = 4;
+                    if (mariobonus2 == 4)
+                        comboBoxMFlowerBonus.SelectedIndex = 5;
+                    if (mariobonus2 == 5)
+                        comboBoxMFlowerBonus.SelectedIndex = 6;
+                    if (mariobonus2 == 6)
+                        comboBoxMFlowerBonus.SelectedIndex = 7;
+                    if (mariobonus2 == 7)
+                        comboBoxMFlowerBonus.SelectedIndex = 8;
+                    if (mariobonus2 == 8)
+                        comboBoxMFlowerBonus.SelectedIndex = 9;
+                    if (mariobonus2 == 9)
+                        comboBoxMFlowerBonus.SelectedIndex = 10;
+                    if (mariobonus2 == 10)
+                        comboBoxMFlowerBonus.SelectedIndex = 11;
+                    if (mariobonus2 == 11)
+                        comboBoxMFlowerBonus.SelectedIndex = 12;
+                    if (mariobonus2 == 12)
+                        comboBoxMFlowerBonus.SelectedIndex = 13;
+                    if (mariobonus2 == 13)
+                        comboBoxMFlowerBonus.SelectedIndex = 14;
+                    if (mariobonus2 == 14)
+                        comboBoxMFlowerBonus.SelectedIndex = 15;
 
-                // Mario Star Bonus Selection
-                savegame_br.BaseStream.Position = 0x790;
-                byte mariobonus3 = (byte)savegame_fs.ReadByte();
-                savegame_br.BaseStream.Position = 0x791;
-                byte mariobonus3check = (byte)savegame_fs.ReadByte();
-                if (mariobonus3check == 0)
-                    comboBoxMStarBonus.SelectedIndex = 0;
-                else if (mariobonus3 == 0)
-                    comboBoxMStarBonus.SelectedIndex = 1;
-                if (mariobonus3 == 1)
-                    comboBoxMStarBonus.SelectedIndex = 2;
-                if (mariobonus3 == 2)
-                    comboBoxMStarBonus.SelectedIndex = 3;
-                if (mariobonus3 == 3)
-                    comboBoxMStarBonus.SelectedIndex = 4;
-                if (mariobonus3 == 4)
-                    comboBoxMStarBonus.SelectedIndex = 5;
-                if (mariobonus3 == 5)
-                    comboBoxMStarBonus.SelectedIndex = 6;
-                if (mariobonus3 == 6)
-                    comboBoxMStarBonus.SelectedIndex = 7;
-                if (mariobonus3 == 7)
-                    comboBoxMStarBonus.SelectedIndex = 8;
-                if (mariobonus3 == 8)
-                    comboBoxMStarBonus.SelectedIndex = 9;
-                if (mariobonus3 == 9)
-                    comboBoxMStarBonus.SelectedIndex = 10;
-                if (mariobonus3 == 10)
-                    comboBoxMStarBonus.SelectedIndex = 11;
-                if (mariobonus3 == 11)
-                    comboBoxMStarBonus.SelectedIndex = 12;
-                if (mariobonus3 == 12)
-                    comboBoxMStarBonus.SelectedIndex = 13;
-                if (mariobonus3 == 13)
-                    comboBoxMStarBonus.SelectedIndex = 14;
-                if (mariobonus3 == 14)
-                    comboBoxMStarBonus.SelectedIndex = 15;
+                    // Mario Star Bonus Selection
+                    savegame_br.BaseStream.Position = 0x790;
+                    byte mariobonus3 = (byte)savegame_fs.ReadByte();
+                    savegame_br.BaseStream.Position = 0x791;
+                    byte mariobonus3check = (byte)savegame_fs.ReadByte();
+                    if (mariobonus3check == 0)
+                        comboBoxMStarBonus.SelectedIndex = 0;
+                    else if (mariobonus3 == 0)
+                        comboBoxMStarBonus.SelectedIndex = 1;
+                    if (mariobonus3 == 1)
+                        comboBoxMStarBonus.SelectedIndex = 2;
+                    if (mariobonus3 == 2)
+                        comboBoxMStarBonus.SelectedIndex = 3;
+                    if (mariobonus3 == 3)
+                        comboBoxMStarBonus.SelectedIndex = 4;
+                    if (mariobonus3 == 4)
+                        comboBoxMStarBonus.SelectedIndex = 5;
+                    if (mariobonus3 == 5)
+                        comboBoxMStarBonus.SelectedIndex = 6;
+                    if (mariobonus3 == 6)
+                        comboBoxMStarBonus.SelectedIndex = 7;
+                    if (mariobonus3 == 7)
+                        comboBoxMStarBonus.SelectedIndex = 8;
+                    if (mariobonus3 == 8)
+                        comboBoxMStarBonus.SelectedIndex = 9;
+                    if (mariobonus3 == 9)
+                        comboBoxMStarBonus.SelectedIndex = 10;
+                    if (mariobonus3 == 10)
+                        comboBoxMStarBonus.SelectedIndex = 11;
+                    if (mariobonus3 == 11)
+                        comboBoxMStarBonus.SelectedIndex = 12;
+                    if (mariobonus3 == 12)
+                        comboBoxMStarBonus.SelectedIndex = 13;
+                    if (mariobonus3 == 13)
+                        comboBoxMStarBonus.SelectedIndex = 14;
+                    if (mariobonus3 == 14)
+                        comboBoxMStarBonus.SelectedIndex = 15;
 
-                // Mario Rainbow Bonus Selection
-                savegame_br.BaseStream.Position = 0x792;
-                byte mariobonus4 = (byte)savegame_fs.ReadByte();
-                savegame_br.BaseStream.Position = 0x793;
-                byte mariobonus4check = (byte)savegame_fs.ReadByte();
-                if (mariobonus4check == 0)
-                    comboBoxMRainbowBonus.SelectedIndex = 0;
-                else if (mariobonus4 == 0)
-                    comboBoxMRainbowBonus.SelectedIndex = 1;
-                if (mariobonus4 == 1)
-                    comboBoxMRainbowBonus.SelectedIndex = 2;
-                if (mariobonus4 == 2)
-                    comboBoxMRainbowBonus.SelectedIndex = 3;
-                if (mariobonus4 == 3)
-                    comboBoxMRainbowBonus.SelectedIndex = 4;
-                if (mariobonus4 == 4)
-                    comboBoxMRainbowBonus.SelectedIndex = 5;
-                if (mariobonus4 == 5)
-                    comboBoxMRainbowBonus.SelectedIndex = 6;
-                if (mariobonus4 == 6)
-                    comboBoxMRainbowBonus.SelectedIndex = 7;
-                if (mariobonus4 == 7)
-                    comboBoxMRainbowBonus.SelectedIndex = 8;
-                if (mariobonus4 == 8)
-                    comboBoxMRainbowBonus.SelectedIndex = 9;
-                if (mariobonus4 == 9)
-                    comboBoxMRainbowBonus.SelectedIndex = 10;
-                if (mariobonus4 == 10)
-                    comboBoxMRainbowBonus.SelectedIndex = 11;
-                if (mariobonus4 == 11)
-                    comboBoxMRainbowBonus.SelectedIndex = 12;
-                if (mariobonus4 == 12)
-                    comboBoxMRainbowBonus.SelectedIndex = 13;
-                if (mariobonus4 == 13)
-                    comboBoxMRainbowBonus.SelectedIndex = 14;
-                if (mariobonus4 == 14)
-                    comboBoxMRainbowBonus.SelectedIndex = 15;
+                    // Mario Rainbow Bonus Selection
+                    savegame_br.BaseStream.Position = 0x792;
+                    byte mariobonus4 = (byte)savegame_fs.ReadByte();
+                    savegame_br.BaseStream.Position = 0x793;
+                    byte mariobonus4check = (byte)savegame_fs.ReadByte();
+                    if (mariobonus4check == 0)
+                        comboBoxMRainbowBonus.SelectedIndex = 0;
+                    else if (mariobonus4 == 0)
+                        comboBoxMRainbowBonus.SelectedIndex = 1;
+                    if (mariobonus4 == 1)
+                        comboBoxMRainbowBonus.SelectedIndex = 2;
+                    if (mariobonus4 == 2)
+                        comboBoxMRainbowBonus.SelectedIndex = 3;
+                    if (mariobonus4 == 3)
+                        comboBoxMRainbowBonus.SelectedIndex = 4;
+                    if (mariobonus4 == 4)
+                        comboBoxMRainbowBonus.SelectedIndex = 5;
+                    if (mariobonus4 == 5)
+                        comboBoxMRainbowBonus.SelectedIndex = 6;
+                    if (mariobonus4 == 6)
+                        comboBoxMRainbowBonus.SelectedIndex = 7;
+                    if (mariobonus4 == 7)
+                        comboBoxMRainbowBonus.SelectedIndex = 8;
+                    if (mariobonus4 == 8)
+                        comboBoxMRainbowBonus.SelectedIndex = 9;
+                    if (mariobonus4 == 9)
+                        comboBoxMRainbowBonus.SelectedIndex = 10;
+                    if (mariobonus4 == 10)
+                        comboBoxMRainbowBonus.SelectedIndex = 11;
+                    if (mariobonus4 == 11)
+                        comboBoxMRainbowBonus.SelectedIndex = 12;
+                    if (mariobonus4 == 12)
+                        comboBoxMRainbowBonus.SelectedIndex = 13;
+                    if (mariobonus4 == 13)
+                        comboBoxMRainbowBonus.SelectedIndex = 14;
+                    if (mariobonus4 == 14)
+                        comboBoxMRainbowBonus.SelectedIndex = 15;
 
-                // Mario Extra Bonus Selection
-                savegame_br.BaseStream.Position = 0x794;
-                byte mariobonus5 = (byte)savegame_fs.ReadByte();
-                savegame_br.BaseStream.Position = 0x795;
-                byte mariobonus5check = (byte)savegame_fs.ReadByte();
-                if (mariobonus5check == 0)
-                    comboBoxMExtraBonus.SelectedIndex = 0;
-                else if (mariobonus5 == 0)
-                    comboBoxMExtraBonus.SelectedIndex = 1;
-                if (mariobonus5 == 1)
-                    comboBoxMExtraBonus.SelectedIndex = 2;
-                if (mariobonus5 == 2)
-                    comboBoxMExtraBonus.SelectedIndex = 3;
-                if (mariobonus5 == 3)
-                    comboBoxMExtraBonus.SelectedIndex = 4;
-                if (mariobonus5 == 4)
-                    comboBoxMExtraBonus.SelectedIndex = 5;
-                if (mariobonus5 == 5)
-                    comboBoxMExtraBonus.SelectedIndex = 6;
-                if (mariobonus5 == 6)
-                    comboBoxMExtraBonus.SelectedIndex = 7;
-                if (mariobonus5 == 7)
-                    comboBoxMExtraBonus.SelectedIndex = 8;
-                if (mariobonus5 == 8)
-                    comboBoxMExtraBonus.SelectedIndex = 9;
-                if (mariobonus5 == 9)
-                    comboBoxMExtraBonus.SelectedIndex = 10;
-                if (mariobonus5 == 10)
-                    comboBoxMExtraBonus.SelectedIndex = 11;
-                if (mariobonus5 == 11)
-                    comboBoxMExtraBonus.SelectedIndex = 12;
-                if (mariobonus5 == 12)
-                    comboBoxMExtraBonus.SelectedIndex = 13;
-                if (mariobonus5 == 13)
-                    comboBoxMExtraBonus.SelectedIndex = 14;
-                if (mariobonus5 == 14)
-                    comboBoxMExtraBonus.SelectedIndex = 15;
+                    // Mario Extra Bonus Selection
+                    savegame_br.BaseStream.Position = 0x794;
+                    byte mariobonus5 = (byte)savegame_fs.ReadByte();
+                    savegame_br.BaseStream.Position = 0x795;
+                    byte mariobonus5check = (byte)savegame_fs.ReadByte();
+                    if (mariobonus5check == 0)
+                        comboBoxMExtraBonus.SelectedIndex = 0;
+                    else if (mariobonus5 == 0)
+                        comboBoxMExtraBonus.SelectedIndex = 1;
+                    if (mariobonus5 == 1)
+                        comboBoxMExtraBonus.SelectedIndex = 2;
+                    if (mariobonus5 == 2)
+                        comboBoxMExtraBonus.SelectedIndex = 3;
+                    if (mariobonus5 == 3)
+                        comboBoxMExtraBonus.SelectedIndex = 4;
+                    if (mariobonus5 == 4)
+                        comboBoxMExtraBonus.SelectedIndex = 5;
+                    if (mariobonus5 == 5)
+                        comboBoxMExtraBonus.SelectedIndex = 6;
+                    if (mariobonus5 == 6)
+                        comboBoxMExtraBonus.SelectedIndex = 7;
+                    if (mariobonus5 == 7)
+                        comboBoxMExtraBonus.SelectedIndex = 8;
+                    if (mariobonus5 == 8)
+                        comboBoxMExtraBonus.SelectedIndex = 9;
+                    if (mariobonus5 == 9)
+                        comboBoxMExtraBonus.SelectedIndex = 10;
+                    if (mariobonus5 == 10)
+                        comboBoxMExtraBonus.SelectedIndex = 11;
+                    if (mariobonus5 == 11)
+                        comboBoxMExtraBonus.SelectedIndex = 12;
+                    if (mariobonus5 == 12)
+                        comboBoxMExtraBonus.SelectedIndex = 13;
+                    if (mariobonus5 == 13)
+                        comboBoxMExtraBonus.SelectedIndex = 14;
+                    if (mariobonus5 == 14)
+                        comboBoxMExtraBonus.SelectedIndex = 15;
 
-                // Gear Slot +1 check
-                savegame_br.BaseStream.Position = 0x77F;
-                byte mgsp1c = (byte)savegame_fs.ReadByte();
-                int mgsp1c2 = (byte)((mgsp1c) >> 4);
-                numericROMGearSlot.Value = mgsp1c;
-                if (mgsp1c2 == 3)
-                    checkBoxMGearSlot1.Checked = false;
-                if (mgsp1c2 == 3)
-                    checkBoxMGearSlot2.Checked = false;
-                else if (mgsp1c2 == 4)
-                    checkBoxMGearSlot1.Checked = true;
-                else if (mgsp1c2 == 5)
-                    checkBoxMGearSlot1.Checked = true;
-                if (mgsp1c2 == 5)
-                    checkBoxMGearSlot2.Checked = true;
+                    // Gear Slot +1 check
+                    savegame_br.BaseStream.Position = 0x77F;
+                    byte mgsp1c = (byte)savegame_fs.ReadByte();
+                    int mgsp1c2 = (byte)((mgsp1c) >> 4);
+                    if (mgsp1c2 == 3)
+                        checkBoxMGearSlot1.Checked = false;
+                    if (mgsp1c2 == 3)
+                        checkBoxMGearSlot2.Checked = false;
+                    else if (mgsp1c2 == 4)
+                        checkBoxMGearSlot1.Checked = true;
+                    else if (mgsp1c2 == 5)
+                        checkBoxMGearSlot1.Checked = true;
+                    if (mgsp1c2 == 5)
+                        checkBoxMGearSlot2.Checked = true;
 
+
+                    // Gear Slot and Rank Check
+                    savegame_br.BaseStream.Position = 0x77F;
+                    byte mgsrc = (byte)savegame_fs.ReadByte();
+                    numericROMGearSlot.Value = mgsrc;
+
+                }
+
+                
                 // Badge Slot Universal Counter
                 savegame_br.BaseStream.Position = 0xA09;
                 byte badgeslotcount = (byte)savegame_fs.ReadByte();
                 numericUniversalBadgeCount1.Value = badgeslotcount;
 
-                // Luigi Current HP
-                savegame_br.BaseStream.Position = 0x836;
-                byte[] Luigicurrenthp = savegame_br.ReadBytes(2);
-                int Luigicurrenthp2 = BitConverter.ToInt16(Luigicurrenthp, 0);
-                numericLCurHP.Text = (Luigicurrenthp2.ToString());
+                /* Luigi Sats */
+                {
+                    // Luigi Current HP
+                    savegame_br.BaseStream.Position = 0x836;
+                    byte[] Luigicurrenthp = savegame_br.ReadBytes(2);
+                    int Luigicurrenthp2 = BitConverter.ToInt16(Luigicurrenthp, 0);
+                    numericLCurHP.Text = (Luigicurrenthp2.ToString());
 
-                // Luigi Current BP
-                savegame_br.BaseStream.Position = 0x838;
-                byte[] Luigicurrentbp = savegame_br.ReadBytes(2);
-                int Luigicurrentbp2 = BitConverter.ToInt16(Luigicurrentbp, 0);
-                numericLCurBP.Text = (Luigicurrentbp2.ToString());
+                    // Luigi Current BP
+                    savegame_br.BaseStream.Position = 0x838;
+                    byte[] Luigicurrentbp = savegame_br.ReadBytes(2);
+                    int Luigicurrentbp2 = BitConverter.ToInt16(Luigicurrentbp, 0);
+                    numericLCurBP.Text = (Luigicurrentbp2.ToString());
 
-                // Luigi Max HP
-                savegame_br.BaseStream.Position = 0x83A;
-                byte[] Luigimaxhp = savegame_br.ReadBytes(2);
-                int Luigimaxhp2 = BitConverter.ToInt16(Luigimaxhp, 0);
-                numericLMaxHP.Text = (Luigimaxhp2.ToString());
+                    // Luigi Max HP
+                    savegame_br.BaseStream.Position = 0x83A;
+                    byte[] Luigimaxhp = savegame_br.ReadBytes(2);
+                    int Luigimaxhp2 = BitConverter.ToInt16(Luigimaxhp, 0);
+                    numericLMaxHP.Text = (Luigimaxhp2.ToString());
 
-                // Luigi Max BP
-                savegame_br.BaseStream.Position = 0x83C;
-                byte[] Luigimaxbp = savegame_br.ReadBytes(2);
-                int Luigimaxbp2 = BitConverter.ToInt16(Luigimaxbp, 0);
-                numericLMaxBP.Text = (Luigimaxbp2.ToString());
+                    // Luigi Max BP
+                    savegame_br.BaseStream.Position = 0x83C;
+                    byte[] Luigimaxbp = savegame_br.ReadBytes(2);
+                    int Luigimaxbp2 = BitConverter.ToInt16(Luigimaxbp, 0);
+                    numericLMaxBP.Text = (Luigimaxbp2.ToString());
 
-                // Luigi Power
-                savegame_br.BaseStream.Position = 0x83E;
-                byte[] Luigipow = savegame_br.ReadBytes(2);
-                int Luigipow2 = BitConverter.ToInt16(Luigipow, 0);
-                numericLPow.Text = (Luigipow2.ToString());
+                    // Luigi Power
+                    savegame_br.BaseStream.Position = 0x83E;
+                    byte[] Luigipow = savegame_br.ReadBytes(2);
+                    int Luigipow2 = BitConverter.ToInt16(Luigipow, 0);
+                    numericLPow.Text = (Luigipow2.ToString());
 
-                // Luigi Defense
-                savegame_br.BaseStream.Position = 0x840;
-                byte[] Luigidef = savegame_br.ReadBytes(2);
-                int Luigidef2 = BitConverter.ToInt16(Luigidef, 0);
-                numericLDef.Text = (Luigidef2.ToString());
+                    // Luigi Defense
+                    savegame_br.BaseStream.Position = 0x840;
+                    byte[] Luigidef = savegame_br.ReadBytes(2);
+                    int Luigidef2 = BitConverter.ToInt16(Luigidef, 0);
+                    numericLDef.Text = (Luigidef2.ToString());
 
-                // Luigi Speed
-                savegame_br.BaseStream.Position = 0x842;
-                byte[] Luigispeed = savegame_br.ReadBytes(2);
-                int Luigispeed2 = BitConverter.ToInt16(Luigispeed, 0);
-                numericLSpeed.Text = (Luigispeed2.ToString());
+                    // Luigi Speed
+                    savegame_br.BaseStream.Position = 0x842;
+                    byte[] Luigispeed = savegame_br.ReadBytes(2);
+                    int Luigispeed2 = BitConverter.ToInt16(Luigispeed, 0);
+                    numericLSpeed.Text = (Luigispeed2.ToString());
 
-                // Luigi Stache
-                savegame_br.BaseStream.Position = 0x844;
-                byte[] Luigistache = savegame_br.ReadBytes(2);
-                int Luigistache2 = BitConverter.ToInt16(Luigistache, 0);
-                numericLStache.Text = (Luigistache2.ToString());
+                    // Luigi Stache
+                    savegame_br.BaseStream.Position = 0x844;
+                    byte[] Luigistache = savegame_br.ReadBytes(2);
+                    int Luigistache2 = BitConverter.ToInt16(Luigistache, 0);
+                    numericLStache.Text = (Luigistache2.ToString());
 
-                // Luigi Max HP Bean
-                savegame_br.BaseStream.Position = 0x846;
-                byte[] Luigimaxhpbean = savegame_br.ReadBytes(2);
-                int Luigimaxhpbean2 = BitConverter.ToInt16(Luigimaxhpbean, 0);
-                numericLBeanHP.Text = (Luigimaxhpbean2.ToString());
+                    // Luigi Max HP Bean
+                    savegame_br.BaseStream.Position = 0x846;
+                    byte[] Luigimaxhpbean = savegame_br.ReadBytes(2);
+                    int Luigimaxhpbean2 = BitConverter.ToInt16(Luigimaxhpbean, 0);
+                    numericLBeanHP.Text = (Luigimaxhpbean2.ToString());
 
-                // Luigi Max HP Level-up Roulette
-                savegame_br.BaseStream.Position = 0x848;
-                byte[] Luigimaxhplvlup = savegame_br.ReadBytes(2);
-                int Luigimaxhplvlup2 = BitConverter.ToInt16(Luigimaxhplvlup, 0);
-                numericLLvlUpHP.Text = (Luigimaxhplvlup2.ToString());
+                    // Luigi Max HP Level-up Roulette
+                    savegame_br.BaseStream.Position = 0x848;
+                    byte[] Luigimaxhplvlup = savegame_br.ReadBytes(2);
+                    int Luigimaxhplvlup2 = BitConverter.ToInt16(Luigimaxhplvlup, 0);
+                    numericLLvlUpHP.Text = (Luigimaxhplvlup2.ToString());
 
-                // Luigi Max BP Bean
-                savegame_br.BaseStream.Position = 0x84A;
-                byte[] Luigimaxbpbean = savegame_br.ReadBytes(2);
-                int Luigimaxbpbean2 = BitConverter.ToInt16(Luigimaxbpbean, 0);
-                numericLBeanBP.Text = (Luigimaxbpbean2.ToString());
+                    // Luigi Max BP Bean
+                    savegame_br.BaseStream.Position = 0x84A;
+                    byte[] Luigimaxbpbean = savegame_br.ReadBytes(2);
+                    int Luigimaxbpbean2 = BitConverter.ToInt16(Luigimaxbpbean, 0);
+                    numericLBeanBP.Text = (Luigimaxbpbean2.ToString());
 
-                // Luigi Max BP Level-up Roulette
-                savegame_br.BaseStream.Position = 0x84C;
-                byte[] Luigimaxbplvlup = savegame_br.ReadBytes(2);
-                int Luigimaxbplvlup2 = BitConverter.ToInt16(Luigimaxbplvlup, 0);
-                numericLLvlUpBP.Text = (Luigimaxbplvlup2.ToString());
+                    // Luigi Max BP Level-up Roulette
+                    savegame_br.BaseStream.Position = 0x84C;
+                    byte[] Luigimaxbplvlup = savegame_br.ReadBytes(2);
+                    int Luigimaxbplvlup2 = BitConverter.ToInt16(Luigimaxbplvlup, 0);
+                    numericLLvlUpBP.Text = (Luigimaxbplvlup2.ToString());
 
-                // Luigi Power Bean
-                savegame_br.BaseStream.Position = 0x84E;
-                byte[] Luigipowbean = savegame_br.ReadBytes(2);
-                int Luigipowbean2 = BitConverter.ToInt16(Luigipowbean, 0);
-                numericLBeanPow.Text = (Luigipowbean2.ToString());
+                    // Luigi Power Bean
+                    savegame_br.BaseStream.Position = 0x84E;
+                    byte[] Luigipowbean = savegame_br.ReadBytes(2);
+                    int Luigipowbean2 = BitConverter.ToInt16(Luigipowbean, 0);
+                    numericLBeanPow.Text = (Luigipowbean2.ToString());
 
-                // Luigi Power Level-up Roulette
-                savegame_br.BaseStream.Position = 0x850;
-                byte[] Luigipowlvlup = savegame_br.ReadBytes(2);
-                int Luigipowlvlup2 = BitConverter.ToInt16(Luigipowlvlup, 0);
-                numericLLvlUpPow.Text = (Luigipowlvlup2.ToString());
+                    // Luigi Power Level-up Roulette
+                    savegame_br.BaseStream.Position = 0x850;
+                    byte[] Luigipowlvlup = savegame_br.ReadBytes(2);
+                    int Luigipowlvlup2 = BitConverter.ToInt16(Luigipowlvlup, 0);
+                    numericLLvlUpPow.Text = (Luigipowlvlup2.ToString());
 
-                // Luigi Defense Bean
-                savegame_br.BaseStream.Position = 0x852;
-                byte[] Luigidefbean = savegame_br.ReadBytes(2);
-                int Luigidefbean2 = BitConverter.ToInt16(Luigidefbean, 0);
-                numericLBeanDef.Text = (Luigidefbean2.ToString());
+                    // Luigi Defense Bean
+                    savegame_br.BaseStream.Position = 0x852;
+                    byte[] Luigidefbean = savegame_br.ReadBytes(2);
+                    int Luigidefbean2 = BitConverter.ToInt16(Luigidefbean, 0);
+                    numericLBeanDef.Text = (Luigidefbean2.ToString());
 
-                // Luigi Defense Level-up Roulette
-                savegame_br.BaseStream.Position = 0x854;
-                byte[] Luigideflvlup = savegame_br.ReadBytes(2);
-                int Luigideflvlup2 = BitConverter.ToInt16(Luigideflvlup, 0);
-                numericLLvlUpDef.Text = (Luigideflvlup2.ToString());
+                    // Luigi Defense Level-up Roulette
+                    savegame_br.BaseStream.Position = 0x854;
+                    byte[] Luigideflvlup = savegame_br.ReadBytes(2);
+                    int Luigideflvlup2 = BitConverter.ToInt16(Luigideflvlup, 0);
+                    numericLLvlUpDef.Text = (Luigideflvlup2.ToString());
 
-                // Luigi Speed Bean
-                savegame_br.BaseStream.Position = 0x856;
-                byte[] Luigispeedbean = savegame_br.ReadBytes(2);
-                int Luigispeedbean2 = BitConverter.ToInt16(Luigispeedbean, 0);
-                numericLBeanSpeed.Text = (Luigispeedbean2.ToString());
+                    // Luigi Speed Bean
+                    savegame_br.BaseStream.Position = 0x856;
+                    byte[] Luigispeedbean = savegame_br.ReadBytes(2);
+                    int Luigispeedbean2 = BitConverter.ToInt16(Luigispeedbean, 0);
+                    numericLBeanSpeed.Text = (Luigispeedbean2.ToString());
 
-                // Luigi Speed Level-up Roulette
-                savegame_br.BaseStream.Position = 0x858;
-                byte[] Luigispeedlvlup = savegame_br.ReadBytes(2);
-                int Luigispeedlvlup2 = BitConverter.ToInt16(Luigispeedlvlup, 0);
-                numericLLvlUpSpeed.Text = (Luigispeedlvlup2.ToString());
+                    // Luigi Speed Level-up Roulette
+                    savegame_br.BaseStream.Position = 0x858;
+                    byte[] Luigispeedlvlup = savegame_br.ReadBytes(2);
+                    int Luigispeedlvlup2 = BitConverter.ToInt16(Luigispeedlvlup, 0);
+                    numericLLvlUpSpeed.Text = (Luigispeedlvlup2.ToString());
 
-                // Luigi Stache Bean
-                savegame_br.BaseStream.Position = 0x85A;
-                byte[] Luigistachebean = savegame_br.ReadBytes(2);
-                int Luigistachebean2 = BitConverter.ToInt16(Luigistachebean, 0);
-                numericLBeanStache.Text = (Luigistachebean2.ToString());
+                    // Luigi Stache Bean
+                    savegame_br.BaseStream.Position = 0x85A;
+                    byte[] Luigistachebean = savegame_br.ReadBytes(2);
+                    int Luigistachebean2 = BitConverter.ToInt16(Luigistachebean, 0);
+                    numericLBeanStache.Text = (Luigistachebean2.ToString());
 
-                // Luigi Stache Level-up Roulette
-                savegame_br.BaseStream.Position = 0x85C;
-                byte[] Luigistachelvlup = savegame_br.ReadBytes(2);
-                int Luigistachelvlup2 = BitConverter.ToInt16(Luigistachelvlup, 0);
-                numericLLvlUpStache.Text = (Luigistachelvlup2.ToString());
+                    // Luigi Stache Level-up Roulette
+                    savegame_br.BaseStream.Position = 0x85C;
+                    byte[] Luigistachelvlup = savegame_br.ReadBytes(2);
+                    int Luigistachelvlup2 = BitConverter.ToInt16(Luigistachelvlup, 0);
+                    numericLLvlUpStache.Text = (Luigistachelvlup2.ToString());
 
-                // Luigi Level
-                savegame_br.BaseStream.Position = 0x863;
-                byte Luigilevel = (byte)savegame_fs.ReadByte();
-                numericLLevel.Text = (Luigilevel.ToString());
+                    // Luigi Level
+                    savegame_br.BaseStream.Position = 0x863;
+                    byte Luigilevel = (byte)savegame_fs.ReadByte();
+                    numericLLevel.Text = (Luigilevel.ToString());
 
-                // Luigi Experience 1
-                savegame_br.BaseStream.Position = 0x860;
-                byte[] Luigiexperience1 = savegame_br.ReadBytes(2);
-                int Luigiexperience12 = BitConverter.ToInt16(Luigiexperience1, 0);
-                numericLExperienceHidden1.Text = (Luigiexperience12.ToString());
+                    // Luigi Experience 1
+                    savegame_br.BaseStream.Position = 0x860;
+                    byte[] Luigiexperience1 = savegame_br.ReadBytes(2);
+                    int Luigiexperience12 = BitConverter.ToInt16(Luigiexperience1, 0);
+                    numericLExperienceHidden1.Text = (Luigiexperience12.ToString());
 
-                // Luigi Experience 2
-                savegame_br.BaseStream.Position = 0x862;
-                byte Luigiexperience2 = (byte)savegame_fs.ReadByte();
-                numericLExperienceHidden2.Text = (Luigiexperience2.ToString());
+                    // Luigi Experience 2
+                    savegame_br.BaseStream.Position = 0x862;
+                    byte Luigiexperience2 = (byte)savegame_fs.ReadByte();
+                    numericLExperienceHidden2.Text = (Luigiexperience2.ToString());
 
-                // Luigi Shell Bonus Selection
-                savegame_br.BaseStream.Position = 0x874;
-                byte Luigibonus1 = (byte)savegame_fs.ReadByte();
-                savegame_br.BaseStream.Position = 0x875;
-                byte Luigibonus1check = (byte)savegame_fs.ReadByte();
-                if (Luigibonus1check == 0)
-                    comboBoxLShellBonus.SelectedIndex = 0;
-                else if (Luigibonus1 == 0)
-                    comboBoxLShellBonus.SelectedIndex = 1;
-                if (Luigibonus1 == 1)
-                    comboBoxLShellBonus.SelectedIndex = 2;
-                if (Luigibonus1 == 2)
-                    comboBoxLShellBonus.SelectedIndex = 3;
-                if (Luigibonus1 == 3)
-                    comboBoxLShellBonus.SelectedIndex = 4;
-                if (Luigibonus1 == 4)
-                    comboBoxLShellBonus.SelectedIndex = 5;
-                if (Luigibonus1 == 5)
-                    comboBoxLShellBonus.SelectedIndex = 6;
-                if (Luigibonus1 == 6)
-                    comboBoxLShellBonus.SelectedIndex = 7;
-                if (Luigibonus1 == 7)
-                    comboBoxLShellBonus.SelectedIndex = 8;
-                if (Luigibonus1 == 8)
-                    comboBoxLShellBonus.SelectedIndex = 9;
-                if (Luigibonus1 == 9)
-                    comboBoxLShellBonus.SelectedIndex = 10;
-                if (Luigibonus1 == 10)
-                    comboBoxLShellBonus.SelectedIndex = 11;
-                if (Luigibonus1 == 11)
-                    comboBoxLShellBonus.SelectedIndex = 12;
-                if (Luigibonus1 == 12)
-                    comboBoxLShellBonus.SelectedIndex = 13;
-                if (Luigibonus1 == 13)
-                    comboBoxLShellBonus.SelectedIndex = 14;
-                if (Luigibonus1 == 14)
-                    comboBoxLShellBonus.SelectedIndex = 15;
+                    // Luigi Shell Bonus Selection
+                    savegame_br.BaseStream.Position = 0x874;
+                    byte Luigibonus1 = (byte)savegame_fs.ReadByte();
+                    savegame_br.BaseStream.Position = 0x875;
+                    byte Luigibonus1check = (byte)savegame_fs.ReadByte();
+                    if (Luigibonus1check == 0)
+                        comboBoxLShellBonus.SelectedIndex = 0;
+                    else if (Luigibonus1 == 0)
+                        comboBoxLShellBonus.SelectedIndex = 1;
+                    if (Luigibonus1 == 1)
+                        comboBoxLShellBonus.SelectedIndex = 2;
+                    if (Luigibonus1 == 2)
+                        comboBoxLShellBonus.SelectedIndex = 3;
+                    if (Luigibonus1 == 3)
+                        comboBoxLShellBonus.SelectedIndex = 4;
+                    if (Luigibonus1 == 4)
+                        comboBoxLShellBonus.SelectedIndex = 5;
+                    if (Luigibonus1 == 5)
+                        comboBoxLShellBonus.SelectedIndex = 6;
+                    if (Luigibonus1 == 6)
+                        comboBoxLShellBonus.SelectedIndex = 7;
+                    if (Luigibonus1 == 7)
+                        comboBoxLShellBonus.SelectedIndex = 8;
+                    if (Luigibonus1 == 8)
+                        comboBoxLShellBonus.SelectedIndex = 9;
+                    if (Luigibonus1 == 9)
+                        comboBoxLShellBonus.SelectedIndex = 10;
+                    if (Luigibonus1 == 10)
+                        comboBoxLShellBonus.SelectedIndex = 11;
+                    if (Luigibonus1 == 11)
+                        comboBoxLShellBonus.SelectedIndex = 12;
+                    if (Luigibonus1 == 12)
+                        comboBoxLShellBonus.SelectedIndex = 13;
+                    if (Luigibonus1 == 13)
+                        comboBoxLShellBonus.SelectedIndex = 14;
+                    if (Luigibonus1 == 14)
+                        comboBoxLShellBonus.SelectedIndex = 15;
 
-                // Luigi Flower Bonus Selection
-                savegame_br.BaseStream.Position = 0x876;
-                byte Luigibonus2 = (byte)savegame_fs.ReadByte();
-                savegame_br.BaseStream.Position = 0x877;
-                byte Luigibonus2check = (byte)savegame_fs.ReadByte();
-                if (Luigibonus2check == 0)
-                    comboBoxLFlowerBonus.SelectedIndex = 0;
-                else if (Luigibonus2 == 0)
-                    comboBoxLFlowerBonus.SelectedIndex = 1;
-                if (Luigibonus2 == 1)
-                    comboBoxLFlowerBonus.SelectedIndex = 2;
-                if (Luigibonus2 == 2)
-                    comboBoxLFlowerBonus.SelectedIndex = 3;
-                if (Luigibonus2 == 3)
-                    comboBoxLFlowerBonus.SelectedIndex = 4;
-                if (Luigibonus2 == 4)
-                    comboBoxLFlowerBonus.SelectedIndex = 5;
-                if (Luigibonus2 == 5)
-                    comboBoxLFlowerBonus.SelectedIndex = 6;
-                if (Luigibonus2 == 6)
-                    comboBoxLFlowerBonus.SelectedIndex = 7;
-                if (Luigibonus2 == 7)
-                    comboBoxLFlowerBonus.SelectedIndex = 8;
-                if (Luigibonus2 == 8)
-                    comboBoxLFlowerBonus.SelectedIndex = 9;
-                if (Luigibonus2 == 9)
-                    comboBoxLFlowerBonus.SelectedIndex = 10;
-                if (Luigibonus2 == 10)
-                    comboBoxLFlowerBonus.SelectedIndex = 11;
-                if (Luigibonus2 == 11)
-                    comboBoxLFlowerBonus.SelectedIndex = 12;
-                if (Luigibonus2 == 12)
-                    comboBoxLFlowerBonus.SelectedIndex = 13;
-                if (Luigibonus2 == 13)
-                    comboBoxLFlowerBonus.SelectedIndex = 14;
-                if (Luigibonus2 == 14)
-                    comboBoxLFlowerBonus.SelectedIndex = 15;
+                    // Luigi Flower Bonus Selection
+                    savegame_br.BaseStream.Position = 0x876;
+                    byte Luigibonus2 = (byte)savegame_fs.ReadByte();
+                    savegame_br.BaseStream.Position = 0x877;
+                    byte Luigibonus2check = (byte)savegame_fs.ReadByte();
+                    if (Luigibonus2check == 0)
+                        comboBoxLFlowerBonus.SelectedIndex = 0;
+                    else if (Luigibonus2 == 0)
+                        comboBoxLFlowerBonus.SelectedIndex = 1;
+                    if (Luigibonus2 == 1)
+                        comboBoxLFlowerBonus.SelectedIndex = 2;
+                    if (Luigibonus2 == 2)
+                        comboBoxLFlowerBonus.SelectedIndex = 3;
+                    if (Luigibonus2 == 3)
+                        comboBoxLFlowerBonus.SelectedIndex = 4;
+                    if (Luigibonus2 == 4)
+                        comboBoxLFlowerBonus.SelectedIndex = 5;
+                    if (Luigibonus2 == 5)
+                        comboBoxLFlowerBonus.SelectedIndex = 6;
+                    if (Luigibonus2 == 6)
+                        comboBoxLFlowerBonus.SelectedIndex = 7;
+                    if (Luigibonus2 == 7)
+                        comboBoxLFlowerBonus.SelectedIndex = 8;
+                    if (Luigibonus2 == 8)
+                        comboBoxLFlowerBonus.SelectedIndex = 9;
+                    if (Luigibonus2 == 9)
+                        comboBoxLFlowerBonus.SelectedIndex = 10;
+                    if (Luigibonus2 == 10)
+                        comboBoxLFlowerBonus.SelectedIndex = 11;
+                    if (Luigibonus2 == 11)
+                        comboBoxLFlowerBonus.SelectedIndex = 12;
+                    if (Luigibonus2 == 12)
+                        comboBoxLFlowerBonus.SelectedIndex = 13;
+                    if (Luigibonus2 == 13)
+                        comboBoxLFlowerBonus.SelectedIndex = 14;
+                    if (Luigibonus2 == 14)
+                        comboBoxLFlowerBonus.SelectedIndex = 15;
 
-                // Luigi Star Bonus Selection
-                savegame_br.BaseStream.Position = 0x878;
-                byte Luigibonus3 = (byte)savegame_fs.ReadByte();
-                savegame_br.BaseStream.Position = 0x879;
-                byte Luigibonus3check = (byte)savegame_fs.ReadByte();
-                if (Luigibonus3check == 0)
-                    comboBoxLStarBonus.SelectedIndex = 0;
-                else if (Luigibonus3 == 0)
-                    comboBoxLStarBonus.SelectedIndex = 1;
-                if (Luigibonus3 == 1)
-                    comboBoxLStarBonus.SelectedIndex = 2;
-                if (Luigibonus3 == 2)
-                    comboBoxLStarBonus.SelectedIndex = 3;
-                if (Luigibonus3 == 3)
-                    comboBoxLStarBonus.SelectedIndex = 4;
-                if (Luigibonus3 == 4)
-                    comboBoxLStarBonus.SelectedIndex = 5;
-                if (Luigibonus3 == 5)
-                    comboBoxLStarBonus.SelectedIndex = 6;
-                if (Luigibonus3 == 6)
-                    comboBoxLStarBonus.SelectedIndex = 7;
-                if (Luigibonus3 == 7)
-                    comboBoxLStarBonus.SelectedIndex = 8;
-                if (Luigibonus3 == 8)
-                    comboBoxLStarBonus.SelectedIndex = 9;
-                if (Luigibonus3 == 9)
-                    comboBoxLStarBonus.SelectedIndex = 10;
-                if (Luigibonus3 == 10)
-                    comboBoxLStarBonus.SelectedIndex = 11;
-                if (Luigibonus3 == 11)
-                    comboBoxLStarBonus.SelectedIndex = 12;
-                if (Luigibonus3 == 12)
-                    comboBoxLStarBonus.SelectedIndex = 13;
-                if (Luigibonus3 == 13)
-                    comboBoxLStarBonus.SelectedIndex = 14;
-                if (Luigibonus3 == 14)
-                    comboBoxLStarBonus.SelectedIndex = 15;
+                    // Luigi Star Bonus Selection
+                    savegame_br.BaseStream.Position = 0x878;
+                    byte Luigibonus3 = (byte)savegame_fs.ReadByte();
+                    savegame_br.BaseStream.Position = 0x879;
+                    byte Luigibonus3check = (byte)savegame_fs.ReadByte();
+                    if (Luigibonus3check == 0)
+                        comboBoxLStarBonus.SelectedIndex = 0;
+                    else if (Luigibonus3 == 0)
+                        comboBoxLStarBonus.SelectedIndex = 1;
+                    if (Luigibonus3 == 1)
+                        comboBoxLStarBonus.SelectedIndex = 2;
+                    if (Luigibonus3 == 2)
+                        comboBoxLStarBonus.SelectedIndex = 3;
+                    if (Luigibonus3 == 3)
+                        comboBoxLStarBonus.SelectedIndex = 4;
+                    if (Luigibonus3 == 4)
+                        comboBoxLStarBonus.SelectedIndex = 5;
+                    if (Luigibonus3 == 5)
+                        comboBoxLStarBonus.SelectedIndex = 6;
+                    if (Luigibonus3 == 6)
+                        comboBoxLStarBonus.SelectedIndex = 7;
+                    if (Luigibonus3 == 7)
+                        comboBoxLStarBonus.SelectedIndex = 8;
+                    if (Luigibonus3 == 8)
+                        comboBoxLStarBonus.SelectedIndex = 9;
+                    if (Luigibonus3 == 9)
+                        comboBoxLStarBonus.SelectedIndex = 10;
+                    if (Luigibonus3 == 10)
+                        comboBoxLStarBonus.SelectedIndex = 11;
+                    if (Luigibonus3 == 11)
+                        comboBoxLStarBonus.SelectedIndex = 12;
+                    if (Luigibonus3 == 12)
+                        comboBoxLStarBonus.SelectedIndex = 13;
+                    if (Luigibonus3 == 13)
+                        comboBoxLStarBonus.SelectedIndex = 14;
+                    if (Luigibonus3 == 14)
+                        comboBoxLStarBonus.SelectedIndex = 15;
 
-                // Luigi Rainbow Bonus Selection
-                savegame_br.BaseStream.Position = 0x87A;
-                byte Luigibonus4 = (byte)savegame_fs.ReadByte();
-                savegame_br.BaseStream.Position = 0x87B;
-                byte Luigibonus4check = (byte)savegame_fs.ReadByte();
-                if (Luigibonus4check == 0)
-                    comboBoxLRainbowBonus.SelectedIndex = 0;
-                else if (Luigibonus4 == 0)
-                    comboBoxLRainbowBonus.SelectedIndex = 1;
-                if (Luigibonus4 == 1)
-                    comboBoxLRainbowBonus.SelectedIndex = 2;
-                if (Luigibonus4 == 2)
-                    comboBoxLRainbowBonus.SelectedIndex = 3;
-                if (Luigibonus4 == 3)
-                    comboBoxLRainbowBonus.SelectedIndex = 4;
-                if (Luigibonus4 == 4)
-                    comboBoxLRainbowBonus.SelectedIndex = 5;
-                if (Luigibonus4 == 5)
-                    comboBoxLRainbowBonus.SelectedIndex = 6;
-                if (Luigibonus4 == 6)
-                    comboBoxLRainbowBonus.SelectedIndex = 7;
-                if (Luigibonus4 == 7)
-                    comboBoxLRainbowBonus.SelectedIndex = 8;
-                if (Luigibonus4 == 8)
-                    comboBoxLRainbowBonus.SelectedIndex = 9;
-                if (Luigibonus4 == 9)
-                    comboBoxLRainbowBonus.SelectedIndex = 10;
-                if (Luigibonus4 == 10)
-                    comboBoxLRainbowBonus.SelectedIndex = 11;
-                if (Luigibonus4 == 11)
-                    comboBoxLRainbowBonus.SelectedIndex = 12;
-                if (Luigibonus4 == 12)
-                    comboBoxLRainbowBonus.SelectedIndex = 13;
-                if (Luigibonus4 == 13)
-                    comboBoxLRainbowBonus.SelectedIndex = 14;
-                if (Luigibonus4 == 14)
-                    comboBoxLRainbowBonus.SelectedIndex = 15;
+                    // Luigi Rainbow Bonus Selection
+                    savegame_br.BaseStream.Position = 0x87A;
+                    byte Luigibonus4 = (byte)savegame_fs.ReadByte();
+                    savegame_br.BaseStream.Position = 0x87B;
+                    byte Luigibonus4check = (byte)savegame_fs.ReadByte();
+                    if (Luigibonus4check == 0)
+                        comboBoxLRainbowBonus.SelectedIndex = 0;
+                    else if (Luigibonus4 == 0)
+                        comboBoxLRainbowBonus.SelectedIndex = 1;
+                    if (Luigibonus4 == 1)
+                        comboBoxLRainbowBonus.SelectedIndex = 2;
+                    if (Luigibonus4 == 2)
+                        comboBoxLRainbowBonus.SelectedIndex = 3;
+                    if (Luigibonus4 == 3)
+                        comboBoxLRainbowBonus.SelectedIndex = 4;
+                    if (Luigibonus4 == 4)
+                        comboBoxLRainbowBonus.SelectedIndex = 5;
+                    if (Luigibonus4 == 5)
+                        comboBoxLRainbowBonus.SelectedIndex = 6;
+                    if (Luigibonus4 == 6)
+                        comboBoxLRainbowBonus.SelectedIndex = 7;
+                    if (Luigibonus4 == 7)
+                        comboBoxLRainbowBonus.SelectedIndex = 8;
+                    if (Luigibonus4 == 8)
+                        comboBoxLRainbowBonus.SelectedIndex = 9;
+                    if (Luigibonus4 == 9)
+                        comboBoxLRainbowBonus.SelectedIndex = 10;
+                    if (Luigibonus4 == 10)
+                        comboBoxLRainbowBonus.SelectedIndex = 11;
+                    if (Luigibonus4 == 11)
+                        comboBoxLRainbowBonus.SelectedIndex = 12;
+                    if (Luigibonus4 == 12)
+                        comboBoxLRainbowBonus.SelectedIndex = 13;
+                    if (Luigibonus4 == 13)
+                        comboBoxLRainbowBonus.SelectedIndex = 14;
+                    if (Luigibonus4 == 14)
+                        comboBoxLRainbowBonus.SelectedIndex = 15;
 
-                // Luigi Extra Bonus Selection
-                savegame_br.BaseStream.Position = 0x87C;
-                byte Luigibonus5 = (byte)savegame_fs.ReadByte();
-                savegame_br.BaseStream.Position = 0x87D;
-                byte Luigibonus5check = (byte)savegame_fs.ReadByte();
-                if (Luigibonus5check == 0)
-                    comboBoxLExtraBonus.SelectedIndex = 0;
-                else if (Luigibonus5 == 0)
-                    comboBoxLExtraBonus.SelectedIndex = 1;
-                if (Luigibonus5 == 1)
-                    comboBoxLExtraBonus.SelectedIndex = 2;
-                if (Luigibonus5 == 2)
-                    comboBoxLExtraBonus.SelectedIndex = 3;
-                if (Luigibonus5 == 3)
-                    comboBoxLExtraBonus.SelectedIndex = 4;
-                if (Luigibonus5 == 4)
-                    comboBoxLExtraBonus.SelectedIndex = 5;
-                if (Luigibonus5 == 5)
-                    comboBoxLExtraBonus.SelectedIndex = 6;
-                if (Luigibonus5 == 6)
-                    comboBoxLExtraBonus.SelectedIndex = 7;
-                if (Luigibonus5 == 7)
-                    comboBoxLExtraBonus.SelectedIndex = 8;
-                if (Luigibonus5 == 8)
-                    comboBoxLExtraBonus.SelectedIndex = 9;
-                if (Luigibonus5 == 9)
-                    comboBoxLExtraBonus.SelectedIndex = 10;
-                if (Luigibonus5 == 10)
-                    comboBoxLExtraBonus.SelectedIndex = 11;
-                if (Luigibonus5 == 11)
-                    comboBoxLExtraBonus.SelectedIndex = 12;
-                if (Luigibonus5 == 12)
-                    comboBoxLExtraBonus.SelectedIndex = 13;
-                if (Luigibonus5 == 13)
-                    comboBoxLExtraBonus.SelectedIndex = 14;
-                if (Luigibonus5 == 14)
-                    comboBoxLExtraBonus.SelectedIndex = 15;
+                    // Luigi Extra Bonus Selection
+                    savegame_br.BaseStream.Position = 0x87C;
+                    byte Luigibonus5 = (byte)savegame_fs.ReadByte();
+                    savegame_br.BaseStream.Position = 0x87D;
+                    byte Luigibonus5check = (byte)savegame_fs.ReadByte();
+                    if (Luigibonus5check == 0)
+                        comboBoxLExtraBonus.SelectedIndex = 0;
+                    else if (Luigibonus5 == 0)
+                        comboBoxLExtraBonus.SelectedIndex = 1;
+                    if (Luigibonus5 == 1)
+                        comboBoxLExtraBonus.SelectedIndex = 2;
+                    if (Luigibonus5 == 2)
+                        comboBoxLExtraBonus.SelectedIndex = 3;
+                    if (Luigibonus5 == 3)
+                        comboBoxLExtraBonus.SelectedIndex = 4;
+                    if (Luigibonus5 == 4)
+                        comboBoxLExtraBonus.SelectedIndex = 5;
+                    if (Luigibonus5 == 5)
+                        comboBoxLExtraBonus.SelectedIndex = 6;
+                    if (Luigibonus5 == 6)
+                        comboBoxLExtraBonus.SelectedIndex = 7;
+                    if (Luigibonus5 == 7)
+                        comboBoxLExtraBonus.SelectedIndex = 8;
+                    if (Luigibonus5 == 8)
+                        comboBoxLExtraBonus.SelectedIndex = 9;
+                    if (Luigibonus5 == 9)
+                        comboBoxLExtraBonus.SelectedIndex = 10;
+                    if (Luigibonus5 == 10)
+                        comboBoxLExtraBonus.SelectedIndex = 11;
+                    if (Luigibonus5 == 11)
+                        comboBoxLExtraBonus.SelectedIndex = 12;
+                    if (Luigibonus5 == 12)
+                        comboBoxLExtraBonus.SelectedIndex = 13;
+                    if (Luigibonus5 == 13)
+                        comboBoxLExtraBonus.SelectedIndex = 14;
+                    if (Luigibonus5 == 14)
+                        comboBoxLExtraBonus.SelectedIndex = 15;
 
-                // Luigi Gear Slot +1 check
-                savegame_br.BaseStream.Position = 0x867;
-                byte lgsp1c = (byte)savegame_fs.ReadByte();
-                int lgsp1c2 = (byte)((lgsp1c) >> 4);
-                numericROLGearSlot.Value = lgsp1c;
-                if (lgsp1c2 == 3)
-                    checkBoxLGearSlot1.Checked = false;
-                if (lgsp1c2 == 3)
-                    checkBoxLGearSlot2.Checked = false;
-                else if (lgsp1c2 == 4)
-                    checkBoxLGearSlot1.Checked = true;
-                else if (lgsp1c2 == 5)
-                    checkBoxLGearSlot1.Checked = true;
-                if (lgsp1c2 == 5)
-                    checkBoxLGearSlot2.Checked = true;
+                    // Luigi Gear Slot +1 check
+                    savegame_br.BaseStream.Position = 0x867;
+                    byte lgsp1c = (byte)savegame_fs.ReadByte();
+                    int lgsp1c2 = (byte)((lgsp1c) >> 4);
+                    if (lgsp1c2 == 3)
+                        checkBoxLGearSlot1.Checked = false;
+                    if (lgsp1c2 == 3)
+                        checkBoxLGearSlot2.Checked = false;
+                    else if (lgsp1c2 == 4)
+                        checkBoxLGearSlot1.Checked = true;
+                    else if (lgsp1c2 == 5)
+                        checkBoxLGearSlot1.Checked = true;
+                    if (lgsp1c2 == 5)
+                        checkBoxLGearSlot2.Checked = true;
 
-                // Luigi Selected Badge
-                savegame_br.BaseStream.Position = 0x872;
-                byte Luigiselectedbage = (byte)savegame_fs.ReadByte();
-                if (Luigiselectedbage == 8)
-                    comboBoxLuigiSelectedBadge.SelectedIndex = 0;
-                if (Luigiselectedbage == 9)
-                    comboBoxLuigiSelectedBadge.SelectedIndex = 1;
-                if (Luigiselectedbage == 10)
-                    comboBoxLuigiSelectedBadge.SelectedIndex = 2;
-                if (Luigiselectedbage == 11)
-                    comboBoxLuigiSelectedBadge.SelectedIndex = 3;
-                if (Luigiselectedbage == 12)
-                    comboBoxLuigiSelectedBadge.SelectedIndex = 4;
-                if (Luigiselectedbage == 13)
-                    comboBoxLuigiSelectedBadge.SelectedIndex = 5;
+                    // Gear Slot + Rank Check
+                    savegame_br.BaseStream.Position = 0x867;
+                    byte lgsrc = (byte)savegame_fs.ReadByte();
+                    numericROLGearSlot.Value = lgsrc;
+
+                    // Luigi Selected Badge
+                    savegame_br.BaseStream.Position = 0x872;
+                    byte Luigiselectedbage = (byte)savegame_fs.ReadByte();
+                    if (Luigiselectedbage == 8)
+                        comboBoxLuigiSelectedBadge.SelectedIndex = 0;
+                    if (Luigiselectedbage == 9)
+                        comboBoxLuigiSelectedBadge.SelectedIndex = 1;
+                    if (Luigiselectedbage == 10)
+                        comboBoxLuigiSelectedBadge.SelectedIndex = 2;
+                    if (Luigiselectedbage == 11)
+                        comboBoxLuigiSelectedBadge.SelectedIndex = 3;
+                    if (Luigiselectedbage == 12)
+                        comboBoxLuigiSelectedBadge.SelectedIndex = 4;
+                    if (Luigiselectedbage == 13)
+                        comboBoxLuigiSelectedBadge.SelectedIndex = 5;
+                }
 
                     // Mario Selected Badge
                     savegame_br.BaseStream.Position = 0x78A;
@@ -3157,14 +3187,14 @@ namespace Save_Editor_1
             update_save_open.Position = Convert.ToInt64("307", 16);
             update_save_write.Write(nbcunlockflagsd);
 
-            byte[] dwsd = ML4E_StringToByteArray(int.Parse(numericRODWAb.Text).ToString("X4"));
+            byte[] dwsd = ML4E_StringToByteArray(int.Parse(numericRODWAb.Text).ToString("X6"));
             Array.Reverse(dwsd);
-            update_save_open.Position = Convert.ToInt64("1", 8);
+            update_save_open.Position = Convert.ToInt64("1", 16);
             update_save_write.Write(dwsd);
 
-            byte[] havebadges = ML4E_StringToByteArray(int.Parse(numericROHaveBadges.Text).ToString("X2"));
+            byte[] havebadges = ML4E_StringToByteArray(int.Parse(numericRO0x03.Text).ToString("X2"));
             Array.Reverse(havebadges);
-            update_save_open.Position = Convert.ToInt64("1", 8);
+            update_save_open.Position = Convert.ToInt64("3", 8);
             update_save_write.Write(havebadges);
 
             byte[] money = ML4E_StringToByteArray(int.Parse(box_money.Text).ToString("X8"));
@@ -5490,10 +5520,10 @@ namespace Save_Editor_1
         {
             {
                 if (checkBoxHaveBadges.Checked == true)
-                    numericROHaveBadges.Value += 32;
+                    numericRO0x03.Value += 32;
 
                 if (checkBoxHaveBadges.Checked == false)
-                    numericROHaveBadges.Value -= 32;
+                    numericRO0x03.Value -= 32;
             }
         }
 
@@ -5765,23 +5795,22 @@ namespace Save_Editor_1
 
         private void comboBoxBadgeStock2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (numericUniversalBadgeCount3.Value == 0)
-            {
-                comboBoxBadgeStock1.Enabled = false;
-                comboBoxBadgeStock2.Enabled = false;
-                comboBoxBadgeStock3.Enabled = false;
-                comboBoxBadgeStock4.Enabled = false;
-                comboBoxBadgeStock5.Enabled = false;
-                comboBoxBadgeStock6.Enabled = false;
-                comboBoxBadgeStock7.Enabled = false;
-                comboBoxBadgeStock8.Enabled = false;
-            }
-
-            else if (comboBoxBadgeStock1.SelectedIndex != 0 & comboBoxBadgeStock2.SelectedIndex != 0)
+                if (comboBoxBadgeStock1.SelectedIndex != 0 & comboBoxBadgeStock2.SelectedIndex != 0)
             {
                 comboBoxBadgeStock3.Enabled = true;
                 comboBoxBadgeStock4.Enabled = true;
                 numericROBadgesInStock.Value = 1;
+                if (numericUniversalBadgeCount3.Value == 0)
+                {
+                    comboBoxBadgeStock1.Enabled = false;
+                    comboBoxBadgeStock2.Enabled = false;
+                    comboBoxBadgeStock3.Enabled = false;
+                    comboBoxBadgeStock4.Enabled = false;
+                    comboBoxBadgeStock5.Enabled = false;
+                    comboBoxBadgeStock6.Enabled = false;
+                    comboBoxBadgeStock7.Enabled = false;
+                    comboBoxBadgeStock8.Enabled = false;
+                }
             }
             if (comboBoxBadgeStock2.SelectedIndex == 0)
             {
@@ -5798,6 +5827,38 @@ namespace Save_Editor_1
         }
 
         private void numericROBadgesInStock_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDownLuigiCurrentSP_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDownMarioCurrentSP_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelSPRequiredNumber_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxLuigiSelectedBadge_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxLuigiSelectedBadge.SelectedIndex == 1 & comboBoxMarioSelectedBadge.SelectedIndex == 1)
+                labelSPRequiredNumber.Text = "180";
+        }
+
+        private void comboBoxMarioSelectedBadge_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxLuigiSelectedBadge.SelectedIndex == 1 & comboBoxMarioSelectedBadge.SelectedIndex == 1)
+                labelSPRequiredNumber.Text = "180";
+        }
+
+        private void tabLuigi_Click(object sender, EventArgs e)
         {
 
         }
