@@ -44,7 +44,8 @@ namespace Save_Editor_1
                 BinaryReader savegame_br = new BinaryReader(savegame_fs);
                 long length = savegame_fs.Length;
 
-                /* Real World Abilities */ {
+                /* Real World Abilities */
+                {
 
                     /* Front Hammer Check */
                     {
@@ -114,7 +115,8 @@ namespace Save_Editor_1
                     numericRORWAb.Text = (rwabhtb2.ToString());
                 }
 
-                /* Dream World Abilities*/ {// DW B Button Check
+                /* Dream World Abilities*/
+                {// DW B Button Check
                     savegame_br.BaseStream.Position = 0x1;
                     byte dwbb = (byte)savegame_fs.ReadByte();
                     int dwbb2 = (byte)((dwbb & 4) >> 2);
@@ -223,7 +225,8 @@ namespace Save_Editor_1
                         checkBoxDWAntigrav.Checked = false;
                 }
 
-                /* Misc stuff */ {// Allow Pausing Check
+                /* Misc stuff */
+                {// Allow Pausing Check
                     savegame_br.BaseStream.Position = 0x2;
                     byte allowpausing = (byte)savegame_fs.ReadByte();
                     int allowpausing2 = (byte)((allowpausing & 64) >> 6);
@@ -249,7 +252,7 @@ namespace Save_Editor_1
                         checkBoxHaveBadges.Checked = true;
                     if (havebadges2 == 0)
                         checkBoxHaveBadges.Checked = false;
-                    numericRO0x03.Value = havebadges;   
+                    numericRO0x03.Value = havebadges;
 
                     // NBC Unlock Flag Check
                     savegame_br.BaseStream.Position = 0x307;
@@ -275,7 +278,8 @@ namespace Save_Editor_1
                 int dwabhtb2 = BitConverter.ToInt16(dwabhtb, 0);
                 numericRODWAb.Text = (dwabhtb2.ToString());
 
-                /* Mario Stats */ {// Mario Current HP
+                /* Mario Stats */
+                {// Mario Current HP
                     savegame_br.BaseStream.Position = 0x74E;
                     byte[] mariocurrenthp = savegame_br.ReadBytes(2);
                     int mariocurrenthp2 = BitConverter.ToInt16(mariocurrenthp, 0);
@@ -624,7 +628,7 @@ namespace Save_Editor_1
 
                 }
 
-                
+
                 // Badge Slot Universal Counter
                 savegame_br.BaseStream.Position = 0xA09;
                 byte badgeslotcount = (byte)savegame_fs.ReadByte();
@@ -981,6 +985,7 @@ namespace Save_Editor_1
                     // Luigi Selected Badge
                     savegame_br.BaseStream.Position = 0x872;
                     byte Luigiselectedbage = (byte)savegame_fs.ReadByte();
+                    numericLCurrentBadge.Text = (Luigiselectedbage.ToString());
                     if (Luigiselectedbage == 8)
                         comboBoxLuigiSelectedBadge.SelectedIndex = 0;
                     if (Luigiselectedbage == 9)
@@ -993,11 +998,21 @@ namespace Save_Editor_1
                         comboBoxLuigiSelectedBadge.SelectedIndex = 4;
                     if (Luigiselectedbage == 13)
                         comboBoxLuigiSelectedBadge.SelectedIndex = 5;
+
+                    // Luigi unlocked badges
+                    savegame_br.BaseStream.Position = 0xA07;
+                    byte Luigiunlockbadges = (byte)savegame_fs.ReadByte();
+                    numericROLuigiBadges.Text = (Luigiunlockbadges.ToString());
+                    savegame_br.BaseStream.Position = 0xA06;
+                    byte Mariounlockbadges = (byte)savegame_fs.ReadByte();
+                    numericROMarioBadges.Text = (Mariounlockbadges.ToString());
+
                 }
 
-                    // Mario Selected Badge
-                    savegame_br.BaseStream.Position = 0x78A;
+                // Mario Selected Badge
+                savegame_br.BaseStream.Position = 0x78A;
                 byte Marioselectedbage = (byte)savegame_fs.ReadByte();
+                numericMCurrentBadge.Text = (Marioselectedbage.ToString());
                 if (Marioselectedbage == 0)
                     comboBoxMarioSelectedBadge.SelectedIndex = 0;
                 if (Marioselectedbage == 1)
@@ -1021,7 +1036,7 @@ namespace Save_Editor_1
                 savegame_br.BaseStream.Position = 0xA0A;
                 byte[] BadgeStock1 = savegame_br.ReadBytes(2);
                 int BadgeStock12 = BitConverter.ToUInt16(BadgeStock1, 0);
-                textBox1.Text = (BadgeStock12.ToString());
+                numericROBadgeStock1.Value = BadgeStock12;
                 if (BadgeStock12 == 0)
                 {
                     comboBoxBadgeStock1.SelectedIndex = 0;
@@ -1212,7 +1227,7 @@ namespace Save_Editor_1
                 savegame_br.BaseStream.Position = 0xA0C;
                 byte[] BadgeStock2 = savegame_br.ReadBytes(2);
                 int BadgeStock22 = BitConverter.ToUInt16(BadgeStock2, 0);
-                textBox1.Text = (BadgeStock22.ToString());
+                numericROBadgeStock2.Value = BadgeStock22;
                 if (BadgeStock22 == 0)
                 {
                     comboBoxBadgeStock3.SelectedIndex = 0;
@@ -1403,7 +1418,7 @@ namespace Save_Editor_1
                 savegame_br.BaseStream.Position = 0xA0E;
                 byte[] BadgeStock3 = savegame_br.ReadBytes(2);
                 int BadgeStock32 = BitConverter.ToUInt16(BadgeStock3, 0);
-                textBox1.Text = (BadgeStock32.ToString());
+                numericROBadgeStock3.Value = BadgeStock32;
                 if (BadgeStock32 == 0)
                 {
                     comboBoxBadgeStock5.SelectedIndex = 0;
@@ -1594,7 +1609,7 @@ namespace Save_Editor_1
                 savegame_br.BaseStream.Position = 0xA10;
                 byte[] BadgeStock4 = savegame_br.ReadBytes(2);
                 int BadgeStock42 = BitConverter.ToUInt16(BadgeStock4, 0);
-                textBox1.Text = (BadgeStock42.ToString());
+                numericROBadgeStock4.Value = BadgeStock42;
                 if (BadgeStock42 == 0)
                 {
                     comboBoxBadgeStock7.SelectedIndex = 0;
@@ -1906,7 +1921,7 @@ namespace Save_Editor_1
 
                 // Mushroom Count
                 savegame_br.BaseStream.Position = 0x920;
-                byte mushroomcount =(byte)savegame_fs.ReadByte();
+                byte mushroomcount = (byte)savegame_fs.ReadByte();
                 numericMushCount.Text = (mushroomcount.ToString());
 
                 // Super Mushroom Count
@@ -2538,7 +2553,7 @@ namespace Save_Editor_1
                 savegame_br.BaseStream.Position = 0x9A3;
                 byte Wear22 = (byte)savegame_fs.ReadByte();
                 numericWear22.Text = (Wear22.ToString());
-                
+
                 // 
                 savegame_br.BaseStream.Position = 0x9A4;
                 byte Wear23 = (byte)savegame_fs.ReadByte();
@@ -2733,7 +2748,7 @@ namespace Save_Editor_1
                 savegame_br.BaseStream.Position = 0x9CA;
                 byte Accessories1 = (byte)savegame_fs.ReadByte();
                 numericAccessories1.Text = (Accessories1.ToString());
-                
+
                 // 
                 savegame_br.BaseStream.Position = 0x9CB;
                 byte Accessories2 = (byte)savegame_fs.ReadByte();
@@ -2904,7 +2919,7 @@ namespace Save_Editor_1
 
             byte[] mcurbp = ML4E_StringToByteArray(int.Parse(numericMCurBP.Text).ToString("X4"));
             Array.Reverse(mcurbp);
-            update_save_open.Position =Convert.ToInt64("750", 16);
+            update_save_open.Position = Convert.ToInt64("750", 16);
             update_save_write.Write(mcurbp);
 
             byte[] mmaxhp = ML4E_StringToByteArray(int.Parse(numericMMaxHP.Text).ToString("X4"));
@@ -3177,11 +3192,62 @@ namespace Save_Editor_1
             update_save_open.Position = Convert.ToInt64("867", 16);
             update_save_write.Write(lgearslot);
 
-            byte[] badgeslotcount = ML4E_StringToByteArray(int.Parse(numericUniversalBadgeCount1.Text).ToString("X2"));
-            Array.Reverse(badgeslotcount);
-            update_save_open.Position = Convert.ToInt64("A09", 16);
-            update_save_write.Write(badgeslotcount);
+            /* Badge Stuff*/ {
+                byte[] mariobadges = ML4E_StringToByteArray(int.Parse(numericROMarioBadges.Text).ToString("X2"));
+                Array.Reverse(mariobadges);
+                update_save_open.Position = Convert.ToInt64("A06", 16);
+                update_save_write.Write(mariobadges);
 
+                byte[] luigibadges = ML4E_StringToByteArray(int.Parse(numericROLuigiBadges.Text).ToString("X2"));
+                Array.Reverse(luigibadges);
+                update_save_open.Position = Convert.ToInt64("A07", 16);
+                update_save_write.Write(luigibadges);
+
+                byte[] currentbadgenumber = ML4E_StringToByteArray(int.Parse(numericROBadgesInStock.Text).ToString("X2"));
+                Array.Reverse(currentbadgenumber);
+                update_save_open.Position = Convert.ToInt64("A08", 16);
+                update_save_write.Write(currentbadgenumber);
+
+                byte[] totalbadgenumber = ML4E_StringToByteArray(int.Parse(numericUniversalBadgeCount1.Text).ToString("X2"));
+                Array.Reverse(totalbadgenumber);
+                update_save_open.Position = Convert.ToInt64("A09", 16);
+                update_save_write.Write(totalbadgenumber);
+
+                byte[] badgestock1 = ML4E_StringToByteArray(int.Parse(numericROBadgeStock1.Text).ToString("X4"));
+                Array.Reverse(badgestock1);
+                update_save_open.Position = Convert.ToInt64("A0A", 16);
+                update_save_write.Write(badgestock1);
+
+                byte[] badgestock2 = ML4E_StringToByteArray(int.Parse(numericROBadgeStock2.Text).ToString("X4"));
+                Array.Reverse(badgestock2);
+                update_save_open.Position = Convert.ToInt64("A0C", 16);
+                update_save_write.Write(badgestock2);
+
+                byte[] badgestock3 = ML4E_StringToByteArray(int.Parse(numericROBadgeStock3.Text).ToString("X4"));
+                Array.Reverse(badgestock3);
+                update_save_open.Position = Convert.ToInt64("A0E", 16);
+                update_save_write.Write(badgestock3);
+
+                byte[] badgestock4 = ML4E_StringToByteArray(int.Parse(numericROBadgeStock4.Text).ToString("X4"));
+                Array.Reverse(badgestock4);
+                update_save_open.Position = Convert.ToInt64("A10", 16);
+                update_save_write.Write(badgestock4);
+
+                byte[] mariocurrentbadge = ML4E_StringToByteArray(int.Parse(numericMCurrentBadge.Text).ToString("X2"));
+                Array.Reverse(mariocurrentbadge);
+                update_save_open.Position = Convert.ToInt64("78A", 16);
+                update_save_write.Write(mariocurrentbadge);
+
+                byte[] luigicurrentbadge = ML4E_StringToByteArray(int.Parse(numericLCurrentBadge.Text).ToString("X2"));
+                Array.Reverse(luigicurrentbadge);
+                update_save_open.Position = Convert.ToInt64("872", 16);
+                update_save_write.Write(luigicurrentbadge);
+
+                byte[] havebadges = ML4E_StringToByteArray(int.Parse(numericRO0x03.Text).ToString("X2"));
+                Array.Reverse(havebadges);
+                update_save_open.Position = Convert.ToInt64("3", 8);
+                update_save_write.Write(havebadges);
+            }
             byte[] nbcunlockflagsd = ML4E_StringToByteArray(byte.Parse(numericRONBCUnlock.Text).ToString("X2"));
             Array.Reverse(nbcunlockflagsd);
             update_save_open.Position = Convert.ToInt64("307", 16);
@@ -3191,11 +3257,6 @@ namespace Save_Editor_1
             Array.Reverse(dwsd);
             update_save_open.Position = Convert.ToInt64("1", 16);
             update_save_write.Write(dwsd);
-
-            byte[] havebadges = ML4E_StringToByteArray(int.Parse(numericRO0x03.Text).ToString("X2"));
-            Array.Reverse(havebadges);
-            update_save_open.Position = Convert.ToInt64("3", 8);
-            update_save_write.Write(havebadges);
 
             byte[] money = ML4E_StringToByteArray(int.Parse(box_money.Text).ToString("X8"));
             Array.Reverse(money);
@@ -4204,7 +4265,7 @@ namespace Save_Editor_1
                 buttonXWear.Enabled = true;
                 tabControl1.Enabled = true;
                 tabControl1.Visible = true;
-                numericUniversalBadgeCount2.Value = numericUniversalBadgeCount1.Value;  
+                numericUniversalBadgeCount2.Value = numericUniversalBadgeCount1.Value;
                 numericMExperience.Value = ((65536 * numericMExperienceHidden2.Value) + numericMExperienceHidden1.Value); // Adds the third bit of 0x77A to the two-byte address of 0x778
                 numericLExperience.Value = ((65536 * numericLExperienceHidden2.Value) + numericLExperienceHidden1.Value);
                 long length = savegame_fs.Length;
@@ -4660,7 +4721,7 @@ namespace Save_Editor_1
 
         private void numericUniversalBadgeCount2_ValueChanged(object sender, EventArgs e)
         {
-                numericUniversalBadgeCount1.Value = numericUniversalBadgeCount2.Value;
+            numericUniversalBadgeCount1.Value = numericUniversalBadgeCount2.Value;
             numericUniversalBadgeCount3.Value = numericUniversalBadgeCount2.Value;
             if (numericUniversalBadgeCount2.Value == 0)
             {
@@ -4850,65 +4911,65 @@ namespace Save_Editor_1
         }
 
         private void comboBoxMFlowerBonus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxMFlowerBonus.SelectedIndex == 0)
             {
-                if (comboBoxMFlowerBonus.SelectedIndex == 0)
-                {
-                    comboBoxMStarBonus.Enabled = false;
-                    comboBoxMStarBonus.SelectedIndex = 0;
-                    comboBoxMRainbowBonus.Enabled = false;
-                    comboBoxMRainbowBonus.SelectedIndex = 0;
-                    comboBoxMExtraBonus.Enabled = false;
-                    comboBoxMExtraBonus.SelectedIndex = 0;
-                    numericRORankupBonusCombo2.Value = 0;
-                }
-                else if (comboBoxMFlowerBonus.SelectedIndex != 0)
-                {
-                    numericRORankupBonusCombo2.Value = 57344;
-                    comboBoxMStarBonus.Enabled = true;
-                }
-
-                if (comboBoxMFlowerBonus.SelectedIndex == 2)
-                    numericRORankupBonusCombo2.Value += 1;
-
-                if (comboBoxMFlowerBonus.SelectedIndex == 3)
-                    numericRORankupBonusCombo2.Value += 2;
-
-                if (comboBoxMFlowerBonus.SelectedIndex == 4)
-                    numericRORankupBonusCombo2.Value += 3;
-
-                if (comboBoxMFlowerBonus.SelectedIndex == 5)
-                    numericRORankupBonusCombo2.Value += 4;
-
-                if (comboBoxMFlowerBonus.SelectedIndex == 6)
-                    numericRORankupBonusCombo2.Value += 5;
-
-                if (comboBoxMFlowerBonus.SelectedIndex == 7)
-                    numericRORankupBonusCombo2.Value += 6;
-
-                if (comboBoxMFlowerBonus.SelectedIndex == 8)
-                    numericRORankupBonusCombo2.Value += 7;
-
-                if (comboBoxMFlowerBonus.SelectedIndex == 9)
-                    numericRORankupBonusCombo2.Value += 8;
-
-                if (comboBoxMFlowerBonus.SelectedIndex == 10)
-                    numericRORankupBonusCombo2.Value += 9;
-
-                if (comboBoxMFlowerBonus.SelectedIndex == 11)
-                    numericRORankupBonusCombo2.Value += 10;
-
-                if (comboBoxMFlowerBonus.SelectedIndex == 12)
-                    numericRORankupBonusCombo2.Value += 11;
-
-                if (comboBoxMFlowerBonus.SelectedIndex == 13)
-                    numericRORankupBonusCombo2.Value += 12;
-
-                if (comboBoxMFlowerBonus.SelectedIndex == 14)
-                    numericRORankupBonusCombo2.Value += 13;
-
-                if (comboBoxMFlowerBonus.SelectedIndex == 15)
-                    numericRORankupBonusCombo2.Value += 14;
+                comboBoxMStarBonus.Enabled = false;
+                comboBoxMStarBonus.SelectedIndex = 0;
+                comboBoxMRainbowBonus.Enabled = false;
+                comboBoxMRainbowBonus.SelectedIndex = 0;
+                comboBoxMExtraBonus.Enabled = false;
+                comboBoxMExtraBonus.SelectedIndex = 0;
+                numericRORankupBonusCombo2.Value = 0;
             }
+            else if (comboBoxMFlowerBonus.SelectedIndex != 0)
+            {
+                numericRORankupBonusCombo2.Value = 57344;
+                comboBoxMStarBonus.Enabled = true;
+            }
+
+            if (comboBoxMFlowerBonus.SelectedIndex == 2)
+                numericRORankupBonusCombo2.Value += 1;
+
+            if (comboBoxMFlowerBonus.SelectedIndex == 3)
+                numericRORankupBonusCombo2.Value += 2;
+
+            if (comboBoxMFlowerBonus.SelectedIndex == 4)
+                numericRORankupBonusCombo2.Value += 3;
+
+            if (comboBoxMFlowerBonus.SelectedIndex == 5)
+                numericRORankupBonusCombo2.Value += 4;
+
+            if (comboBoxMFlowerBonus.SelectedIndex == 6)
+                numericRORankupBonusCombo2.Value += 5;
+
+            if (comboBoxMFlowerBonus.SelectedIndex == 7)
+                numericRORankupBonusCombo2.Value += 6;
+
+            if (comboBoxMFlowerBonus.SelectedIndex == 8)
+                numericRORankupBonusCombo2.Value += 7;
+
+            if (comboBoxMFlowerBonus.SelectedIndex == 9)
+                numericRORankupBonusCombo2.Value += 8;
+
+            if (comboBoxMFlowerBonus.SelectedIndex == 10)
+                numericRORankupBonusCombo2.Value += 9;
+
+            if (comboBoxMFlowerBonus.SelectedIndex == 11)
+                numericRORankupBonusCombo2.Value += 10;
+
+            if (comboBoxMFlowerBonus.SelectedIndex == 12)
+                numericRORankupBonusCombo2.Value += 11;
+
+            if (comboBoxMFlowerBonus.SelectedIndex == 13)
+                numericRORankupBonusCombo2.Value += 12;
+
+            if (comboBoxMFlowerBonus.SelectedIndex == 14)
+                numericRORankupBonusCombo2.Value += 13;
+
+            if (comboBoxMFlowerBonus.SelectedIndex == 15)
+                numericRORankupBonusCombo2.Value += 14;
+        }
 
         private void comboBoxMStarBonus_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -5595,108 +5656,615 @@ namespace Save_Editor_1
 
         }
 
-        private void comboBoxBadgeStock4_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBoxBadgeStock1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (numericUniversalBadgeCount3.Value == 1)
+            if (comboBoxBadgeStock1.SelectedIndex != 0 & comboBoxBadgeStock2.SelectedIndex != 0)
             {
-                comboBoxBadgeStock1.Enabled = true;
-                comboBoxBadgeStock2.Enabled = true;
+                numericROBadgesInStock.Value = 1;
+                if (numericUniversalBadgeCount3.Value == 1)
+                {
+                    comboBoxBadgeStock3.Enabled = false;
+                    comboBoxBadgeStock4.Enabled = false;
+                    comboBoxBadgeStock5.Enabled = false;
+                    comboBoxBadgeStock6.Enabled = false;
+                    comboBoxBadgeStock7.Enabled = false;
+                    comboBoxBadgeStock8.Enabled = false;
+                }
+                else if (numericUniversalBadgeCount3.Value >= 2)
+                {
+                    comboBoxBadgeStock3.Enabled = true;
+                    comboBoxBadgeStock4.Enabled = true;
+                }
+            }
+            if (comboBoxBadgeStock1.SelectedIndex == 0)
+            {
                 comboBoxBadgeStock3.Enabled = false;
                 comboBoxBadgeStock4.Enabled = false;
                 comboBoxBadgeStock5.Enabled = false;
                 comboBoxBadgeStock6.Enabled = false;
                 comboBoxBadgeStock7.Enabled = false;
                 comboBoxBadgeStock8.Enabled = false;
+                comboBoxBadgeStock3.SelectedIndex = 0;
+                comboBoxBadgeStock4.SelectedIndex = 0;
+                comboBoxBadgeStock5.SelectedIndex = 0;
+                comboBoxBadgeStock6.SelectedIndex = 0;
+                comboBoxBadgeStock7.SelectedIndex = 0;
+                comboBoxBadgeStock8.SelectedIndex = 0;
+                numericROBadgesInStock.Value = 0;
             }
 
-            else if (comboBoxBadgeStock3.SelectedIndex != 0 & comboBoxBadgeStock4.SelectedIndex != 0)
-            {
-                comboBoxBadgeStock5.Enabled = true;
-                comboBoxBadgeStock6.Enabled = true;
-                numericROBadgesInStock.Value = 2;
+            /* Set Value to Stock Combo */ {
+                if (comboBoxBadgeStock1.SelectedIndex == 0)
+                    numericROBadgeStock1.Value = 0;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 1 & comboBoxBadgeStock2.SelectedIndex == 1)
+                    numericROBadgeStock1.Value = 40960;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 1 & comboBoxBadgeStock2.SelectedIndex == 2)
+                    numericROBadgeStock1.Value = 40961;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 1 & comboBoxBadgeStock2.SelectedIndex == 3)
+                    numericROBadgeStock1.Value = 40962;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 1 & comboBoxBadgeStock2.SelectedIndex == 4)
+                    numericROBadgeStock1.Value = 40963;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 1 & comboBoxBadgeStock2.SelectedIndex == 5)
+                    numericROBadgeStock1.Value = 40964;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 1 & comboBoxBadgeStock2.SelectedIndex == 6)
+                    numericROBadgeStock1.Value = 40965;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 2 & comboBoxBadgeStock2.SelectedIndex == 1)
+                    numericROBadgeStock1.Value = 40968;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 2 & comboBoxBadgeStock2.SelectedIndex == 2)
+                    numericROBadgeStock1.Value = 40969;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 2 & comboBoxBadgeStock2.SelectedIndex == 3)
+                    numericROBadgeStock1.Value = 40970;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 2 & comboBoxBadgeStock2.SelectedIndex == 4)
+                    numericROBadgeStock1.Value = 40971;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 2 & comboBoxBadgeStock2.SelectedIndex == 5)
+                    numericROBadgeStock1.Value = 40972;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 2 & comboBoxBadgeStock2.SelectedIndex == 6)
+                    numericROBadgeStock1.Value = 40973;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 3 & comboBoxBadgeStock2.SelectedIndex == 1)
+                    numericROBadgeStock1.Value = 40976;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 3 & comboBoxBadgeStock2.SelectedIndex == 2)
+                    numericROBadgeStock1.Value = 40977;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 3 & comboBoxBadgeStock2.SelectedIndex == 3)
+                    numericROBadgeStock1.Value = 40978;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 3 & comboBoxBadgeStock2.SelectedIndex == 4)
+                    numericROBadgeStock1.Value = 40979;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 3 & comboBoxBadgeStock2.SelectedIndex == 5)
+                    numericROBadgeStock1.Value = 40980;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 3 & comboBoxBadgeStock2.SelectedIndex == 6)
+                    numericROBadgeStock1.Value = 40981;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 4 & comboBoxBadgeStock2.SelectedIndex == 1)
+                    numericROBadgeStock1.Value = 40984;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 4 & comboBoxBadgeStock2.SelectedIndex == 2)
+                    numericROBadgeStock1.Value = 40985;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 4 & comboBoxBadgeStock2.SelectedIndex == 3)
+                    numericROBadgeStock1.Value = 40986;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 4 & comboBoxBadgeStock2.SelectedIndex == 4)
+                    numericROBadgeStock1.Value = 40987;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 4 & comboBoxBadgeStock2.SelectedIndex == 5)
+                    numericROBadgeStock1.Value = 40988;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 4 & comboBoxBadgeStock2.SelectedIndex == 6)
+                    numericROBadgeStock1.Value = 40989;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 5 & comboBoxBadgeStock2.SelectedIndex == 1)
+                    numericROBadgeStock1.Value = 40992;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 5 & comboBoxBadgeStock2.SelectedIndex == 2)
+                    numericROBadgeStock1.Value = 40993;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 5 & comboBoxBadgeStock2.SelectedIndex == 3)
+                    numericROBadgeStock1.Value = 40994;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 5 & comboBoxBadgeStock2.SelectedIndex == 4)
+                    numericROBadgeStock1.Value = 40995;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 5 & comboBoxBadgeStock2.SelectedIndex == 5)
+                    numericROBadgeStock1.Value = 40996;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 5 & comboBoxBadgeStock2.SelectedIndex == 6)
+                    numericROBadgeStock1.Value = 40997;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 6 & comboBoxBadgeStock2.SelectedIndex == 1)
+                    numericROBadgeStock1.Value = 41000;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 6 & comboBoxBadgeStock2.SelectedIndex == 2)
+                    numericROBadgeStock1.Value = 41001;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 6 & comboBoxBadgeStock2.SelectedIndex == 3)
+                    numericROBadgeStock1.Value = 41002;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 6 & comboBoxBadgeStock2.SelectedIndex == 4)
+                    numericROBadgeStock1.Value = 41003;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 6 & comboBoxBadgeStock2.SelectedIndex == 5)
+                    numericROBadgeStock1.Value = 41004;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 6 & comboBoxBadgeStock2.SelectedIndex == 6)
+                    numericROBadgeStock1.Value = 41005;
             }
-            if (comboBoxBadgeStock4.SelectedIndex == 0)
+        }
+
+        private void comboBoxBadgeStock2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxBadgeStock1.SelectedIndex != 0 & comboBoxBadgeStock2.SelectedIndex != 0)
+            {
+                numericROBadgesInStock.Value = 1;
+                if (numericUniversalBadgeCount3.Value == 1)
+                {
+                    comboBoxBadgeStock3.Enabled = false;
+                    comboBoxBadgeStock4.Enabled = false;
+                    comboBoxBadgeStock5.Enabled = false;
+                    comboBoxBadgeStock6.Enabled = false;
+                    comboBoxBadgeStock7.Enabled = false;
+                    comboBoxBadgeStock8.Enabled = false;
+                }
+                else if (numericUniversalBadgeCount3.Value >= 2)
+                {
+                    comboBoxBadgeStock3.Enabled = true;
+                    comboBoxBadgeStock4.Enabled = true;
+                }
+            }
+            if (comboBoxBadgeStock2.SelectedIndex == 0)
+            {
+                comboBoxBadgeStock3.Enabled = false;
+                comboBoxBadgeStock4.Enabled = false;
+                comboBoxBadgeStock5.Enabled = false;
+                comboBoxBadgeStock6.Enabled = false;
+                comboBoxBadgeStock7.Enabled = false;
+                comboBoxBadgeStock8.Enabled = false;
+                comboBoxBadgeStock3.SelectedIndex = 0;
+                comboBoxBadgeStock4.SelectedIndex = 0;
+                comboBoxBadgeStock5.SelectedIndex = 0;
+                comboBoxBadgeStock6.SelectedIndex = 0;
+                comboBoxBadgeStock7.SelectedIndex = 0;
+                comboBoxBadgeStock8.SelectedIndex = 0;
+                numericROBadgesInStock.Value = 0;
+            }
+            /* Set Value to Stock Combo */ {
+                if (comboBoxBadgeStock2.SelectedIndex == 0)
+                    numericROBadgeStock1.Value = 0;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 1 & comboBoxBadgeStock2.SelectedIndex == 1)
+                    numericROBadgeStock1.Value = 40960;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 1 & comboBoxBadgeStock2.SelectedIndex == 2)
+                    numericROBadgeStock1.Value = 40961;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 1 & comboBoxBadgeStock2.SelectedIndex == 3)
+                    numericROBadgeStock1.Value = 40962;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 1 & comboBoxBadgeStock2.SelectedIndex == 4)
+                    numericROBadgeStock1.Value = 40963;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 1 & comboBoxBadgeStock2.SelectedIndex == 5)
+                    numericROBadgeStock1.Value = 40964;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 1 & comboBoxBadgeStock2.SelectedIndex == 6)
+                    numericROBadgeStock1.Value = 40965;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 2 & comboBoxBadgeStock2.SelectedIndex == 1)
+                    numericROBadgeStock1.Value = 40968;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 2 & comboBoxBadgeStock2.SelectedIndex == 2)
+                    numericROBadgeStock1.Value = 40969;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 2 & comboBoxBadgeStock2.SelectedIndex == 3)
+                    numericROBadgeStock1.Value = 40970;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 2 & comboBoxBadgeStock2.SelectedIndex == 4)
+                    numericROBadgeStock1.Value = 40971;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 2 & comboBoxBadgeStock2.SelectedIndex == 5)
+                    numericROBadgeStock1.Value = 40972;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 2 & comboBoxBadgeStock2.SelectedIndex == 6)
+                    numericROBadgeStock1.Value = 40973;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 3 & comboBoxBadgeStock2.SelectedIndex == 1)
+                    numericROBadgeStock1.Value = 40976;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 3 & comboBoxBadgeStock2.SelectedIndex == 2)
+                    numericROBadgeStock1.Value = 40977;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 3 & comboBoxBadgeStock2.SelectedIndex == 3)
+                    numericROBadgeStock1.Value = 40978;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 3 & comboBoxBadgeStock2.SelectedIndex == 4)
+                    numericROBadgeStock1.Value = 40979;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 3 & comboBoxBadgeStock2.SelectedIndex == 5)
+                    numericROBadgeStock1.Value = 40980;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 3 & comboBoxBadgeStock2.SelectedIndex == 6)
+                    numericROBadgeStock1.Value = 40981;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 4 & comboBoxBadgeStock2.SelectedIndex == 1)
+                    numericROBadgeStock1.Value = 40984;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 4 & comboBoxBadgeStock2.SelectedIndex == 2)
+                    numericROBadgeStock1.Value = 40985;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 4 & comboBoxBadgeStock2.SelectedIndex == 3)
+                    numericROBadgeStock1.Value = 40986;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 4 & comboBoxBadgeStock2.SelectedIndex == 4)
+                    numericROBadgeStock1.Value = 40987;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 4 & comboBoxBadgeStock2.SelectedIndex == 5)
+                    numericROBadgeStock1.Value = 40988;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 4 & comboBoxBadgeStock2.SelectedIndex == 6)
+                    numericROBadgeStock1.Value = 40989;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 5 & comboBoxBadgeStock2.SelectedIndex == 1)
+                    numericROBadgeStock1.Value = 40992;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 5 & comboBoxBadgeStock2.SelectedIndex == 2)
+                    numericROBadgeStock1.Value = 40993;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 5 & comboBoxBadgeStock2.SelectedIndex == 3)
+                    numericROBadgeStock1.Value = 40994;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 5 & comboBoxBadgeStock2.SelectedIndex == 4)
+                    numericROBadgeStock1.Value = 40995;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 5 & comboBoxBadgeStock2.SelectedIndex == 5)
+                    numericROBadgeStock1.Value = 40996;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 5 & comboBoxBadgeStock2.SelectedIndex == 6)
+                    numericROBadgeStock1.Value = 40997;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 6 & comboBoxBadgeStock2.SelectedIndex == 1)
+                    numericROBadgeStock1.Value = 41000;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 6 & comboBoxBadgeStock2.SelectedIndex == 2)
+                    numericROBadgeStock1.Value = 41001;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 6 & comboBoxBadgeStock2.SelectedIndex == 3)
+                    numericROBadgeStock1.Value = 41002;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 6 & comboBoxBadgeStock2.SelectedIndex == 4)
+                    numericROBadgeStock1.Value = 41003;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 6 & comboBoxBadgeStock2.SelectedIndex == 5)
+                    numericROBadgeStock1.Value = 41004;
+
+                if (comboBoxBadgeStock1.SelectedIndex == 6 & comboBoxBadgeStock2.SelectedIndex == 6)
+                    numericROBadgeStock1.Value = 41005;
+            }
+
+        }
+
+        private void comboBoxBadgeStock3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxBadgeStock3.SelectedIndex != 0 & comboBoxBadgeStock4.SelectedIndex != 0)
+            {
+                numericROBadgesInStock.Value = 2;
+                if (numericUniversalBadgeCount3.Value == 2)
+                {
+                    comboBoxBadgeStock5.Enabled = false;
+                    comboBoxBadgeStock6.Enabled = false;
+                    comboBoxBadgeStock7.Enabled = false;
+                    comboBoxBadgeStock8.Enabled = false;
+                }
+                else if (numericUniversalBadgeCount3.Value >= 3)
+                {
+                    comboBoxBadgeStock5.Enabled = true;
+                    comboBoxBadgeStock6.Enabled = true;
+                }
+            }
+            if (comboBoxBadgeStock3.SelectedIndex == 0)
             {
                 comboBoxBadgeStock5.Enabled = false;
                 comboBoxBadgeStock6.Enabled = false;
+                comboBoxBadgeStock7.Enabled = false;
+                comboBoxBadgeStock8.Enabled = false;
                 comboBoxBadgeStock5.SelectedIndex = 0;
                 comboBoxBadgeStock6.SelectedIndex = 0;
                 comboBoxBadgeStock7.SelectedIndex = 0;
                 comboBoxBadgeStock8.SelectedIndex = 0;
                 numericROBadgesInStock.Value = 1;
             }
+
+            /* Set Value to Stock Combo */
+            {
+                if (comboBoxBadgeStock3.SelectedIndex == 0)
+                    numericROBadgeStock2.Value = 0;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 1 & comboBoxBadgeStock4.SelectedIndex == 1)
+                    numericROBadgeStock2.Value = 40960;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 1 & comboBoxBadgeStock4.SelectedIndex == 2)
+                    numericROBadgeStock2.Value = 40961;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 1 & comboBoxBadgeStock4.SelectedIndex == 3)
+                    numericROBadgeStock2.Value = 40962;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 1 & comboBoxBadgeStock4.SelectedIndex == 4)
+                    numericROBadgeStock2.Value = 40963;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 1 & comboBoxBadgeStock4.SelectedIndex == 5)
+                    numericROBadgeStock2.Value = 40964;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 1 & comboBoxBadgeStock4.SelectedIndex == 6)
+                    numericROBadgeStock2.Value = 40965;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 2 & comboBoxBadgeStock4.SelectedIndex == 1)
+                    numericROBadgeStock2.Value = 40968;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 2 & comboBoxBadgeStock4.SelectedIndex == 2)
+                    numericROBadgeStock2.Value = 40969;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 2 & comboBoxBadgeStock4.SelectedIndex == 3)
+                    numericROBadgeStock2.Value = 40970;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 2 & comboBoxBadgeStock4.SelectedIndex == 4)
+                    numericROBadgeStock2.Value = 40971;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 2 & comboBoxBadgeStock4.SelectedIndex == 5)
+                    numericROBadgeStock2.Value = 40972;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 2 & comboBoxBadgeStock4.SelectedIndex == 6)
+                    numericROBadgeStock2.Value = 40973;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 3 & comboBoxBadgeStock4.SelectedIndex == 1)
+                    numericROBadgeStock2.Value = 40976;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 3 & comboBoxBadgeStock4.SelectedIndex == 2)
+                    numericROBadgeStock2.Value = 40977;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 3 & comboBoxBadgeStock4.SelectedIndex == 3)
+                    numericROBadgeStock2.Value = 40978;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 3 & comboBoxBadgeStock4.SelectedIndex == 4)
+                    numericROBadgeStock2.Value = 40979;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 3 & comboBoxBadgeStock4.SelectedIndex == 5)
+                    numericROBadgeStock2.Value = 40980;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 3 & comboBoxBadgeStock4.SelectedIndex == 6)
+                    numericROBadgeStock2.Value = 40981;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 4 & comboBoxBadgeStock4.SelectedIndex == 1)
+                    numericROBadgeStock2.Value = 40984;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 4 & comboBoxBadgeStock4.SelectedIndex == 2)
+                    numericROBadgeStock2.Value = 40985;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 4 & comboBoxBadgeStock4.SelectedIndex == 3)
+                    numericROBadgeStock2.Value = 40986;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 4 & comboBoxBadgeStock4.SelectedIndex == 4)
+                    numericROBadgeStock2.Value = 40987;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 4 & comboBoxBadgeStock4.SelectedIndex == 5)
+                    numericROBadgeStock2.Value = 40988;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 4 & comboBoxBadgeStock4.SelectedIndex == 6)
+                    numericROBadgeStock2.Value = 40989;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 5 & comboBoxBadgeStock4.SelectedIndex == 1)
+                    numericROBadgeStock2.Value = 40992;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 5 & comboBoxBadgeStock4.SelectedIndex == 2)
+                    numericROBadgeStock2.Value = 40993;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 5 & comboBoxBadgeStock4.SelectedIndex == 3)
+                    numericROBadgeStock2.Value = 40994;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 5 & comboBoxBadgeStock4.SelectedIndex == 4)
+                    numericROBadgeStock2.Value = 40995;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 5 & comboBoxBadgeStock4.SelectedIndex == 5)
+                    numericROBadgeStock2.Value = 40996;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 5 & comboBoxBadgeStock4.SelectedIndex == 6)
+                    numericROBadgeStock2.Value = 40997;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 6 & comboBoxBadgeStock4.SelectedIndex == 1)
+                    numericROBadgeStock2.Value = 41000;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 6 & comboBoxBadgeStock4.SelectedIndex == 2)
+                    numericROBadgeStock2.Value = 41001;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 6 & comboBoxBadgeStock4.SelectedIndex == 3)
+                    numericROBadgeStock2.Value = 41002;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 6 & comboBoxBadgeStock4.SelectedIndex == 4)
+                    numericROBadgeStock2.Value = 41003;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 6 & comboBoxBadgeStock4.SelectedIndex == 5)
+                    numericROBadgeStock2.Value = 41004;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 6 & comboBoxBadgeStock4.SelectedIndex == 6)
+                    numericROBadgeStock2.Value = 41005;
+            }
+
         }
 
-        private void comboBoxBadgeStock6_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBoxBadgeStock4_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (numericUniversalBadgeCount3.Value == 2)
+            if (comboBoxBadgeStock3.SelectedIndex != 0 & comboBoxBadgeStock4.SelectedIndex != 0)
             {
-                comboBoxBadgeStock1.Enabled = true;
-                comboBoxBadgeStock2.Enabled = true;
-                comboBoxBadgeStock3.Enabled = true;
-                comboBoxBadgeStock4.Enabled = true;
+                numericROBadgesInStock.Value = 2;
+                if (numericUniversalBadgeCount3.Value == 2)
+                {
+                    comboBoxBadgeStock5.Enabled = false;
+                    comboBoxBadgeStock6.Enabled = false;
+                    comboBoxBadgeStock7.Enabled = false;
+                    comboBoxBadgeStock8.Enabled = false;
+                }
+                else if (numericUniversalBadgeCount3.Value >= 3)
+                {
+                    comboBoxBadgeStock5.Enabled = true;
+                    comboBoxBadgeStock6.Enabled = true;
+                }
+            }
+            if (comboBoxBadgeStock4.SelectedIndex == 0)
+            {
                 comboBoxBadgeStock5.Enabled = false;
                 comboBoxBadgeStock6.Enabled = false;
                 comboBoxBadgeStock7.Enabled = false;
                 comboBoxBadgeStock8.Enabled = false;
-            }
-
-            else if (comboBoxBadgeStock5.SelectedIndex != 0 & comboBoxBadgeStock6.SelectedIndex != 0)
-            {
-                comboBoxBadgeStock7.Enabled = true;
-                comboBoxBadgeStock8.Enabled = true;
-                numericROBadgesInStock.Value = 3;
-            }
-            if (comboBoxBadgeStock6.SelectedIndex == 0)
-            {
-                comboBoxBadgeStock7.Enabled = false;
-                comboBoxBadgeStock8.Enabled = false;
+                comboBoxBadgeStock5.SelectedIndex = 0;
+                comboBoxBadgeStock6.SelectedIndex = 0;
                 comboBoxBadgeStock7.SelectedIndex = 0;
                 comboBoxBadgeStock8.SelectedIndex = 0;
-                numericROBadgesInStock.Value = 2;
+                numericROBadgesInStock.Value = 1;
+            }
+
+            /* Set Value to Stock Combo */ {
+                if (comboBoxBadgeStock4.SelectedIndex == 0)
+                    numericROBadgeStock2.Value = 0;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 1 & comboBoxBadgeStock4.SelectedIndex == 1)
+                    numericROBadgeStock2.Value = 40960;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 1 & comboBoxBadgeStock4.SelectedIndex == 2)
+                    numericROBadgeStock2.Value = 40961;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 1 & comboBoxBadgeStock4.SelectedIndex == 3)
+                    numericROBadgeStock2.Value = 40962;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 1 & comboBoxBadgeStock4.SelectedIndex == 4)
+                    numericROBadgeStock2.Value = 40963;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 1 & comboBoxBadgeStock4.SelectedIndex == 5)
+                    numericROBadgeStock2.Value = 40964;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 1 & comboBoxBadgeStock4.SelectedIndex == 6)
+                    numericROBadgeStock2.Value = 40965;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 2 & comboBoxBadgeStock4.SelectedIndex == 1)
+                    numericROBadgeStock2.Value = 40968;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 2 & comboBoxBadgeStock4.SelectedIndex == 2)
+                    numericROBadgeStock2.Value = 40969;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 2 & comboBoxBadgeStock4.SelectedIndex == 3)
+                    numericROBadgeStock2.Value = 40970;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 2 & comboBoxBadgeStock4.SelectedIndex == 4)
+                    numericROBadgeStock2.Value = 40971;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 2 & comboBoxBadgeStock4.SelectedIndex == 5)
+                    numericROBadgeStock2.Value = 40972;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 2 & comboBoxBadgeStock4.SelectedIndex == 6)
+                    numericROBadgeStock2.Value = 40973;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 3 & comboBoxBadgeStock4.SelectedIndex == 1)
+                    numericROBadgeStock2.Value = 40976;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 3 & comboBoxBadgeStock4.SelectedIndex == 2)
+                    numericROBadgeStock2.Value = 40977;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 3 & comboBoxBadgeStock4.SelectedIndex == 3)
+                    numericROBadgeStock2.Value = 40978;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 3 & comboBoxBadgeStock4.SelectedIndex == 4)
+                    numericROBadgeStock2.Value = 40979;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 3 & comboBoxBadgeStock4.SelectedIndex == 5)
+                    numericROBadgeStock2.Value = 40980;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 3 & comboBoxBadgeStock4.SelectedIndex == 6)
+                    numericROBadgeStock2.Value = 40981;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 4 & comboBoxBadgeStock4.SelectedIndex == 1)
+                    numericROBadgeStock2.Value = 40984;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 4 & comboBoxBadgeStock4.SelectedIndex == 2)
+                    numericROBadgeStock2.Value = 40985;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 4 & comboBoxBadgeStock4.SelectedIndex == 3)
+                    numericROBadgeStock2.Value = 40986;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 4 & comboBoxBadgeStock4.SelectedIndex == 4)
+                    numericROBadgeStock2.Value = 40987;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 4 & comboBoxBadgeStock4.SelectedIndex == 5)
+                    numericROBadgeStock2.Value = 40988;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 4 & comboBoxBadgeStock4.SelectedIndex == 6)
+                    numericROBadgeStock2.Value = 40989;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 5 & comboBoxBadgeStock4.SelectedIndex == 1)
+                    numericROBadgeStock2.Value = 40992;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 5 & comboBoxBadgeStock4.SelectedIndex == 2)
+                    numericROBadgeStock2.Value = 40993;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 5 & comboBoxBadgeStock4.SelectedIndex == 3)
+                    numericROBadgeStock2.Value = 40994;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 5 & comboBoxBadgeStock4.SelectedIndex == 4)
+                    numericROBadgeStock2.Value = 40995;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 5 & comboBoxBadgeStock4.SelectedIndex == 5)
+                    numericROBadgeStock2.Value = 40996;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 5 & comboBoxBadgeStock4.SelectedIndex == 6)
+                    numericROBadgeStock2.Value = 40997;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 6 & comboBoxBadgeStock4.SelectedIndex == 1)
+                    numericROBadgeStock2.Value = 41000;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 6 & comboBoxBadgeStock4.SelectedIndex == 2)
+                    numericROBadgeStock2.Value = 41001;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 6 & comboBoxBadgeStock4.SelectedIndex == 3)
+                    numericROBadgeStock2.Value = 41002;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 6 & comboBoxBadgeStock4.SelectedIndex == 4)
+                    numericROBadgeStock2.Value = 41003;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 6 & comboBoxBadgeStock4.SelectedIndex == 5)
+                    numericROBadgeStock2.Value = 41004;
+
+                if (comboBoxBadgeStock3.SelectedIndex == 6 & comboBoxBadgeStock4.SelectedIndex == 6)
+                    numericROBadgeStock2.Value = 41005;
             }
         }
 
-        private void comboBoxBadgeStock7_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (numericUniversalBadgeCount3.Value == 3)
-            {
-                comboBoxBadgeStock1.Enabled = true;
-                comboBoxBadgeStock2.Enabled = true;
-                comboBoxBadgeStock3.Enabled = true;
-                comboBoxBadgeStock4.Enabled = true;
-                comboBoxBadgeStock5.Enabled = true;
-                comboBoxBadgeStock6.Enabled = true;
-                comboBoxBadgeStock7.Enabled = false;
-                comboBoxBadgeStock8.Enabled = false;
-            }
-
-            else if (comboBoxBadgeStock7.SelectedIndex != 0 & comboBoxBadgeStock8.SelectedIndex != 0)
-                numericROBadgesInStock.Value = 4;
-
-            if (comboBoxBadgeStock7.SelectedIndex == 0)
-                numericROBadgesInStock.Value = 3;
-        }
         private void comboBoxBadgeStock5_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (numericUniversalBadgeCount3.Value == 2)
+            if (comboBoxBadgeStock5.SelectedIndex != 0 & comboBoxBadgeStock6.SelectedIndex != 0)
             {
-                comboBoxBadgeStock1.Enabled = true;
-                comboBoxBadgeStock2.Enabled = true;
-                comboBoxBadgeStock3.Enabled = true;
-                comboBoxBadgeStock4.Enabled = true;
-                comboBoxBadgeStock5.Enabled = false;
-                comboBoxBadgeStock6.Enabled = false;
-                comboBoxBadgeStock7.Enabled = false;
-                comboBoxBadgeStock8.Enabled = false;
-            }
-
-            else if (comboBoxBadgeStock5.SelectedIndex != 0
-                & comboBoxBadgeStock6.SelectedIndex != 0)
-            {
-                comboBoxBadgeStock7.Enabled = true;
-                comboBoxBadgeStock8.Enabled = true;
                 numericROBadgesInStock.Value = 3;
+                if (numericUniversalBadgeCount3.Value == 3)
+                {
+                    comboBoxBadgeStock7.Enabled = false;
+                    comboBoxBadgeStock8.Enabled = false;
+                }
+                else if (numericUniversalBadgeCount3.Value == 4)
+                {
+                    comboBoxBadgeStock7.Enabled = true;
+                    comboBoxBadgeStock8.Enabled = true;
+                }
             }
             if (comboBoxBadgeStock5.SelectedIndex == 0)
             {
@@ -5706,123 +6274,504 @@ namespace Save_Editor_1
                 comboBoxBadgeStock8.SelectedIndex = 0;
                 numericROBadgesInStock.Value = 2;
             }
+
+            /* Set Value to Stock Combo */
+            {
+                if (comboBoxBadgeStock5.SelectedIndex == 0)
+                    numericROBadgeStock3.Value = 0;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 1 & comboBoxBadgeStock6.SelectedIndex == 1)
+                    numericROBadgeStock3.Value = 40960;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 1 & comboBoxBadgeStock6.SelectedIndex == 2)
+                    numericROBadgeStock3.Value = 40961;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 1 & comboBoxBadgeStock6.SelectedIndex == 3)
+                    numericROBadgeStock3.Value = 40962;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 1 & comboBoxBadgeStock6.SelectedIndex == 4)
+                    numericROBadgeStock3.Value = 40963;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 1 & comboBoxBadgeStock6.SelectedIndex == 5)
+                    numericROBadgeStock3.Value = 40964;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 1 & comboBoxBadgeStock6.SelectedIndex == 6)
+                    numericROBadgeStock3.Value = 40965;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 2 & comboBoxBadgeStock6.SelectedIndex == 1)
+                    numericROBadgeStock3.Value = 40968;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 2 & comboBoxBadgeStock6.SelectedIndex == 2)
+                    numericROBadgeStock3.Value = 40969;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 2 & comboBoxBadgeStock6.SelectedIndex == 3)
+                    numericROBadgeStock3.Value = 40970;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 2 & comboBoxBadgeStock6.SelectedIndex == 4)
+                    numericROBadgeStock3.Value = 40971;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 2 & comboBoxBadgeStock6.SelectedIndex == 5)
+                    numericROBadgeStock3.Value = 40972;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 2 & comboBoxBadgeStock6.SelectedIndex == 6)
+                    numericROBadgeStock3.Value = 40973;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 3 & comboBoxBadgeStock6.SelectedIndex == 1)
+                    numericROBadgeStock3.Value = 40976;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 3 & comboBoxBadgeStock6.SelectedIndex == 2)
+                    numericROBadgeStock3.Value = 40977;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 3 & comboBoxBadgeStock6.SelectedIndex == 3)
+                    numericROBadgeStock3.Value = 40978;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 3 & comboBoxBadgeStock6.SelectedIndex == 4)
+                    numericROBadgeStock3.Value = 40979;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 3 & comboBoxBadgeStock6.SelectedIndex == 5)
+                    numericROBadgeStock3.Value = 40980;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 3 & comboBoxBadgeStock6.SelectedIndex == 6)
+                    numericROBadgeStock3.Value = 40981;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 4 & comboBoxBadgeStock6.SelectedIndex == 1)
+                    numericROBadgeStock3.Value = 40984;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 4 & comboBoxBadgeStock6.SelectedIndex == 2)
+                    numericROBadgeStock3.Value = 40985;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 4 & comboBoxBadgeStock6.SelectedIndex == 3)
+                    numericROBadgeStock3.Value = 40986;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 4 & comboBoxBadgeStock6.SelectedIndex == 4)
+                    numericROBadgeStock3.Value = 40987;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 4 & comboBoxBadgeStock6.SelectedIndex == 5)
+                    numericROBadgeStock3.Value = 40988;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 4 & comboBoxBadgeStock6.SelectedIndex == 6)
+                    numericROBadgeStock3.Value = 40989;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 5 & comboBoxBadgeStock6.SelectedIndex == 1)
+                    numericROBadgeStock3.Value = 40992;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 5 & comboBoxBadgeStock6.SelectedIndex == 2)
+                    numericROBadgeStock3.Value = 40993;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 5 & comboBoxBadgeStock6.SelectedIndex == 3)
+                    numericROBadgeStock3.Value = 40994;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 5 & comboBoxBadgeStock6.SelectedIndex == 4)
+                    numericROBadgeStock3.Value = 40995;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 5 & comboBoxBadgeStock6.SelectedIndex == 5)
+                    numericROBadgeStock3.Value = 40996;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 5 & comboBoxBadgeStock6.SelectedIndex == 6)
+                    numericROBadgeStock3.Value = 40997;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 6 & comboBoxBadgeStock6.SelectedIndex == 1)
+                    numericROBadgeStock3.Value = 41000;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 6 & comboBoxBadgeStock6.SelectedIndex == 2)
+                    numericROBadgeStock3.Value = 41001;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 6 & comboBoxBadgeStock6.SelectedIndex == 3)
+                    numericROBadgeStock3.Value = 41002;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 6 & comboBoxBadgeStock6.SelectedIndex == 4)
+                    numericROBadgeStock3.Value = 41003;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 6 & comboBoxBadgeStock6.SelectedIndex == 5)
+                    numericROBadgeStock3.Value = 41004;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 6 & comboBoxBadgeStock6.SelectedIndex == 6)
+                    numericROBadgeStock3.Value = 41005;
+            }
+
         }
 
-        private void comboBoxBadgeStock3_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBoxBadgeStock6_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (numericUniversalBadgeCount3.Value == 1)
+            if (comboBoxBadgeStock5.SelectedIndex != 0 & comboBoxBadgeStock6.SelectedIndex != 0)
             {
-                comboBoxBadgeStock1.Enabled = true;
-                comboBoxBadgeStock2.Enabled = true;
-                comboBoxBadgeStock3.Enabled = false;
-                comboBoxBadgeStock4.Enabled = false;
-                comboBoxBadgeStock5.Enabled = false;
-                comboBoxBadgeStock6.Enabled = false;
+                numericROBadgesInStock.Value = 3;
+                if (numericUniversalBadgeCount3.Value == 3)
+                {
+                    comboBoxBadgeStock7.Enabled = false;
+                    comboBoxBadgeStock8.Enabled = false;
+                }
+                else if (numericUniversalBadgeCount3.Value == 4)
+                {
+                    comboBoxBadgeStock7.Enabled = true;
+                    comboBoxBadgeStock8.Enabled = true;
+                }
+            }
+            if (comboBoxBadgeStock6.SelectedIndex == 0)
+            {
                 comboBoxBadgeStock7.Enabled = false;
                 comboBoxBadgeStock8.Enabled = false;
-            }
-
-            else if (comboBoxBadgeStock3.SelectedIndex != 0 & comboBoxBadgeStock4.SelectedIndex != 0)
-            {
-                comboBoxBadgeStock5.Enabled = true;
-                comboBoxBadgeStock6.Enabled = true;
-                numericROBadgesInStock.Value = 2;
-            }
-            if (comboBoxBadgeStock3.SelectedIndex == 0)
-            {
-                comboBoxBadgeStock5.Enabled = false;
-                comboBoxBadgeStock6.Enabled = false;
-                comboBoxBadgeStock5.SelectedIndex = 0;
-                comboBoxBadgeStock6.SelectedIndex = 0;
                 comboBoxBadgeStock7.SelectedIndex = 0;
                 comboBoxBadgeStock8.SelectedIndex = 0;
-                numericROBadgesInStock.Value = 1;
+                numericROBadgesInStock.Value = 2;
+            }
+
+            /* Set Value to Stock Combo */ {
+                if (comboBoxBadgeStock6.SelectedIndex == 0)
+                    numericROBadgeStock3.Value = 0;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 1 & comboBoxBadgeStock6.SelectedIndex == 1)
+                    numericROBadgeStock3.Value = 40960;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 1 & comboBoxBadgeStock6.SelectedIndex == 2)
+                    numericROBadgeStock3.Value = 40961;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 1 & comboBoxBadgeStock6.SelectedIndex == 3)
+                    numericROBadgeStock3.Value = 40962;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 1 & comboBoxBadgeStock6.SelectedIndex == 4)
+                    numericROBadgeStock3.Value = 40963;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 1 & comboBoxBadgeStock6.SelectedIndex == 5)
+                    numericROBadgeStock3.Value = 40964;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 1 & comboBoxBadgeStock6.SelectedIndex == 6)
+                    numericROBadgeStock3.Value = 40965;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 2 & comboBoxBadgeStock6.SelectedIndex == 1)
+                    numericROBadgeStock3.Value = 40968;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 2 & comboBoxBadgeStock6.SelectedIndex == 2)
+                    numericROBadgeStock3.Value = 40969;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 2 & comboBoxBadgeStock6.SelectedIndex == 3)
+                    numericROBadgeStock3.Value = 40970;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 2 & comboBoxBadgeStock6.SelectedIndex == 4)
+                    numericROBadgeStock3.Value = 40971;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 2 & comboBoxBadgeStock6.SelectedIndex == 5)
+                    numericROBadgeStock3.Value = 40972;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 2 & comboBoxBadgeStock6.SelectedIndex == 6)
+                    numericROBadgeStock3.Value = 40973;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 3 & comboBoxBadgeStock6.SelectedIndex == 1)
+                    numericROBadgeStock3.Value = 40976;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 3 & comboBoxBadgeStock6.SelectedIndex == 2)
+                    numericROBadgeStock3.Value = 40977;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 3 & comboBoxBadgeStock6.SelectedIndex == 3)
+                    numericROBadgeStock3.Value = 40978;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 3 & comboBoxBadgeStock6.SelectedIndex == 4)
+                    numericROBadgeStock3.Value = 40979;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 3 & comboBoxBadgeStock6.SelectedIndex == 5)
+                    numericROBadgeStock3.Value = 40980;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 3 & comboBoxBadgeStock6.SelectedIndex == 6)
+                    numericROBadgeStock3.Value = 40981;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 4 & comboBoxBadgeStock6.SelectedIndex == 1)
+                    numericROBadgeStock3.Value = 40984;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 4 & comboBoxBadgeStock6.SelectedIndex == 2)
+                    numericROBadgeStock3.Value = 40985;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 4 & comboBoxBadgeStock6.SelectedIndex == 3)
+                    numericROBadgeStock3.Value = 40986;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 4 & comboBoxBadgeStock6.SelectedIndex == 4)
+                    numericROBadgeStock3.Value = 40987;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 4 & comboBoxBadgeStock6.SelectedIndex == 5)
+                    numericROBadgeStock3.Value = 40988;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 4 & comboBoxBadgeStock6.SelectedIndex == 6)
+                    numericROBadgeStock3.Value = 40989;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 5 & comboBoxBadgeStock6.SelectedIndex == 1)
+                    numericROBadgeStock3.Value = 40992;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 5 & comboBoxBadgeStock6.SelectedIndex == 2)
+                    numericROBadgeStock3.Value = 40993;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 5 & comboBoxBadgeStock6.SelectedIndex == 3)
+                    numericROBadgeStock3.Value = 40994;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 5 & comboBoxBadgeStock6.SelectedIndex == 4)
+                    numericROBadgeStock3.Value = 40995;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 5 & comboBoxBadgeStock6.SelectedIndex == 5)
+                    numericROBadgeStock3.Value = 40996;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 5 & comboBoxBadgeStock6.SelectedIndex == 6)
+                    numericROBadgeStock3.Value = 40997;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 6 & comboBoxBadgeStock6.SelectedIndex == 1)
+                    numericROBadgeStock3.Value = 41000;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 6 & comboBoxBadgeStock6.SelectedIndex == 2)
+                    numericROBadgeStock3.Value = 41001;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 6 & comboBoxBadgeStock6.SelectedIndex == 3)
+                    numericROBadgeStock3.Value = 41002;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 6 & comboBoxBadgeStock6.SelectedIndex == 4)
+                    numericROBadgeStock3.Value = 41003;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 6 & comboBoxBadgeStock6.SelectedIndex == 5)
+                    numericROBadgeStock3.Value = 41004;
+
+                if (comboBoxBadgeStock5.SelectedIndex == 6 & comboBoxBadgeStock6.SelectedIndex == 6)
+                    numericROBadgeStock3.Value = 41005;
+            }
+
+        }
+
+        private void comboBoxBadgeStock7_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxBadgeStock7.SelectedIndex != 0 & comboBoxBadgeStock8.SelectedIndex != 0)
+                numericROBadgesInStock.Value = 4;
+
+            if (comboBoxBadgeStock7.SelectedIndex == 0)
+                numericROBadgesInStock.Value = 3;
+
+            /* Set Value to Stock Combo */ {
+                if (comboBoxBadgeStock7.SelectedIndex == 0)
+                    numericROBadgeStock4.Value = 0;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 1 & comboBoxBadgeStock8.SelectedIndex == 1)
+                    numericROBadgeStock4.Value = 40960;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 1 & comboBoxBadgeStock8.SelectedIndex == 2)
+                    numericROBadgeStock4.Value = 40961;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 1 & comboBoxBadgeStock8.SelectedIndex == 3)
+                    numericROBadgeStock4.Value = 40962;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 1 & comboBoxBadgeStock8.SelectedIndex == 4)
+                    numericROBadgeStock4.Value = 40963;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 1 & comboBoxBadgeStock8.SelectedIndex == 5)
+                    numericROBadgeStock4.Value = 40964;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 1 & comboBoxBadgeStock8.SelectedIndex == 6)
+                    numericROBadgeStock4.Value = 40965;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 2 & comboBoxBadgeStock8.SelectedIndex == 1)
+                    numericROBadgeStock4.Value = 40968;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 2 & comboBoxBadgeStock8.SelectedIndex == 2)
+                    numericROBadgeStock4.Value = 40969;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 2 & comboBoxBadgeStock8.SelectedIndex == 3)
+                    numericROBadgeStock4.Value = 40970;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 2 & comboBoxBadgeStock8.SelectedIndex == 4)
+                    numericROBadgeStock4.Value = 40971;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 2 & comboBoxBadgeStock8.SelectedIndex == 5)
+                    numericROBadgeStock4.Value = 40972;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 2 & comboBoxBadgeStock8.SelectedIndex == 6)
+                    numericROBadgeStock4.Value = 40973;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 3 & comboBoxBadgeStock8.SelectedIndex == 1)
+                    numericROBadgeStock4.Value = 40976;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 3 & comboBoxBadgeStock8.SelectedIndex == 2)
+                    numericROBadgeStock4.Value = 40977;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 3 & comboBoxBadgeStock8.SelectedIndex == 3)
+                    numericROBadgeStock4.Value = 40978;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 3 & comboBoxBadgeStock8.SelectedIndex == 4)
+                    numericROBadgeStock4.Value = 40979;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 3 & comboBoxBadgeStock8.SelectedIndex == 5)
+                    numericROBadgeStock4.Value = 40980;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 3 & comboBoxBadgeStock8.SelectedIndex == 6)
+                    numericROBadgeStock4.Value = 40981;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 4 & comboBoxBadgeStock8.SelectedIndex == 1)
+                    numericROBadgeStock4.Value = 40984;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 4 & comboBoxBadgeStock8.SelectedIndex == 2)
+                    numericROBadgeStock4.Value = 40985;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 4 & comboBoxBadgeStock8.SelectedIndex == 3)
+                    numericROBadgeStock4.Value = 40986;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 4 & comboBoxBadgeStock8.SelectedIndex == 4)
+                    numericROBadgeStock4.Value = 40987;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 4 & comboBoxBadgeStock8.SelectedIndex == 5)
+                    numericROBadgeStock4.Value = 40988;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 4 & comboBoxBadgeStock8.SelectedIndex == 6)
+                    numericROBadgeStock4.Value = 40989;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 5 & comboBoxBadgeStock8.SelectedIndex == 1)
+                    numericROBadgeStock4.Value = 40992;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 5 & comboBoxBadgeStock8.SelectedIndex == 2)
+                    numericROBadgeStock4.Value = 40993;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 5 & comboBoxBadgeStock8.SelectedIndex == 3)
+                    numericROBadgeStock4.Value = 40994;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 5 & comboBoxBadgeStock8.SelectedIndex == 4)
+                    numericROBadgeStock4.Value = 40995;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 5 & comboBoxBadgeStock8.SelectedIndex == 5)
+                    numericROBadgeStock4.Value = 40996;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 5 & comboBoxBadgeStock8.SelectedIndex == 6)
+                    numericROBadgeStock4.Value = 40997;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 6 & comboBoxBadgeStock8.SelectedIndex == 1)
+                    numericROBadgeStock4.Value = 41000;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 6 & comboBoxBadgeStock8.SelectedIndex == 2)
+                    numericROBadgeStock4.Value = 41001;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 6 & comboBoxBadgeStock8.SelectedIndex == 3)
+                    numericROBadgeStock4.Value = 41002;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 6 & comboBoxBadgeStock8.SelectedIndex == 4)
+                    numericROBadgeStock4.Value = 41003;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 6 & comboBoxBadgeStock8.SelectedIndex == 5)
+                    numericROBadgeStock4.Value = 41004;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 6 & comboBoxBadgeStock8.SelectedIndex == 6)
+                    numericROBadgeStock4.Value = 41005;
             }
         }
 
         private void comboBoxBadgeStock8_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (numericUniversalBadgeCount3.Value == 3)
-            {
-                comboBoxBadgeStock1.Enabled = true;
-                comboBoxBadgeStock2.Enabled = true;
-                comboBoxBadgeStock3.Enabled = true;
-                comboBoxBadgeStock4.Enabled = true;
-                comboBoxBadgeStock5.Enabled = true;
-                comboBoxBadgeStock6.Enabled = true;
-                comboBoxBadgeStock7.Enabled = false;
-                comboBoxBadgeStock8.Enabled = false;
-            }
-            else if (comboBoxBadgeStock7.SelectedIndex != 0 & comboBoxBadgeStock8.SelectedIndex != 0)
+            if (comboBoxBadgeStock7.SelectedIndex != 0 & comboBoxBadgeStock8.SelectedIndex != 0)
                 numericROBadgesInStock.Value = 4;
 
             if (comboBoxBadgeStock8.SelectedIndex == 0)
                 numericROBadgesInStock.Value = 3;
-        }
 
-        private void comboBoxBadgeStock1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboBoxBadgeStock1.SelectedIndex != 0 & comboBoxBadgeStock2.SelectedIndex != 0)
-            {
-                comboBoxBadgeStock3.Enabled = true;
-                comboBoxBadgeStock4.Enabled = true;
-                numericROBadgesInStock.Value = 1;
-                if (numericUniversalBadgeCount3.Value == 0)
-                {
-                    comboBoxBadgeStock1.Enabled = false;
-                    comboBoxBadgeStock2.Enabled = false;
-                    comboBoxBadgeStock3.Enabled = false;
-                    comboBoxBadgeStock4.Enabled = false;
-                    comboBoxBadgeStock5.Enabled = false;
-                    comboBoxBadgeStock6.Enabled = false;
-                    comboBoxBadgeStock7.Enabled = false;
-                    comboBoxBadgeStock8.Enabled = false;
-                }
-            }
-            if (comboBoxBadgeStock1.SelectedIndex == 0)
-            {
-                comboBoxBadgeStock3.Enabled = false;
-                comboBoxBadgeStock4.Enabled = false;
-                comboBoxBadgeStock3.SelectedIndex = 0;
-                comboBoxBadgeStock4.SelectedIndex = 0;
-                comboBoxBadgeStock5.SelectedIndex = 0;
-                comboBoxBadgeStock6.SelectedIndex = 0;
-                comboBoxBadgeStock7.SelectedIndex = 0;
-                comboBoxBadgeStock8.SelectedIndex = 0;
-                numericROBadgesInStock.Value = 0;
-            }
-        }
+            /* Set Value to Stock Combo */ {
+                if (comboBoxBadgeStock8.SelectedIndex == 0)
+                    numericROBadgeStock4.Value = 0;
 
-        private void comboBoxBadgeStock2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-                if (comboBoxBadgeStock1.SelectedIndex != 0 & comboBoxBadgeStock2.SelectedIndex != 0)
-            {
-                comboBoxBadgeStock3.Enabled = true;
-                comboBoxBadgeStock4.Enabled = true;
-                numericROBadgesInStock.Value = 1;
-                if (numericUniversalBadgeCount3.Value == 0)
-                {
-                    comboBoxBadgeStock1.Enabled = false;
-                    comboBoxBadgeStock2.Enabled = false;
-                    comboBoxBadgeStock3.Enabled = false;
-                    comboBoxBadgeStock4.Enabled = false;
-                    comboBoxBadgeStock5.Enabled = false;
-                    comboBoxBadgeStock6.Enabled = false;
-                    comboBoxBadgeStock7.Enabled = false;
-                    comboBoxBadgeStock8.Enabled = false;
-                }
-            }
-            if (comboBoxBadgeStock2.SelectedIndex == 0)
-            {
-                comboBoxBadgeStock3.Enabled = false;
-                comboBoxBadgeStock4.Enabled = false;
-                comboBoxBadgeStock3.SelectedIndex = 0;
-                comboBoxBadgeStock4.SelectedIndex = 0;
-                comboBoxBadgeStock5.SelectedIndex = 0;
-                comboBoxBadgeStock6.SelectedIndex = 0;
-                comboBoxBadgeStock7.SelectedIndex = 0;
-                comboBoxBadgeStock8.SelectedIndex = 0;
-                numericROBadgesInStock.Value = 0;
+                if (comboBoxBadgeStock7.SelectedIndex == 1 & comboBoxBadgeStock8.SelectedIndex == 1)
+                    numericROBadgeStock4.Value = 40960;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 1 & comboBoxBadgeStock8.SelectedIndex == 2)
+                    numericROBadgeStock4.Value = 40961;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 1 & comboBoxBadgeStock8.SelectedIndex == 3)
+                    numericROBadgeStock4.Value = 40962;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 1 & comboBoxBadgeStock8.SelectedIndex == 4)
+                    numericROBadgeStock4.Value = 40963;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 1 & comboBoxBadgeStock8.SelectedIndex == 5)
+                    numericROBadgeStock4.Value = 40964;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 1 & comboBoxBadgeStock8.SelectedIndex == 6)
+                    numericROBadgeStock4.Value = 40965;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 2 & comboBoxBadgeStock8.SelectedIndex == 1)
+                    numericROBadgeStock4.Value = 40968;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 2 & comboBoxBadgeStock8.SelectedIndex == 2)
+                    numericROBadgeStock4.Value = 40969;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 2 & comboBoxBadgeStock8.SelectedIndex == 3)
+                    numericROBadgeStock4.Value = 40970;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 2 & comboBoxBadgeStock8.SelectedIndex == 4)
+                    numericROBadgeStock4.Value = 40971;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 2 & comboBoxBadgeStock8.SelectedIndex == 5)
+                    numericROBadgeStock4.Value = 40972;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 2 & comboBoxBadgeStock8.SelectedIndex == 6)
+                    numericROBadgeStock4.Value = 40973;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 3 & comboBoxBadgeStock8.SelectedIndex == 1)
+                    numericROBadgeStock4.Value = 40976;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 3 & comboBoxBadgeStock8.SelectedIndex == 2)
+                    numericROBadgeStock4.Value = 40977;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 3 & comboBoxBadgeStock8.SelectedIndex == 3)
+                    numericROBadgeStock4.Value = 40978;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 3 & comboBoxBadgeStock8.SelectedIndex == 4)
+                    numericROBadgeStock4.Value = 40979;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 3 & comboBoxBadgeStock8.SelectedIndex == 5)
+                    numericROBadgeStock4.Value = 40980;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 3 & comboBoxBadgeStock8.SelectedIndex == 6)
+                    numericROBadgeStock4.Value = 40981;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 4 & comboBoxBadgeStock8.SelectedIndex == 1)
+                    numericROBadgeStock4.Value = 40984;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 4 & comboBoxBadgeStock8.SelectedIndex == 2)
+                    numericROBadgeStock4.Value = 40985;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 4 & comboBoxBadgeStock8.SelectedIndex == 3)
+                    numericROBadgeStock4.Value = 40986;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 4 & comboBoxBadgeStock8.SelectedIndex == 4)
+                    numericROBadgeStock4.Value = 40987;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 4 & comboBoxBadgeStock8.SelectedIndex == 5)
+                    numericROBadgeStock4.Value = 40988;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 4 & comboBoxBadgeStock8.SelectedIndex == 6)
+                    numericROBadgeStock4.Value = 40989;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 5 & comboBoxBadgeStock8.SelectedIndex == 1)
+                    numericROBadgeStock4.Value = 40992;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 5 & comboBoxBadgeStock8.SelectedIndex == 2)
+                    numericROBadgeStock4.Value = 40993;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 5 & comboBoxBadgeStock8.SelectedIndex == 3)
+                    numericROBadgeStock4.Value = 40994;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 5 & comboBoxBadgeStock8.SelectedIndex == 4)
+                    numericROBadgeStock4.Value = 40995;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 5 & comboBoxBadgeStock8.SelectedIndex == 5)
+                    numericROBadgeStock4.Value = 40996;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 5 & comboBoxBadgeStock8.SelectedIndex == 6)
+                    numericROBadgeStock4.Value = 40997;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 6 & comboBoxBadgeStock8.SelectedIndex == 1)
+                    numericROBadgeStock4.Value = 41000;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 6 & comboBoxBadgeStock8.SelectedIndex == 2)
+                    numericROBadgeStock4.Value = 41001;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 6 & comboBoxBadgeStock8.SelectedIndex == 3)
+                    numericROBadgeStock4.Value = 41002;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 6 & comboBoxBadgeStock8.SelectedIndex == 4)
+                    numericROBadgeStock4.Value = 41003;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 6 & comboBoxBadgeStock8.SelectedIndex == 5)
+                    numericROBadgeStock4.Value = 41004;
+
+                if (comboBoxBadgeStock7.SelectedIndex == 6 & comboBoxBadgeStock8.SelectedIndex == 6)
+                    numericROBadgeStock4.Value = 41005;
             }
         }
 
@@ -5863,4 +6812,5 @@ namespace Save_Editor_1
 
         }
     }
+    
 }

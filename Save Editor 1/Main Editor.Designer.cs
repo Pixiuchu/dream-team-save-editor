@@ -584,8 +584,11 @@ namespace Save_Editor_1
             this.labelAccessories30 = new System.Windows.Forms.Label();
             this.labelAccessories12 = new System.Windows.Forms.Label();
             this.tabBadges = new System.Windows.Forms.TabPage();
+            this.numericROBadgeStock4 = new System.Windows.Forms.NumericUpDown();
+            this.numericROBadgeStock3 = new System.Windows.Forms.NumericUpDown();
+            this.numericROBadgeStock2 = new System.Windows.Forms.NumericUpDown();
+            this.numericROBadgeStock1 = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.numericROBadgesInStock = new System.Windows.Forms.NumericUpDown();
             this.groupBoxBadgeCutscenes = new System.Windows.Forms.GroupBox();
             this.checkBoxWakeportBadgeCampaign = new System.Windows.Forms.CheckBox();
@@ -659,6 +662,7 @@ namespace Save_Editor_1
             this.numericRONBCUnlock = new System.Windows.Forms.NumericUpDown();
             this.checkBoxNBCUnlockFlag = new System.Windows.Forms.CheckBox();
             this.box_money = new System.Windows.Forms.NumericUpDown();
+            this.labelNotFunctional = new System.Windows.Forms.Label();
             this.numericRODWAb = new System.Windows.Forms.NumericUpDown();
             this.numericLExperienceHidden1 = new System.Windows.Forms.NumericUpDown();
             this.numericRORankupBonusCombo1 = new System.Windows.Forms.NumericUpDown();
@@ -673,11 +677,14 @@ namespace Save_Editor_1
             this.numericRORankupBonusCombo10 = new System.Windows.Forms.NumericUpDown();
             this.tabHidden = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.labelHidden1 = new System.Windows.Forms.Label();
-            this.numericRO0x03 = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
-            this.labelNotFunctional = new System.Windows.Forms.Label();
+            this.numericRO0x03 = new System.Windows.Forms.NumericUpDown();
+            this.labelHidden1 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.numericROMarioBadges = new System.Windows.Forms.NumericUpDown();
+            this.numericROLuigiBadges = new System.Windows.Forms.NumericUpDown();
+            this.numericLCurrentBadge = new System.Windows.Forms.NumericUpDown();
+            this.numericMCurrentBadge = new System.Windows.Forms.NumericUpDown();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabMario.SuspendLayout();
@@ -949,6 +956,10 @@ namespace Save_Editor_1
             ((System.ComponentModel.ISupportInitialize)(this.numericAccessories20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericAccessories27)).BeginInit();
             this.tabBadges.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericROBadgeStock4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericROBadgeStock3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericROBadgeStock2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericROBadgeStock1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericROBadgesInStock)).BeginInit();
             this.groupBoxBadgeCutscenes.SuspendLayout();
             this.groupBoxBadgeStock.SuspendLayout();
@@ -980,6 +991,10 @@ namespace Save_Editor_1
             this.tabHidden.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericRO0x03)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericROMarioBadges)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericROLuigiBadges)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericLCurrentBadge)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericMCurrentBadge)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -7541,9 +7556,15 @@ namespace Save_Editor_1
             // 
             // tabBadges
             // 
-            this.tabBadges.Controls.Add(this.labelNotFunctional);
+            this.tabBadges.Controls.Add(this.numericLCurrentBadge);
+            this.tabBadges.Controls.Add(this.numericMCurrentBadge);
+            this.tabBadges.Controls.Add(this.numericROLuigiBadges);
+            this.tabBadges.Controls.Add(this.numericROMarioBadges);
+            this.tabBadges.Controls.Add(this.numericROBadgeStock4);
+            this.tabBadges.Controls.Add(this.numericROBadgeStock3);
+            this.tabBadges.Controls.Add(this.numericROBadgeStock2);
+            this.tabBadges.Controls.Add(this.numericROBadgeStock1);
             this.tabBadges.Controls.Add(this.label2);
-            this.tabBadges.Controls.Add(this.textBox1);
             this.tabBadges.Controls.Add(this.numericROBadgesInStock);
             this.tabBadges.Controls.Add(this.groupBoxBadgeCutscenes);
             this.tabBadges.Controls.Add(this.groupBoxBadgeStock);
@@ -7558,24 +7579,62 @@ namespace Save_Editor_1
             this.tabBadges.UseVisualStyleBackColor = true;
             this.tabBadges.Click += new System.EventHandler(this.tabBadges_Click);
             // 
+            // numericROBadgeStock4
+            // 
+            this.numericROBadgeStock4.Location = new System.Drawing.Point(42, 305);
+            this.numericROBadgeStock4.Maximum = new decimal(new int[] {
+            9999999,
+            0,
+            0,
+            0});
+            this.numericROBadgeStock4.Name = "numericROBadgeStock4";
+            this.numericROBadgeStock4.Size = new System.Drawing.Size(69, 20);
+            this.numericROBadgeStock4.TabIndex = 25;
+            // 
+            // numericROBadgeStock3
+            // 
+            this.numericROBadgeStock3.Location = new System.Drawing.Point(42, 289);
+            this.numericROBadgeStock3.Maximum = new decimal(new int[] {
+            9999999,
+            0,
+            0,
+            0});
+            this.numericROBadgeStock3.Name = "numericROBadgeStock3";
+            this.numericROBadgeStock3.Size = new System.Drawing.Size(69, 20);
+            this.numericROBadgeStock3.TabIndex = 24;
+            // 
+            // numericROBadgeStock2
+            // 
+            this.numericROBadgeStock2.Location = new System.Drawing.Point(42, 272);
+            this.numericROBadgeStock2.Maximum = new decimal(new int[] {
+            9999999,
+            0,
+            0,
+            0});
+            this.numericROBadgeStock2.Name = "numericROBadgeStock2";
+            this.numericROBadgeStock2.Size = new System.Drawing.Size(69, 20);
+            this.numericROBadgeStock2.TabIndex = 23;
+            // 
+            // numericROBadgeStock1
+            // 
+            this.numericROBadgeStock1.Location = new System.Drawing.Point(42, 255);
+            this.numericROBadgeStock1.Maximum = new decimal(new int[] {
+            9999999,
+            0,
+            0,
+            0});
+            this.numericROBadgeStock1.Name = "numericROBadgeStock1";
+            this.numericROBadgeStock1.Size = new System.Drawing.Size(69, 20);
+            this.numericROBadgeStock1.TabIndex = 22;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(256, 312);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(177, 39);
+            this.label2.Size = new System.Drawing.Size(177, 26);
             this.label2.TabIndex = 21;
-            this.label2.Text = "Number of badges in stock must not\r\nexceed number of slots you have!\r\nNote to sel" +
-    "f: fix this! (Help me!)";
-            this.label2.Visible = false;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(213, 361);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 20;
-            this.textBox1.Visible = false;
+            this.label2.Text = "Number of badges in stock must not\r\nexceed number of slots you have!\r\n";
             // 
             // numericROBadgesInStock
             // 
@@ -7588,7 +7647,6 @@ namespace Save_Editor_1
             this.numericROBadgesInStock.Name = "numericROBadgesInStock";
             this.numericROBadgesInStock.Size = new System.Drawing.Size(37, 20);
             this.numericROBadgesInStock.TabIndex = 14;
-            this.numericROBadgesInStock.Visible = false;
             this.numericROBadgesInStock.ValueChanged += new System.EventHandler(this.numericROBadgesInStock_ValueChanged);
             // 
             // groupBoxBadgeCutscenes
@@ -7602,11 +7660,11 @@ namespace Save_Editor_1
             this.groupBoxBadgeCutscenes.TabIndex = 19;
             this.groupBoxBadgeCutscenes.TabStop = false;
             this.groupBoxBadgeCutscenes.Text = "Shops";
-            this.groupBoxBadgeCutscenes.Visible = false;
             // 
             // checkBoxWakeportBadgeCampaign
             // 
             this.checkBoxWakeportBadgeCampaign.AutoSize = true;
+            this.checkBoxWakeportBadgeCampaign.Enabled = false;
             this.checkBoxWakeportBadgeCampaign.Location = new System.Drawing.Point(6, 51);
             this.checkBoxWakeportBadgeCampaign.Name = "checkBoxWakeportBadgeCampaign";
             this.checkBoxWakeportBadgeCampaign.Size = new System.Drawing.Size(200, 17);
@@ -7618,6 +7676,7 @@ namespace Save_Editor_1
             // checkBoxPiilloCastleBadgeShopOnOff
             // 
             this.checkBoxPiilloCastleBadgeShopOnOff.AutoSize = true;
+            this.checkBoxPiilloCastleBadgeShopOnOff.Enabled = false;
             this.checkBoxPiilloCastleBadgeShopOnOff.Location = new System.Drawing.Point(6, 19);
             this.checkBoxPiilloCastleBadgeShopOnOff.Name = "checkBoxPiilloCastleBadgeShopOnOff";
             this.checkBoxPiilloCastleBadgeShopOnOff.Size = new System.Drawing.Size(155, 17);
@@ -7653,7 +7712,6 @@ namespace Save_Editor_1
             this.groupBoxBadgeStock.TabIndex = 18;
             this.groupBoxBadgeStock.TabStop = false;
             this.groupBoxBadgeStock.Text = "Badges in stock";
-            this.groupBoxBadgeStock.Visible = false;
             // 
             // comboBoxBadgeStock8
             // 
@@ -7845,7 +7903,6 @@ namespace Save_Editor_1
             this.groupBoxSelectedBadges.TabIndex = 13;
             this.groupBoxSelectedBadges.TabStop = false;
             this.groupBoxSelectedBadges.Text = "Selected Badges";
-            this.groupBoxSelectedBadges.Visible = false;
             // 
             // labelMarioBadge
             // 
@@ -7868,6 +7925,7 @@ namespace Save_Editor_1
             // labelMarioSPAmount
             // 
             this.labelMarioSPAmount.AutoSize = true;
+            this.labelMarioSPAmount.Enabled = false;
             this.labelMarioSPAmount.Location = new System.Drawing.Point(119, 112);
             this.labelMarioSPAmount.Name = "labelMarioSPAmount";
             this.labelMarioSPAmount.Size = new System.Drawing.Size(57, 13);
@@ -7894,6 +7952,7 @@ namespace Save_Editor_1
             // labelLuigiSPAmount
             // 
             this.labelLuigiSPAmount.AutoSize = true;
+            this.labelLuigiSPAmount.Enabled = false;
             this.labelLuigiSPAmount.Location = new System.Drawing.Point(123, 87);
             this.labelLuigiSPAmount.Name = "labelLuigiSPAmount";
             this.labelLuigiSPAmount.Size = new System.Drawing.Size(53, 13);
@@ -7919,6 +7978,7 @@ namespace Save_Editor_1
             // 
             // numericUpDownMarioCurrentSP
             // 
+            this.numericUpDownMarioCurrentSP.Enabled = false;
             this.numericUpDownMarioCurrentSP.Location = new System.Drawing.Point(176, 109);
             this.numericUpDownMarioCurrentSP.Maximum = new decimal(new int[] {
             9999,
@@ -7938,6 +7998,7 @@ namespace Save_Editor_1
             // labelSPRequiredText
             // 
             this.labelSPRequiredText.AutoSize = true;
+            this.labelSPRequiredText.Enabled = false;
             this.labelSPRequiredText.Location = new System.Drawing.Point(26, 66);
             this.labelSPRequiredText.Name = "labelSPRequiredText";
             this.labelSPRequiredText.Size = new System.Drawing.Size(176, 13);
@@ -7946,6 +8007,7 @@ namespace Save_Editor_1
             // 
             // numericUpDownLuigiCurrentSP
             // 
+            this.numericUpDownLuigiCurrentSP.Enabled = false;
             this.numericUpDownLuigiCurrentSP.Location = new System.Drawing.Point(176, 83);
             this.numericUpDownLuigiCurrentSP.Maximum = new decimal(new int[] {
             9999,
@@ -7965,6 +8027,7 @@ namespace Save_Editor_1
             // labelSPRequiredNumber
             // 
             this.labelSPRequiredNumber.AutoSize = true;
+            this.labelSPRequiredNumber.Enabled = false;
             this.labelSPRequiredNumber.Location = new System.Drawing.Point(197, 67);
             this.labelSPRequiredNumber.MinimumSize = new System.Drawing.Size(25, 13);
             this.labelSPRequiredNumber.Name = "labelSPRequiredNumber";
@@ -7994,7 +8057,6 @@ namespace Save_Editor_1
             this.groupBoxAvailableBadges.TabIndex = 12;
             this.groupBoxAvailableBadges.TabStop = false;
             this.groupBoxAvailableBadges.Text = "Available Badges";
-            this.groupBoxAvailableBadges.Visible = false;
             // 
             // checkBoxToggleAllOnOff
             // 
@@ -8508,6 +8570,17 @@ namespace Save_Editor_1
             this.box_money.Size = new System.Drawing.Size(67, 20);
             this.box_money.TabIndex = 2;
             // 
+            // labelNotFunctional
+            // 
+            this.labelNotFunctional.AutoSize = true;
+            this.labelNotFunctional.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNotFunctional.Location = new System.Drawing.Point(43, 452);
+            this.labelNotFunctional.Name = "labelNotFunctional";
+            this.labelNotFunctional.Size = new System.Drawing.Size(349, 26);
+            this.labelNotFunctional.TabIndex = 22;
+            this.labelNotFunctional.Text = "This page is still a work-in-progress. It should be done soon!\r\nSorry for the dis" +
+    "appointment with this empty page.";
+            // 
             // numericRODWAb
             // 
             this.numericRODWAb.Location = new System.Drawing.Point(6, 13);
@@ -8688,24 +8761,14 @@ namespace Save_Editor_1
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // label3
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(479, 375);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // labelHidden1
-            // 
-            this.labelHidden1.AutoSize = true;
-            this.labelHidden1.Location = new System.Drawing.Point(65, 15);
-            this.labelHidden1.Name = "labelHidden1";
-            this.labelHidden1.Size = new System.Drawing.Size(58, 13);
-            this.labelHidden1.TabIndex = 7;
-            this.labelHidden1.Text = "dw abilities";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(65, 41);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(36, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "0x003";
             // 
             // numericRO0x03
             // 
@@ -8719,25 +8782,72 @@ namespace Save_Editor_1
             this.numericRO0x03.Size = new System.Drawing.Size(62, 20);
             this.numericRO0x03.TabIndex = 8;
             // 
-            // label3
+            // labelHidden1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(65, 41);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(36, 13);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "0x003";
+            this.labelHidden1.AutoSize = true;
+            this.labelHidden1.Location = new System.Drawing.Point(65, 15);
+            this.labelHidden1.Name = "labelHidden1";
+            this.labelHidden1.Size = new System.Drawing.Size(58, 13);
+            this.labelHidden1.TabIndex = 7;
+            this.labelHidden1.Text = "dw abilities";
             // 
-            // labelNotFunctional
+            // tabPage2
             // 
-            this.labelNotFunctional.AutoSize = true;
-            this.labelNotFunctional.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNotFunctional.Location = new System.Drawing.Point(5, 8);
-            this.labelNotFunctional.Name = "labelNotFunctional";
-            this.labelNotFunctional.Size = new System.Drawing.Size(349, 26);
-            this.labelNotFunctional.TabIndex = 22;
-            this.labelNotFunctional.Text = "This page is still a work-in-progress. It should be done soon!\r\nSorry for the dis" +
-    "appointment with this empty page.";
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(479, 375);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // numericROMarioBadges
+            // 
+            this.numericROMarioBadges.Location = new System.Drawing.Point(165, 272);
+            this.numericROMarioBadges.Maximum = new decimal(new int[] {
+            9999999,
+            0,
+            0,
+            0});
+            this.numericROMarioBadges.Name = "numericROMarioBadges";
+            this.numericROMarioBadges.Size = new System.Drawing.Size(69, 20);
+            this.numericROMarioBadges.TabIndex = 26;
+            // 
+            // numericROLuigiBadges
+            // 
+            this.numericROLuigiBadges.Location = new System.Drawing.Point(165, 289);
+            this.numericROLuigiBadges.Maximum = new decimal(new int[] {
+            9999999,
+            0,
+            0,
+            0});
+            this.numericROLuigiBadges.Name = "numericROLuigiBadges";
+            this.numericROLuigiBadges.Size = new System.Drawing.Size(69, 20);
+            this.numericROLuigiBadges.TabIndex = 27;
+            // 
+            // numericLCurrentBadge
+            // 
+            this.numericLCurrentBadge.Location = new System.Drawing.Point(165, 318);
+            this.numericLCurrentBadge.Maximum = new decimal(new int[] {
+            9999999,
+            0,
+            0,
+            0});
+            this.numericLCurrentBadge.Name = "numericLCurrentBadge";
+            this.numericLCurrentBadge.Size = new System.Drawing.Size(69, 20);
+            this.numericLCurrentBadge.TabIndex = 29;
+            // 
+            // numericMCurrentBadge
+            // 
+            this.numericMCurrentBadge.Location = new System.Drawing.Point(165, 301);
+            this.numericMCurrentBadge.Maximum = new decimal(new int[] {
+            9999999,
+            0,
+            0,
+            0});
+            this.numericMCurrentBadge.Name = "numericMCurrentBadge";
+            this.numericMCurrentBadge.Size = new System.Drawing.Size(69, 20);
+            this.numericMCurrentBadge.TabIndex = 28;
             // 
             // MainMenu
             // 
@@ -8746,6 +8856,7 @@ namespace Save_Editor_1
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1112, 504);
+            this.Controls.Add(this.labelNotFunctional);
             this.Controls.Add(this.tabHidden);
             this.Controls.Add(this.numericRORankupBonusCombo9);
             this.Controls.Add(this.numericRORankupBonusCombo10);
@@ -9054,6 +9165,10 @@ namespace Save_Editor_1
             ((System.ComponentModel.ISupportInitialize)(this.numericAccessories27)).EndInit();
             this.tabBadges.ResumeLayout(false);
             this.tabBadges.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericROBadgeStock4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericROBadgeStock3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericROBadgeStock2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericROBadgeStock1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericROBadgesInStock)).EndInit();
             this.groupBoxBadgeCutscenes.ResumeLayout(false);
             this.groupBoxBadgeCutscenes.PerformLayout();
@@ -9094,6 +9209,10 @@ namespace Save_Editor_1
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericRO0x03)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericROMarioBadges)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericROLuigiBadges)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericLCurrentBadge)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericMCurrentBadge)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -9740,7 +9859,6 @@ namespace Save_Editor_1
         private System.Windows.Forms.ComboBox comboBoxBadgeStock4;
         private System.Windows.Forms.ComboBox comboBoxBadgeStock2;
         private System.Windows.Forms.NumericUpDown numericROBadgesInStock;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TabControl tabHidden;
         private System.Windows.Forms.TabPage tabPage1;
@@ -9749,6 +9867,14 @@ namespace Save_Editor_1
         private System.Windows.Forms.NumericUpDown numericRO0x03;
         private System.Windows.Forms.Label labelHidden1;
         private System.Windows.Forms.Label labelNotFunctional;
+        private System.Windows.Forms.NumericUpDown numericROBadgeStock1;
+        private System.Windows.Forms.NumericUpDown numericROBadgeStock4;
+        private System.Windows.Forms.NumericUpDown numericROBadgeStock3;
+        private System.Windows.Forms.NumericUpDown numericROBadgeStock2;
+        private System.Windows.Forms.NumericUpDown numericROLuigiBadges;
+        private System.Windows.Forms.NumericUpDown numericROMarioBadges;
+        private System.Windows.Forms.NumericUpDown numericLCurrentBadge;
+        private System.Windows.Forms.NumericUpDown numericMCurrentBadge;
     }
 }
 
